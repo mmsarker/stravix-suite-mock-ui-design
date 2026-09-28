@@ -1,0 +1,2197 @@
+{
+  "hrm": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "path": "/app/hrm/home",
+          "label": "Home"
+        }
+      ]
+    },
+    {
+      "title": "People",
+      "entries": [
+        {
+          "path": "/app/hrm/employees",
+          "label": "Employees"
+        },
+        {
+          "path": "/app/hrm/departments",
+          "label": "Departments"
+        },
+        {
+          "path": "/app/hrm/designations",
+          "label": "Designations"
+        },
+        {
+          "path": "/app/hrm/announcements",
+          "label": "Announcements"
+        },
+        {
+          "path": "/app/hrm/workforce",
+          "label": "Workforce Planning"
+        }
+      ]
+    },
+    {
+      "title": "Hire",
+      "entries": [
+        {
+          "path": "/app/hrm/recruitment/overview",
+          "label": "Recruitment Overview"
+        },
+        {
+          "path": "/app/hrm/recruitment/requisitions",
+          "label": "Requisitions"
+        },
+        {
+          "path": "/app/hrm/recruitment/vacancies",
+          "label": "Vacancies"
+        },
+        {
+          "path": "/app/hrm/recruitment/applications",
+          "label": "Applications"
+        },
+        {
+          "path": "/app/hrm/recruitment/candidates",
+          "label": "Candidates"
+        },
+        {
+          "path": "/app/hrm/recruitment/interviews",
+          "label": "Interviews"
+        },
+        {
+          "path": "/app/hrm/recruitment/offers",
+          "label": "Offers"
+        },
+        {
+          "path": "/app/hrm/recruitment/communications",
+          "label": "Communications"
+        },
+        {
+          "path": "/app/hrm/recruitment/reports",
+          "label": "Recruitment Reports"
+        }
+      ]
+    },
+    {
+      "title": "Onboard",
+      "entries": [
+        {
+          "path": "/app/hrm/onboarding/home",
+          "label": "Onboarding Dashboard"
+        },
+        {
+          "path": "/app/hrm/onboarding/processes",
+          "label": "Onboarding Processes"
+        },
+        {
+          "path": "/app/hrm/onboarding/templates",
+          "label": "Templates"
+        },
+        {
+          "path": "/app/hrm/onboarding/orientations",
+          "label": "Orientation Sessions"
+        }
+      ]
+    },
+    {
+      "title": "Employee Operations",
+      "entries": [
+        {
+          "path": "/app/hrm/lifecycle",
+          "label": "Employee Lifecycle"
+        },
+        {
+          "path": "/app/hrm/services",
+          "label": "Employee Services"
+        }
+      ]
+    },
+    {
+      "title": "Time & Attendance",
+      "entries": [
+        {
+          "path": "/app/hrm/attendance/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "path": "/app/hrm/attendance/records",
+          "label": "Attendance Records"
+        },
+        {
+          "path": "/app/hrm/attendance/corrections",
+          "label": "Corrections"
+        },
+        {
+          "path": "/app/hrm/attendance/breaks",
+          "label": "Break Logs"
+        },
+        {
+          "path": "/app/hrm/attendance/reports",
+          "label": "Reports"
+        },
+        {
+          "path": "/app/hrm/attendance/auto-mark-absence",
+          "label": "Auto Mark Absence"
+        },
+        {
+          "path": "/app/hrm/attendance/manual-entry",
+          "label": "Manual Entry"
+        },
+        {
+          "path": "/app/hrm/attendance/shifts",
+          "label": "Shifts"
+        },
+        {
+          "path": "/app/hrm/attendance/shift-assignments",
+          "label": "Shift Assignments"
+        },
+        {
+          "path": "/app/hrm/attendance/holidays",
+          "label": "Holidays"
+        },
+        {
+          "path": "/app/hrm/attendance/policy",
+          "label": "Policy"
+        }
+      ]
+    },
+    {
+      "title": "Leave",
+      "entries": [
+        {
+          "path": "/app/hrm/leave/requests",
+          "label": "Leave Requests"
+        },
+        {
+          "path": "/app/hrm/leave/allocations",
+          "label": "Leave Allocations"
+        },
+        {
+          "path": "/app/hrm/leave/ledger",
+          "label": "Accrual Ledger"
+        },
+        {
+          "path": "/app/hrm/leave/types",
+          "label": "Leave Types"
+        },
+        {
+          "path": "/app/hrm/leave/calendar",
+          "label": "Leave Calendar"
+        },
+        {
+          "path": "/app/hrm/leave/reports",
+          "label": "Leave Reports"
+        },
+        {
+          "path": "/app/hrm/leave/approval-workflows",
+          "label": "Approval Workflows"
+        },
+        {
+          "path": "/app/hrm/leave/comp-off",
+          "label": "Comp-Off Credits"
+        },
+        {
+          "path": "/app/hrm/leave/encashments",
+          "label": "Leave Encashments"
+        }
+      ]
+    },
+    {
+      "title": "Payroll & Compensation",
+      "entries": [
+        {
+          "path": "/app/hrm/payroll/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "path": "/app/hrm/payroll/runs",
+          "label": "Payroll Runs"
+        },
+        {
+          "path": "/app/hrm/payroll/enterprise",
+          "label": "Workspace"
+        },
+        {
+          "path": "/app/hrm/payroll/compliance/settings",
+          "label": "Compliance"
+        },
+        {
+          "path": "/app/hrm/payroll/recoveries/loans",
+          "label": "Loans & Arrears"
+        },
+        {
+          "path": "/app/hrm/payroll/finance/payment-batches",
+          "label": "Payroll Payments & Accounting"
+        },
+        {
+          "path": "/app/hrm/payroll/settlements",
+          "label": "Final Settlements"
+        },
+        {
+          "path": "/app/hrm/payroll/salaries",
+          "label": "Employee Salaries"
+        },
+        {
+          "path": "/app/hrm/payroll/reviews",
+          "label": "Review Cycles"
+        },
+        {
+          "path": "/app/hrm/payroll/structures",
+          "label": "Salary Structures"
+        },
+        {
+          "path": "/app/hrm/payroll/components",
+          "label": "Salary Components"
+        }
+      ]
+    },
+    {
+      "title": "Benefits & Rewards",
+      "entries": [
+        {
+          "path": "/app/hrm/benefits/plans",
+          "label": "Benefit Plans"
+        },
+        {
+          "path": "/app/hrm/benefits/enrollments",
+          "label": "Enrollments"
+        },
+        {
+          "path": "/app/hrm/benefits/policies",
+          "label": "Policies"
+        }
+      ]
+    },
+    {
+      "title": "Perform",
+      "entries": [
+        {
+          "path": "/app/hrm/performance/cycles/overview",
+          "label": "Review Cycle Overview"
+        },
+        {
+          "path": "/app/hrm/performance/cycles/reviews",
+          "label": "Review Queue"
+        },
+        {
+          "path": "/app/hrm/performance/cycles/ratings",
+          "label": "Final Ratings"
+        },
+        {
+          "path": "/app/hrm/performance/cycles/competencies",
+          "label": "Competency Evaluation"
+        },
+        {
+          "path": "/app/hrm/performance/cycles/calibration",
+          "label": "HR Calibration"
+        },
+        {
+          "path": "/app/hrm/performance/cycles/pip",
+          "label": "PIP Workspace"
+        }
+      ]
+    },
+    {
+      "title": "Exit",
+      "entries": [
+        {
+          "path": "/app/hrm/separation/home",
+          "label": "Separation Dashboard"
+        },
+        {
+          "path": "/app/hrm/separation/cases",
+          "label": "Separation Cases"
+        },
+        {
+          "path": "/app/hrm/separation/alumni",
+          "label": "Alumni & Rehire"
+        }
+      ]
+    },
+    {
+      "title": "Analytics",
+      "entries": [
+        {
+          "path": "/app/hrm/analytics/executive",
+          "label": "Executive Analytics"
+        }
+      ]
+    },
+    {
+      "title": "Audit & Compliance",
+      "entries": [
+        {
+          "path": "/app/hrm/activity-logs",
+          "label": "Activity Logs"
+        }
+      ]
+    },
+    {
+      "title": "Configure",
+      "entries": [
+        {
+          "path": "/app/hrm/enterprise-controls",
+          "label": "Enterprise Controls"
+        },
+        {
+          "path": "/app/hrm/recruitment/career-site",
+          "label": "Career Site Settings"
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "entries": [
+        {
+          "path": "/app/hrm/user-guide",
+          "label": "HRM User Guide"
+        },
+        {
+          "path": "/app/hrm/business-flow-guide",
+          "label": "Business Flow Guide"
+        }
+      ]
+    }
+  ],
+  "tenant-admin": [
+    {
+      "title": "Workspace Setup",
+      "entries": [
+        {
+          "path": "/app/tenant-admin/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "path": "/app/tenant-admin/profile",
+          "label": "Organization Profile"
+        },
+        {
+          "path": "/app/tenant-admin/branding",
+          "label": "Branding"
+        },
+        {
+          "path": "/app/tenant-admin/defaults",
+          "label": "Defaults & Numbering"
+        },
+        {
+          "path": "/app/tenant-admin/modules",
+          "label": "App Access"
+        }
+      ]
+    },
+    {
+      "title": "Branch Network",
+      "entries": [
+        {
+          "path": "/app/tenant-admin/organization-structure",
+          "label": "Organization Structure"
+        },
+        {
+          "path": "/app/tenant-admin/companies",
+          "label": "Company Registry"
+        },
+        {
+          "path": "/app/tenant-admin/branches",
+          "label": "Branch Registry"
+        }
+      ]
+    },
+    {
+      "title": "Communication",
+      "entries": [
+        {
+          "path": "/app/tenant-admin/notifications",
+          "label": "Notification Preferences"
+        },
+        {
+          "path": "/app/tenant-admin/integrations",
+          "label": "Integrations"
+        }
+      ]
+    },
+    {
+      "title": "Operations",
+      "entries": [
+        {
+          "path": "/app/tenant-admin/import-export",
+          "label": "Import / Export"
+        },
+        {
+          "path": "/app/tenant-admin/master-data",
+          "label": "Master Data Center"
+        }
+      ]
+    },
+    {
+      "title": "Security & Governance",
+      "entries": [
+        {
+          "path": "/app/tenant-admin/security",
+          "label": "Security Settings"
+        },
+        {
+          "path": "/app/tenant-admin/system-settings",
+          "label": "System Settings"
+        },
+        {
+          "path": "/app/document-management/admin/settings",
+          "label": "Document Management"
+        },
+        {
+          "path": "/app/tenant-admin/audit-logs",
+          "label": "Audit Logs"
+        }
+      ]
+    }
+  ],
+  "user-management": [
+    {
+      "title": "People & Access",
+      "entries": [
+        {
+          "path": "/app/user-management/users",
+          "label": "Users"
+        },
+        {
+          "path": "/app/user-management/invitations",
+          "label": "Invitations"
+        },
+        {
+          "path": "/app/user-management/portal-access-requests",
+          "label": "Portal Access Requests"
+        },
+        {
+          "path": "/app/user-management/groups",
+          "label": "User Groups"
+        },
+        {
+          "path": "/app/user-management/role-groups",
+          "label": "Role Groups"
+        },
+        {
+          "path": "/app/user-management/roles",
+          "label": "Roles & Permissions"
+        }
+      ]
+    },
+    {
+      "title": "Access Review",
+      "entries": [
+        {
+          "path": "/app/user-management/access-review",
+          "label": "Review Dashboard"
+        },
+        {
+          "path": "/app/user-management/access-review/rules",
+          "label": "Review Rules"
+        },
+        {
+          "path": "/app/user-management/access-review/notifications",
+          "label": "Notifications"
+        }
+      ]
+    },
+    {
+      "title": "Delegation",
+      "entries": [
+        {
+          "path": "/app/user-management/delegation-rules",
+          "label": "Delegation Rules"
+        }
+      ]
+    }
+  ],
+  "company-admin": [
+    {
+      "title": "Company Administration",
+      "entries": [
+        {
+          "path": "/app/company-admin/profile",
+          "label": "Company Profile"
+        },
+        {
+          "path": "/app/company-admin/branches",
+          "label": "Branches"
+        }
+      ]
+    }
+  ],
+  "email-management": [
+    {
+      "title": "Workspace",
+      "entries": [
+        {
+          "path": "/app/email-management",
+          "label": "Email Home"
+        },
+        {
+          "path": "/app/email-management/history",
+          "label": "Email History"
+        }
+      ]
+    },
+    {
+      "title": "Monitoring",
+      "entries": [
+        {
+          "path": "/app/email-management/analytics",
+          "label": "Delivery Analytics"
+        },
+        {
+          "path": "/app/email-management/events",
+          "label": "Email Events"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "entries": [
+        {
+          "path": "/app/email-management/templates",
+          "label": "Email Templates"
+        },
+        {
+          "path": "/app/email-management/settings",
+          "label": "Delivery Settings"
+        }
+      ]
+    }
+  ],
+  "notification-management": [
+    {
+      "title": "Workspace",
+      "entries": [
+        {
+          "path": "/app/notification-management",
+          "label": "Notification Home"
+        },
+        {
+          "path": "/app/notification-management/my-notifications",
+          "label": "My Notifications"
+        }
+      ]
+    },
+    {
+      "title": "Monitoring",
+      "entries": [
+        {
+          "path": "/app/notification-management/history",
+          "label": "Notification History"
+        },
+        {
+          "path": "/app/notification-management/delivery-history",
+          "label": "Delivery History"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "entries": [
+        {
+          "path": "/app/notification-management/settings",
+          "label": "Channel Settings"
+        }
+      ]
+    }
+  ],
+  "employee-self-service": [
+    {
+      "title": "Overview",
+      "entries": [
+        {
+          "path": "/app/employee/dashboard",
+          "label": "Dashboard",
+          "sourcePath": "/app/hrm/me/dashboard"
+        },
+        {
+          "path": "/app/employee/announcements",
+          "label": "Announcements",
+          "sourcePath": "/app/hrm/me/announcements"
+        },
+        {
+          "path": "/app/employee/holidays",
+          "label": "Holidays",
+          "sourcePath": "/app/hrm/me/holidays"
+        },
+        {
+          "path": "/app/employee/my-interviews",
+          "label": "My Interviews",
+          "sourcePath": "/app/hrm/me/interviews"
+        }
+      ]
+    },
+    {
+      "title": "My Profile",
+      "entries": [
+        {
+          "path": "/app/employee/my-profile",
+          "label": "My Profile",
+          "sourcePath": "/app/hrm/me/profile"
+        },
+        {
+          "path": "/app/employee/pre-boarding",
+          "label": "Pre-Boarding",
+          "sourcePath": "/app/hrm/me/onboarding"
+        },
+        {
+          "path": "/app/employee/my-separation",
+          "label": "My Separation",
+          "sourcePath": "/app/hrm/me/separation"
+        },
+        {
+          "path": "/app/employee/document-requests",
+          "label": "Document Requests",
+          "sourcePath": "/app/hrm/me/documents"
+        },
+        {
+          "path": "/app/employee/security",
+          "label": "Security",
+          "sourcePath": "/app/hrm/me/security"
+        }
+      ]
+    },
+    {
+      "title": "Time & Leave",
+      "entries": [
+        {
+          "path": "/app/employee/my-attendance",
+          "label": "My Attendance",
+          "sourcePath": "/app/hrm/me/attendance"
+        },
+        {
+          "path": "/app/employee/my-leave",
+          "label": "My Leave",
+          "sourcePath": "/app/hrm/me/leave"
+        },
+        {
+          "path": "/app/employee/team-leave-requests",
+          "label": "Team Leave Requests",
+          "sourcePath": "/app/hrm/me/leave-approvals"
+        },
+        {
+          "path": "/app/employee/expense-claims",
+          "label": "Expense Claims",
+          "sourcePath": "/app/hrm/me/expenses"
+        }
+      ]
+    },
+    {
+      "title": "Performance",
+      "entries": [
+        {
+          "path": "/app/employee/goals,-self-review-and-ratings",
+          "label": "Goals, Self Review & Ratings",
+          "sourcePath": "/app/hrm/me/performance"
+        }
+      ]
+    },
+    {
+      "title": "Pay And Benefits",
+      "entries": [
+        {
+          "path": "/app/employee/my-payroll",
+          "label": "My Payroll",
+          "sourcePath": "/app/hrm/me/payroll"
+        },
+        {
+          "path": "/app/employee/my-benefits",
+          "label": "My Benefits",
+          "sourcePath": "/app/hrm/me/benefits"
+        }
+      ]
+    },
+    {
+      "title": "Team",
+      "entries": [
+        {
+          "path": "/app/employee/employee-directory",
+          "label": "Employee Directory",
+          "sourcePath": "/app/hrm/me/directory"
+        },
+        {
+          "path": "/app/employee/my-team",
+          "label": "My Team",
+          "sourcePath": "/app/hrm/me/team"
+        },
+        {
+          "path": "/app/employee/manager-requests",
+          "label": "Manager Requests",
+          "sourcePath": "/app/hrm/me/requests"
+        },
+        {
+          "path": "/app/employee/team-leave",
+          "label": "Team Leave",
+          "sourcePath": "/app/hrm/me/team-leave"
+        },
+        {
+          "path": "/app/employee/team-attendance",
+          "label": "Team Attendance",
+          "sourcePath": "/app/hrm/me/team-attendance"
+        },
+        {
+          "path": "/app/employee/team-payroll-reviews",
+          "label": "Team Payroll Reviews",
+          "sourcePath": "/app/hrm/me/team-payroll-reviews"
+        },
+        {
+          "path": "/app/employee/team-reviews-and-competencies",
+          "label": "Team Reviews & Competencies",
+          "sourcePath": "/app/hrm/me/team-performance"
+        }
+      ]
+    }
+  ],
+  "garments-merchandising": [
+    {
+      "title": "Merchandising Desk",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "path": "/app/garments/merchandising/buyers",
+          "label": "Buyers"
+        },
+        {
+          "path": "/app/garments/merchandising/seasons",
+          "label": "Seasons"
+        },
+        {
+          "path": "/app/garments/merchandising/inquiries",
+          "label": "Inquiries"
+        },
+        {
+          "path": "/app/garments/merchandising/inquiries/convert",
+          "label": "Inquiry to Order"
+        },
+        {
+          "path": "/app/garments/merchandising/inquiries/pipeline-report",
+          "label": "Inquiry Pipeline Report"
+        }
+      ]
+    },
+    {
+      "title": "Product Development",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/styles",
+          "label": "Styles"
+        },
+        {
+          "path": "/app/garments/merchandising/costings",
+          "label": "Style Costings"
+        },
+        {
+          "path": "/app/garments/merchandising/samples",
+          "label": "Samples"
+        },
+        {
+          "path": "/app/garments/merchandising/tech-packs",
+          "label": "Tech Packs"
+        }
+      ]
+    },
+    {
+      "title": "Execution And Readiness",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/quotations",
+          "label": "Quotations"
+        },
+        {
+          "path": "/app/garments/merchandising/readiness/material",
+          "label": "Material Readiness"
+        },
+        {
+          "path": "/app/garments/merchandising/readiness/shipment",
+          "label": "Shipment Readiness"
+        },
+        {
+          "path": "/app/garments/merchandising/production-planning",
+          "label": "Production Planning"
+        },
+        {
+          "path": "/app/garments/merchandising/quality-compliance",
+          "label": "Quality Compliance"
+        },
+        {
+          "path": "/app/garments/merchandising/commercial-closures",
+          "label": "Commercial Closures"
+        },
+        {
+          "path": "/app/garments/merchandising/traceability",
+          "label": "Traceability"
+        },
+        {
+          "path": "/app/garments/merchandising/ai-suggestions",
+          "label": "AI Suggestions"
+        }
+      ]
+    },
+    {
+      "title": "Orders And TNA",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/orders",
+          "label": "Orders"
+        },
+        {
+          "path": "/app/garments/merchandising/amendments",
+          "label": "Amendments"
+        },
+        {
+          "path": "/app/garments/merchandising/tna-activities",
+          "label": "Order TNA"
+        },
+        {
+          "path": "/app/garments/merchandising/tna-templates",
+          "label": "TNA Templates"
+        }
+      ]
+    },
+    {
+      "title": "Governance",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/approvals",
+          "label": "Approvals"
+        },
+        {
+          "path": "/app/garments/merchandising/documents",
+          "label": "Documents"
+        },
+        {
+          "path": "/app/garments/merchandising/comments",
+          "label": "Comments"
+        },
+        {
+          "path": "/app/garments/merchandising/activity",
+          "label": "Activity"
+        },
+        {
+          "path": "/app/garments/merchandising/settings/terms",
+          "label": "Terms"
+        }
+      ]
+    },
+    {
+      "title": "Operations",
+      "entries": [
+        {
+          "path": "/app/garments/merchandising/imports",
+          "label": "Imports"
+        },
+        {
+          "path": "/app/garments/merchandising/exports",
+          "label": "Exports"
+        },
+        {
+          "path": "/app/garments/merchandising/jobs",
+          "label": "Jobs"
+        }
+      ]
+    }
+  ],
+  "task-management": [
+    {
+      "title": "Workspace",
+      "entries": [
+        {
+          "path": "/app/task-management",
+          "label": "Dashboard"
+        },
+        {
+          "path": "/app/task-management/projects",
+          "label": "Projects"
+        },
+        {
+          "path": "/app/task-management/tasks",
+          "label": "Tasks"
+        },
+        {
+          "path": "/app/task-management/saved-views",
+          "label": "Saved Views"
+        },
+        {
+          "path": "/app/task-management/milestones",
+          "label": "Milestones"
+        },
+        {
+          "path": "/app/task-management/gantt",
+          "label": "Gantt Timeline"
+        }
+      ]
+    },
+    {
+      "title": "Insights",
+      "entries": [
+        {
+          "path": "/app/task-management/analytics",
+          "label": "Analytics"
+        },
+        {
+          "path": "/app/task-management/workload",
+          "label": "Workload"
+        }
+      ]
+    },
+    {
+      "title": "Administration",
+      "entries": [
+        {
+          "path": "/app/task-management/workflow-policies",
+          "label": "Workflow Policies"
+        },
+        {
+          "path": "/app/task-management/assignment-rules",
+          "label": "Assignment Rules"
+        },
+        {
+          "path": "/app/task-management/delegations",
+          "label": "Delegations"
+        },
+        {
+          "path": "/app/task-management/automation",
+          "label": "Automation"
+        },
+        {
+          "path": "/app/task-management/automation/simulator",
+          "label": "Automation Simulator"
+        },
+        {
+          "path": "/app/task-management/webhooks",
+          "label": "Webhooks"
+        },
+        {
+          "path": "/app/task-management/webhooks/deliveries",
+          "label": "Webhook Deliveries"
+        },
+        {
+          "path": "/app/task-management/sla",
+          "label": "SLA Policies"
+        },
+        {
+          "path": "/app/task-management/evidence-export",
+          "label": "Evidence Export"
+        },
+        {
+          "path": "/app/task-management/audit",
+          "label": "Audit Log"
+        },
+        {
+          "path": "/app/docs/task-management",
+          "label": "Task Management Docs"
+        }
+      ]
+    }
+  ],
+  "school-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "path": "/app/school-management/home",
+          "label": "Home"
+        },
+        {
+          "path": "/app/school-management/dashboard",
+          "label": "Dashboard"
+        }
+      ]
+    },
+    {
+      "title": "School Setup",
+      "entries": [
+        {
+          "path": "/app/school-management/settings/school-identity",
+          "label": "School Setup"
+        },
+        {
+          "path": "/app/school-management/settings/branches",
+          "label": "Branches"
+        },
+        {
+          "path": "/app/school-management/settings/academic-sessions",
+          "label": "Academic Years"
+        },
+        {
+          "path": "/app/school-management/settings/academic-year-rollover",
+          "label": "Academic Year Rollover"
+        },
+        {
+          "path": "/app/school-management/settings/academic-groups",
+          "label": "Academic Groups"
+        },
+        {
+          "path": "/app/school-management/settings/curriculum-setup-wizard",
+          "label": "Curriculum Setup Wizard"
+        },
+        {
+          "path": "/app/school-management/classes",
+          "label": "Classes & Sections"
+        },
+        {
+          "path": "/app/school-management/shifts",
+          "label": "Shifts"
+        },
+        {
+          "path": "/app/school-management/subjects",
+          "label": "Subjects"
+        },
+        {
+          "path": "/app/school-management/class-subjects",
+          "label": "Class Subjects"
+        },
+        {
+          "path": "/app/school-management/teachers",
+          "label": "Teachers"
+        },
+        {
+          "path": "/app/school-management/subject-teachers",
+          "label": "Subject Teachers"
+        },
+        {
+          "path": "/app/school-management/classrooms",
+          "label": "Classrooms"
+        },
+        {
+          "path": "/app/school-management/timetable",
+          "label": "Timetable"
+        }
+      ]
+    },
+    {
+      "title": "Admission",
+      "entries": [
+        {
+          "path": "/app/school-management/admissions/campaigns",
+          "label": "Admission Campaigns"
+        },
+        {
+          "path": "/app/school-management/admissions/setup/document-types",
+          "label": "Admissions Setup"
+        },
+        {
+          "path": "/app/school-management/admissions/applications/create",
+          "label": "Create Application"
+        },
+        {
+          "path": "/app/school-management/admissions/applications",
+          "label": "Application List"
+        },
+        {
+          "path": "/app/school-management/admissions/statistics",
+          "label": "Admission Statistics"
+        },
+        {
+          "path": "/app/school-management/admissions/logs",
+          "label": "Admission Logs"
+        }
+      ]
+    },
+    {
+      "title": "Student Records",
+      "entries": [
+        {
+          "path": "/app/school-management/students",
+          "label": "Students"
+        },
+        {
+          "path": "/app/school-management/students/new",
+          "label": "Register Student"
+        },
+        {
+          "path": "/app/school-management/admissions/promotions",
+          "label": "Student Promotion"
+        },
+        {
+          "path": "/app/school-management/admissions/promotion-history",
+          "label": "Promotion History"
+        },
+        {
+          "path": "/app/school-management/students/requests",
+          "label": "User Requests"
+        },
+        {
+          "path": "/app/school-management/admissions/guardians",
+          "label": "Guardians"
+        },
+        {
+          "path": "/app/school-management/admissions/identity-rules",
+          "label": "Roll & ID Rules"
+        }
+      ]
+    },
+    {
+      "title": "Attendance",
+      "entries": [
+        {
+          "path": "/app/school-management/teachers/me/class-attendance",
+          "label": "Daily Attendance"
+        },
+        {
+          "path": "/app/school-management/attendance/daily-marking",
+          "label": "Daily Attendance"
+        },
+        {
+          "path": "/app/school-management/attendance/student/bulk-upload",
+          "label": "Bulk Upload"
+        },
+        {
+          "path": "/app/school-management/attendance/students/reports",
+          "label": "Student Attendance Report"
+        },
+        {
+          "path": "/app/school-management/attendance/students/detail-report",
+          "label": "Student Attendance Detail"
+        },
+        {
+          "path": "/app/school-management/attendance/teacher-attendance",
+          "label": "Teachers Attendance Report"
+        },
+        {
+          "path": "/app/school-management/attendance/edit-requests",
+          "label": "Edit Requests"
+        },
+        {
+          "path": "/app/school-management/attendance/policy-holidays",
+          "label": "Policy & Holidays"
+        },
+        {
+          "path": "/app/school-management/attendance/notifications",
+          "label": "Notifications"
+        },
+        {
+          "path": "/app/school-management/attendance/devices",
+          "label": "Devices"
+        }
+      ]
+    },
+    {
+      "title": "Fees & Payments",
+      "entries": [
+        {
+          "path": "/app/school-management/fees",
+          "label": "Fees Home"
+        },
+        {
+          "path": "/app/school-management/settings/fee-heads",
+          "label": "Fee Heads"
+        },
+        {
+          "path": "/app/school-management/settings/fee-terms",
+          "label": "Fee Terms"
+        },
+        {
+          "path": "/app/school-management/settings/fee-templates",
+          "label": "Fee Templates"
+        },
+        {
+          "path": "/app/school-management/settings/fee-pricing-rules",
+          "label": "Pricing Rules"
+        },
+        {
+          "path": "/app/school-management/settings/fee-schedules",
+          "label": "Due Dates & Schedule"
+        },
+        {
+          "path": "/app/school-management/settings/fee-fine-rules",
+          "label": "Late Fee Rules"
+        },
+        {
+          "path": "/app/school-management/settings/fee-discount-types",
+          "label": "Discount Types"
+        },
+        {
+          "path": "/app/school-management/settings/fee-overrides",
+          "label": "Fee Overrides"
+        },
+        {
+          "path": "/app/school-management/settings/fee-bulk-invoices",
+          "label": "Bulk Invoice Generation"
+        },
+        {
+          "path": "/app/school-management/settings/fee-single-invoice",
+          "label": "Single Invoice Generation"
+        },
+        {
+          "path": "/app/school-management/settings/fee-delivery",
+          "label": "Invoice Delivery"
+        },
+        {
+          "path": "/app/school-management/fees/audit-reports",
+          "label": "Audit & Reports"
+        },
+        {
+          "path": "/app/school-management/settings/fee-counter-collection",
+          "label": "Counter Collection"
+        },
+        {
+          "path": "/app/school-management/settings/fee-online-payments",
+          "label": "Online Payments (bKash)"
+        },
+        {
+          "path": "/app/school-management/settings/fee-bank-transfer-verification",
+          "label": "Bank Transfer Verification"
+        }
+      ]
+    },
+    {
+      "title": "Exams",
+      "entries": [
+        {
+          "path": "/app/school-management/exams/terms",
+          "label": "Exam Terms"
+        },
+        {
+          "path": "/app/school-management/exams/subject-marks",
+          "label": "Subject Marks"
+        },
+        {
+          "path": "/app/school-management/exams/schedules",
+          "label": "Schedules"
+        },
+        {
+          "path": "/app/school-management/exams/marks",
+          "label": "Marks Entry"
+        },
+        {
+          "path": "/app/school-management/exams/results",
+          "label": "Results"
+        },
+        {
+          "path": "/app/school-management/exams/corrections",
+          "label": "Corrections"
+        },
+        {
+          "path": "/app/school-management/exams/papers",
+          "label": "Papers"
+        },
+        {
+          "path": "/app/school-management/exams/notifications-analytics",
+          "label": "Notifications & Analytics"
+        },
+        {
+          "path": "/app/school-management/exams/me",
+          "label": "My Exams"
+        },
+        {
+          "path": "/app/school-management/exams/guardian",
+          "label": "Guardian Exam View"
+        }
+      ]
+    },
+    {
+      "title": "Assignments & Engagement",
+      "entries": [
+        {
+          "path": "/app/school-management/assignments",
+          "label": "Assignments"
+        },
+        {
+          "path": "/app/school-management/assignments/me",
+          "label": "My Assignments"
+        },
+        {
+          "path": "/app/school-management/announcements",
+          "label": "Announcements"
+        },
+        {
+          "path": "/app/school-management/announcements/my",
+          "label": "My Announcements"
+        },
+        {
+          "path": "/app/school-management/messaging/parent-teacher",
+          "label": "Parent-Teacher Messages"
+        },
+        {
+          "path": "/app/school-management/meetings/availability",
+          "label": "Meeting Availability"
+        },
+        {
+          "path": "/app/school-management/meetings/book",
+          "label": "Book a Meeting"
+        },
+        {
+          "path": "/app/school-management/id-cards/students",
+          "label": "Student ID Cards"
+        },
+        {
+          "path": "/app/school-management/id-cards/staff",
+          "label": "Staff ID Cards"
+        },
+        {
+          "path": "/app/school-management/quizzes",
+          "label": "Quizzes"
+        },
+        {
+          "path": "/app/school-management/quizzes/me",
+          "label": "My Quizzes"
+        }
+      ]
+    },
+    {
+      "title": "Public Website",
+      "entries": [
+        {
+          "path": "/app/school-management/settings/public-page",
+          "label": "Public Page"
+        },
+        {
+          "path": "/app/school-management/settings/public-events",
+          "label": "Events"
+        },
+        {
+          "path": "/app/school-management/settings/public-notices",
+          "label": "Notices"
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "entries": [
+        {
+          "path": "/app/school-management/user-manual",
+          "label": "User Manual"
+        },
+        {
+          "path": "/app/school-management/business-process-guide",
+          "label": "Business Process Guide"
+        },
+        {
+          "path": "/app/school-management/app.component-reference-guide",
+          "label": "Component Reference Guide"
+        }
+      ]
+    }
+  ],
+  "payment-management": [
+    {
+      "title": "Workspace",
+      "entries": [
+        {
+          "path": "/app/payment-management/overview",
+          "label": "Overview"
+        }
+      ]
+    },
+    {
+      "title": "Operations",
+      "entries": [
+        {
+          "path": "/app/payment-management/transactions",
+          "label": "Transaction history"
+        },
+        {
+          "path": "/app/payment-management/ledger",
+          "label": "Payment ledger"
+        },
+        {
+          "path": "/app/payment-management/links",
+          "label": "Payment links"
+        }
+      ]
+    },
+    {
+      "title": "Monitoring & exceptions",
+      "entries": [
+        {
+          "path": "/app/payment-management/reconciliation",
+          "label": "Reconciliation"
+        },
+        {
+          "path": "/app/payment-management/settlements",
+          "label": "Settlements"
+        },
+        {
+          "path": "/app/payment-management/refund-approvals",
+          "label": "Refund approvals"
+        },
+        {
+          "path": "/app/payment-management/disputes",
+          "label": "Disputes"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "entries": [
+        {
+          "path": "/app/payment-management/methods",
+          "label": "Payment methods & channels"
+        }
+      ]
+    }
+  ],
+  "catalog": [
+    {
+      "title": "Catalog Data",
+      "entries": [
+        {
+          "path": "/app/catalog/products",
+          "label": "Products"
+        },
+        {
+          "path": "/app/catalog/product-types",
+          "label": "Product Types"
+        }
+      ]
+    },
+    {
+      "title": "Classification",
+      "entries": [
+        {
+          "path": "/app/catalog/categories",
+          "label": "Categories"
+        },
+        {
+          "path": "/app/catalog/brands",
+          "label": "Brands"
+        }
+      ]
+    },
+    {
+      "title": "Pricing and Promotions",
+      "entries": [
+        {
+          "path": "/app/catalog/pricing-rules",
+          "label": "Pricing Rules"
+        },
+        {
+          "path": "/app/catalog/promotions",
+          "label": "Promotions"
+        }
+      ]
+    },
+    {
+      "title": "Tax and VAT",
+      "entries": [
+        {
+          "path": "/app/catalog/tax-classes",
+          "label": "Tax Classes"
+        },
+        {
+          "path": "/app/catalog/tax-rules",
+          "label": "Tax Rules"
+        },
+        {
+          "path": "/app/catalog/tax-hs-code-mappings",
+          "label": "HS Code Mappings"
+        }
+      ]
+    }
+  ],
+  "ecommerce": [
+    {
+      "title": "Tax and VAT",
+      "entries": [
+        {
+          "path": "/app/ecommerce/home",
+          "label": "Overview"
+        }
+      ]
+    },
+    {
+      "title": "Orders and POS",
+      "entries": [
+        {
+          "path": "/app/ecommerce/orders/queue",
+          "label": "Order Queue"
+        },
+        {
+          "path": "/app/ecommerce/orders/all-sales",
+          "label": "All Sales"
+        },
+        {
+          "path": "/app/ecommerce/orders/manual-sell",
+          "label": "Create Order"
+        },
+        {
+          "path": "/app/ecommerce/pos",
+          "label": "POS"
+        },
+        {
+          "path": "/app/ecommerce/pos/sales",
+          "label": "POS Sales"
+        },
+        {
+          "path": "/app/ecommerce/pos/registers",
+          "label": "Register Sessions"
+        },
+        {
+          "path": "/app/ecommerce/pos/register-setup",
+          "label": "Register Setup"
+        }
+      ]
+    },
+    {
+      "title": "Customers and payments",
+      "entries": [
+        {
+          "path": "/app/ecommerce/customers",
+          "label": "Customers"
+        },
+        {
+          "path": "/app/ecommerce/payments",
+          "label": "Payments"
+        }
+      ]
+    },
+    {
+      "title": "Storefront and reports",
+      "entries": [
+        {
+          "path": "/app/ecommerce/settings",
+          "label": "Store Settings"
+        },
+        {
+          "path": "/app/ecommerce/reports",
+          "label": "Reports"
+        },
+        {
+          "path": "/app/ecommerce/activity-logs",
+          "label": "Activity Logs"
+        }
+      ]
+    }
+  ],
+  "finance": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "path": "/app/finance/home",
+          "label": "Home"
+        }
+      ]
+    },
+    {
+      "title": "Foundation",
+      "entries": [
+        {
+          "path": "/app/finance/accounts",
+          "label": "Chart Of Accounts"
+        },
+        {
+          "path": "/app/finance/journals",
+          "label": "Journals"
+        },
+        {
+          "path": "/app/finance/periods",
+          "label": "Accounting Periods"
+        },
+        {
+          "path": "/app/finance/period-close",
+          "label": "Period Close Center"
+        },
+        {
+          "path": "/app/finance/cost-centers",
+          "label": "Cost Centers"
+        },
+        {
+          "path": "/app/finance/partners",
+          "label": "Business Partners"
+        }
+      ]
+    },
+    {
+      "title": "Subledgers",
+      "entries": [
+        {
+          "path": "/app/finance/receivables",
+          "label": "Receivables"
+        },
+        {
+          "path": "/app/finance/payables",
+          "label": "Payables"
+        },
+        {
+          "path": "/app/finance/banking",
+          "label": "Banking"
+        }
+      ]
+    },
+    {
+      "title": "Management",
+      "entries": [
+        {
+          "path": "/app/finance/fixed-assets",
+          "label": "Fixed Assets"
+        },
+        {
+          "path": "/app/finance/budgets",
+          "label": "Budgets"
+        }
+      ]
+    },
+    {
+      "title": "Reports & Settings",
+      "entries": [
+        {
+          "path": "/app/finance/reports",
+          "label": "Reports"
+        },
+        {
+          "path": "/app/finance/integrations",
+          "label": "Integrations"
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "collapsible": false,
+      "entries": [
+        {
+          "path": "/app/finance/user-guide",
+          "label": "Finance User Guide"
+        },
+        {
+          "path": "/app/finance/system-detail",
+          "label": "System Detail"
+        }
+      ]
+    }
+  ],
+  "crm": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "path": "/app/crm/home",
+          "label": "Home"
+        }
+      ]
+    },
+    {
+      "title": "Pipeline",
+      "entries": [
+        {
+          "path": "/app/crm/pipelines",
+          "label": "Pipelines"
+        },
+        {
+          "path": "/app/crm/deals",
+          "label": "Deals"
+        }
+      ]
+    },
+    {
+      "title": "Relationships",
+      "entries": [
+        {
+          "path": "/app/crm/leads",
+          "label": "Leads"
+        },
+        {
+          "path": "/app/crm/contacts",
+          "label": "Contacts"
+        },
+        {
+          "path": "/app/crm/companies",
+          "label": "Companies"
+        },
+        {
+          "path": "/app/crm/activities",
+          "label": "Activities"
+        }
+      ]
+    },
+    {
+      "title": "Insights",
+      "entries": [
+        {
+          "path": "/app/crm/reports",
+          "label": "Reports"
+        },
+        {
+          "path": "/app/crm/activity-logs",
+          "label": "Activity Logs"
+        }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "title": "Operations",
+      "entries": [
+        {
+          "path": "/app/inventory/workspace/overview",
+          "label": "Inventory Overview"
+        },
+        {
+          "path": "/app/inventory/workspace/balances",
+          "label": "Inventory Balances"
+        },
+        {
+          "path": "/app/inventory/workspace/online-stock",
+          "label": "Channel Stock Control"
+        },
+        {
+          "path": "/app/inventory/workspace/ledger",
+          "label": "Movement Ledger"
+        },
+        {
+          "path": "/app/inventory/stock-card",
+          "label": "Stock Card"
+        },
+        {
+          "path": "/app/inventory/transfers",
+          "label": "Transfers"
+        },
+        {
+          "path": "/app/inventory/adjustments",
+          "label": "Adjustments"
+        },
+        {
+          "path": "/app/inventory/adjustment-approvals",
+          "label": "Adjustment Approvals"
+        },
+        {
+          "path": "/app/inventory/reservations",
+          "label": "Reservations"
+        },
+        {
+          "path": "/app/inventory/alerts",
+          "label": "Alerts"
+        },
+        {
+          "path": "/app/inventory/cycle-counts",
+          "label": "Cycle Counts"
+        },
+        {
+          "path": "/app/inventory/replenishment",
+          "label": "Replenishment"
+        },
+        {
+          "path": "/app/inventory/reports",
+          "label": "Reports"
+        },
+        {
+          "path": "/app/inventory/batches",
+          "label": "Batches"
+        },
+        {
+          "path": "/app/inventory/serials",
+          "label": "Serials"
+        }
+      ]
+    },
+    {
+      "title": "Setup",
+      "entries": [
+        {
+          "path": "/app/inventory/branches",
+          "label": "Branches"
+        },
+        {
+          "path": "/app/inventory/branch-product-policies",
+          "label": "Product Policies"
+        },
+        {
+          "path": "/app/inventory/facilities",
+          "label": "Facilities"
+        },
+        {
+          "path": "/app/inventory/bins",
+          "label": "Storage Locations"
+        }
+      ]
+    }
+  ],
+  "procurement": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "path": "/app/procurement/home",
+          "label": "Overview"
+        }
+      ]
+    },
+    {
+      "title": "Sourcing",
+      "entries": [
+        {
+          "path": "/app/procurement/suppliers",
+          "label": "Suppliers"
+        },
+        {
+          "path": "/app/procurement/rfqs",
+          "label": "RFQs"
+        },
+        {
+          "path": "/app/procurement/contracts",
+          "label": "Contracts"
+        }
+      ]
+    },
+    {
+      "title": "Ordering",
+      "entries": [
+        {
+          "path": "/app/procurement/requisitions",
+          "label": "Requisitions"
+        },
+        {
+          "path": "/app/procurement/purchase-orders",
+          "label": "Purchase Orders"
+        },
+        {
+          "path": "/app/procurement/approval-workflows",
+          "label": "Approval Workflows"
+        }
+      ]
+    },
+    {
+      "title": "Receiving",
+      "entries": [
+        {
+          "path": "/app/procurement/goods-receipts",
+          "label": "Goods Receipts"
+        },
+        {
+          "path": "/app/procurement/purchase-returns",
+          "label": "Returns"
+        }
+      ]
+    },
+    {
+      "title": "Financials",
+      "entries": [
+        {
+          "path": "/app/procurement/bills",
+          "label": "Bills"
+        },
+        {
+          "path": "/app/procurement/reports",
+          "label": "Reports"
+        }
+      ]
+    },
+    {
+      "title": "Docs & Help",
+      "entries": [
+        {
+          "path": "/app/procurement/docs/user-guide",
+          "label": "User Guide"
+        },
+        {
+          "path": "/app/procurement/docs/business",
+          "label": "Business Guide"
+        },
+        {
+          "path": "/app/procurement/docs/technical",
+          "label": "Technical Reference"
+        }
+      ]
+    }
+  ],
+  "student-self-service": [
+    {
+      "title": "Student",
+      "entries": [
+        {
+          "path": "/app/student/my-profile",
+          "label": "My Profile",
+          "sourcePath": "/app/school-management/students/me"
+        },
+        {
+          "path": "/app/student/my-attendance",
+          "label": "My Attendance",
+          "sourcePath": "/app/school-management/student/attendance/me"
+        },
+        {
+          "path": "/app/student/attendance-change-requests",
+          "label": "Attendance Change Requests",
+          "sourcePath": "/app/school-management/attendance/edit-requests"
+        },
+        {
+          "path": "/app/student/my-exams",
+          "label": "My Exams",
+          "sourcePath": "/app/school-management/exams/me"
+        },
+        {
+          "path": "/app/student/my-class-routine",
+          "label": "My Class Routine",
+          "sourcePath": "/app/school-management/routine/me"
+        }
+      ]
+    }
+  ],
+  "teacher-self-service": [
+    {
+      "title": "Teacher",
+      "entries": [
+        {
+          "path": "/app/teacher/my-profile",
+          "label": "My Profile",
+          "sourcePath": "/app/school-management/teachers/me/profile"
+        },
+        {
+          "path": "/app/teacher/my-class-routine",
+          "label": "My Class Routine",
+          "sourcePath": "/app/school-management/teachers/me/class-routine"
+        },
+        {
+          "path": "/app/teacher/my-class-students",
+          "label": "My Class Students",
+          "sourcePath": "/app/school-management/teachers/me/class-students"
+        },
+        {
+          "path": "/app/teacher/my-attendance",
+          "label": "My Attendance",
+          "sourcePath": "/app/school-management/teachers/me/attendance"
+        },
+        {
+          "path": "/app/teacher/take-attendance",
+          "label": "Take Attendance",
+          "sourcePath": "/app/school-management/teachers/me/class-attendance"
+        },
+        {
+          "path": "/app/teacher/marks-entry",
+          "label": "Marks Entry",
+          "sourcePath": "/app/school-management/exams/marks"
+        },
+        {
+          "path": "/app/teacher/my-exam-schedules",
+          "label": "My Exam Schedules",
+          "sourcePath": "/app/school-management/exams/schedules"
+        },
+        {
+          "path": "/app/teacher/question-papers",
+          "label": "Question Papers",
+          "sourcePath": "/app/school-management/exams/papers"
+        }
+      ]
+    }
+  ],
+  "training-institute-management": [
+    {
+      "title": "Overview",
+      "entries": [
+        {
+          "label": "Learning Dashboard",
+          "path": "/app/training-institute/learning/dashboard"
+        }
+      ]
+    },
+    {
+      "title": "Institute Identity & Branding",
+      "entries": [
+        {
+          "label": "Institute Identity",
+          "path": "/app/training-institute/settings/identity"
+        },
+        {
+          "label": "Public Site & Portal",
+          "path": "/app/training-institute/settings/public-site"
+        }
+      ]
+    },
+    {
+      "title": "Catalogue & Delivery",
+      "entries": [
+        {
+          "label": "Course Categories",
+          "path": "/app/training-institute/learning/settings/course-categories"
+        },
+        {
+          "label": "Courses",
+          "path": "/app/training-institute/learning/courses"
+        },
+        {
+          "label": "Course Offerings",
+          "path": "/app/training-institute/learning/runs"
+        },
+        {
+          "label": "Certificates",
+          "path": "/app/training-institute/learning/certificates"
+        },
+        {
+          "label": "Live Sessions",
+          "path": "/app/training-institute/learning/live"
+        }
+      ]
+    },
+    {
+      "title": "Learners & Admissions",
+      "entries": [
+        {
+          "label": "Admission Campaigns",
+          "path": "/app/training-institute/admission-campaigns"
+        },
+        {
+          "label": "Applications",
+          "path": "/app/training-institute/admission-applications"
+        },
+        {
+          "label": "Course Inquiries",
+          "path": "/app/training-institute/course-inquiries"
+        },
+        {
+          "label": "Trainees",
+          "path": "/app/training-institute/trainees"
+        }
+      ]
+    },
+    {
+      "title": "Institute Operations",
+      "entries": [
+        {
+          "label": "Programmes",
+          "path": "/app/training-institute/programmes"
+        },
+        {
+          "label": "Batches",
+          "path": "/app/training-institute/batches"
+        },
+        {
+          "label": "Instructors",
+          "path": "/app/training-institute/instructors"
+        },
+        {
+          "label": "Payments",
+          "path": "/app/training-institute/learning/payments"
+        }
+      ]
+    },
+    {
+      "title": "Insights",
+      "entries": [
+        {
+          "label": "Learning Analytics",
+          "path": "/app/training-institute/learning/analytics"
+        }
+      ]
+    }
+  ],
+  "reporting-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "label": "Reporting Home",
+          "path": "/app/reporting"
+        },
+        {
+          "label": "Templates",
+          "path": "/app/reporting/templates"
+        },
+        {
+          "label": "Generated Reports",
+          "path": "/app/reporting/generated"
+        }
+      ]
+    }
+  ],
+  "workflow-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "label": "Workflow Home",
+          "path": "/app/workflow-management"
+        },
+        {
+          "label": "Policy Studio",
+          "path": "/app/workflow-management/policies"
+        },
+        {
+          "label": "Approval Inbox",
+          "path": "/app/workflow-management/inbox"
+        }
+      ]
+    }
+  ],
+  "storage-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "label": "Storage Home",
+          "path": "/app/storage"
+        },
+        {
+          "label": "Files",
+          "path": "/app/storage/files"
+        }
+      ]
+    }
+  ],
+  "event-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "label": "Home",
+          "path": "/app/event-management"
+        },
+        {
+          "label": "Events",
+          "path": "/app/event-management/events"
+        },
+        {
+          "label": "Event Types",
+          "path": "/app/event-management/types"
+        },
+        {
+          "label": "Templates",
+          "path": "/app/event-management/templates"
+        },
+        {
+          "label": "Speakers",
+          "path": "/app/event-management/speakers"
+        },
+        {
+          "label": "Venues",
+          "path": "/app/event-management/venues"
+        }
+      ]
+    }
+  ],
+  "document-management": [
+    {
+      "title": "",
+      "entries": [
+        {
+          "label": "My Drive",
+          "path": "/app/document-management"
+        },
+        {
+          "label": "Workspaces",
+          "path": "/app/document-management/workspaces"
+        },
+        {
+          "label": "Recent",
+          "path": "/app/document-management/recent"
+        },
+        {
+          "label": "Starred",
+          "path": "/app/document-management/favorites"
+        },
+        {
+          "label": "Trash",
+          "path": "/app/document-management/trash"
+        }
+      ]
+    },
+    {
+      "title": "Administration",
+      "collapsible": false,
+      "entries": [
+        {
+          "label": "Audit Logs",
+          "path": "/app/document-management/admin/audit-logs"
+        },
+        {
+          "label": "Settings",
+          "path": "/app/document-management/admin/settings"
+        }
+      ]
+    }
+  ]
+}

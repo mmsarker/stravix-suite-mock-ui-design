@@ -1,0 +1,9 @@
+hrm-mock/node_modules/
+hrm-mock/.angular/
+hrm-mock/build/
+suite-mock/node_modules/
+suite-mock/.angular/
+suite-mock/build/
+.sites-runtime/
+New Text Document.txt
+*.log

@@ -1,0 +1,357 @@
+[
+  {
+    "title": "Workspace",
+    "entries": [
+      {
+        "path": "/app/hrm/home",
+        "label": "Home"
+      }
+    ]
+  },
+  {
+    "title": "People",
+    "entries": [
+      {
+        "path": "/app/hrm/employees",
+        "label": "Employees"
+      },
+      {
+        "path": "/app/hrm/departments",
+        "label": "Departments"
+      },
+      {
+        "path": "/app/hrm/designations",
+        "label": "Designations"
+      },
+      {
+        "path": "/app/hrm/announcements",
+        "label": "Announcements"
+      },
+      {
+        "path": "/app/hrm/workforce",
+        "label": "Workforce Planning"
+      }
+    ]
+  },
+  {
+    "title": "Hire",
+    "entries": [
+      {
+        "path": "/app/hrm/recruitment/overview",
+        "label": "Recruitment Overview"
+      },
+      {
+        "path": "/app/hrm/recruitment/requisitions",
+        "label": "Requisitions"
+      },
+      {
+        "path": "/app/hrm/recruitment/vacancies",
+        "label": "Vacancies"
+      },
+      {
+        "path": "/app/hrm/recruitment/applications",
+        "label": "Applications"
+      },
+      {
+        "path": "/app/hrm/recruitment/candidates",
+        "label": "Candidates"
+      },
+      {
+        "path": "/app/hrm/recruitment/interviews",
+        "label": "Interviews"
+      },
+      {
+        "path": "/app/hrm/recruitment/offers",
+        "label": "Offers"
+      },
+      {
+        "path": "/app/hrm/recruitment/communications",
+        "label": "Communications"
+      },
+      {
+        "path": "/app/hrm/recruitment/reports",
+        "label": "Recruitment Reports"
+      }
+    ]
+  },
+  {
+    "title": "Onboard",
+    "entries": [
+      {
+        "path": "/app/hrm/onboarding/home",
+        "label": "Onboarding Dashboard"
+      },
+      {
+        "path": "/app/hrm/onboarding/processes",
+        "label": "Onboarding Processes"
+      },
+      {
+        "path": "/app/hrm/onboarding/templates",
+        "label": "Templates"
+      },
+      {
+        "path": "/app/hrm/onboarding/orientations",
+        "label": "Orientation Sessions"
+      }
+    ]
+  },
+  {
+    "title": "Employee Operations",
+    "entries": [
+      {
+        "path": "/app/hrm/lifecycle",
+        "label": "Employee Lifecycle"
+      },
+      {
+        "path": "/app/hrm/services",
+        "label": "Employee Services"
+      }
+    ]
+  },
+  {
+    "title": "Time & Attendance",
+    "entries": [
+      {
+        "path": "/app/hrm/attendance/dashboard",
+        "label": "Dashboard"
+      },
+      {
+        "path": "/app/hrm/attendance/records",
+        "label": "Attendance Records"
+      },
+      {
+        "path": "/app/hrm/attendance/corrections",
+        "label": "Corrections"
+      },
+      {
+        "path": "/app/hrm/attendance/breaks",
+        "label": "Break Logs"
+      },
+      {
+        "path": "/app/hrm/attendance/reports",
+        "label": "Reports"
+      },
+      {
+        "path": "/app/hrm/attendance/auto-mark-absence",
+        "label": "Auto Mark Absence"
+      },
+      {
+        "path": "/app/hrm/attendance/manual-entry",
+        "label": "Manual Entry"
+      },
+      {
+        "path": "/app/hrm/attendance/shifts",
+        "label": "Shifts"
+      },
+      {
+        "path": "/app/hrm/attendance/shift-assignments",
+        "label": "Shift Assignments"
+      },
+      {
+        "path": "/app/hrm/attendance/holidays",
+        "label": "Holidays"
+      },
+      {
+        "path": "/app/hrm/attendance/policy",
+        "label": "Policy"
+      }
+    ]
+  },
+  {
+    "title": "Leave",
+    "entries": [
+      {
+        "path": "/app/hrm/leave/requests",
+        "label": "Leave Requests"
+      },
+      {
+        "path": "/app/hrm/leave/allocations",
+        "label": "Leave Allocations"
+      },
+      {
+        "path": "/app/hrm/leave/ledger",
+        "label": "Accrual Ledger"
+      },
+      {
+        "path": "/app/hrm/leave/types",
+        "label": "Leave Types"
+      },
+      {
+        "path": "/app/hrm/leave/calendar",
+        "label": "Leave Calendar"
+      },
+      {
+        "path": "/app/hrm/leave/reports",
+        "label": "Leave Reports"
+      },
+      {
+        "path": "/app/hrm/leave/approval-workflows",
+        "label": "Approval Workflows"
+      },
+      {
+        "path": "/app/hrm/leave/comp-off",
+        "label": "Comp-Off Credits"
+      },
+      {
+        "path": "/app/hrm/leave/encashments",
+        "label": "Leave Encashments"
+      }
+    ]
+  },
+  {
+    "title": "Payroll & Compensation",
+    "entries": [
+      {
+        "path": "/app/hrm/payroll/dashboard",
+        "label": "Dashboard"
+      },
+      {
+        "path": "/app/hrm/payroll/runs",
+        "label": "Payroll Runs"
+      },
+      {
+        "path": "/app/hrm/payroll/enterprise",
+        "label": "Workspace"
+      },
+      {
+        "path": "/app/hrm/payroll/compliance/settings",
+        "label": "Compliance"
+      },
+      {
+        "path": "/app/hrm/payroll/recoveries/loans",
+        "label": "Loans & Arrears"
+      },
+      {
+        "path": "/app/hrm/payroll/finance/payment-batches",
+        "label": "Payroll Payments & Accounting"
+      },
+      {
+        "path": "/app/hrm/payroll/settlements",
+        "label": "Final Settlements"
+      },
+      {
+        "path": "/app/hrm/payroll/salaries",
+        "label": "Employee Salaries"
+      },
+      {
+        "path": "/app/hrm/payroll/reviews",
+        "label": "Review Cycles"
+      },
+      {
+        "path": "/app/hrm/payroll/structures",
+        "label": "Salary Structures"
+      },
+      {
+        "path": "/app/hrm/payroll/components",
+        "label": "Salary Components"
+      }
+    ]
+  },
+  {
+    "title": "Benefits & Rewards",
+    "entries": [
+      {
+        "path": "/app/hrm/benefits/plans",
+        "label": "Benefit Plans"
+      },
+      {
+        "path": "/app/hrm/benefits/enrollments",
+        "label": "Enrollments"
+      },
+      {
+        "path": "/app/hrm/benefits/policies",
+        "label": "Policies"
+      }
+    ]
+  },
+  {
+    "title": "Perform",
+    "entries": [
+      {
+        "path": "/app/hrm/performance/cycles/overview",
+        "label": "Review Cycle Overview"
+      },
+      {
+        "path": "/app/hrm/performance/cycles/reviews",
+        "label": "Review Queue"
+      },
+      {
+        "path": "/app/hrm/performance/cycles/ratings",
+        "label": "Final Ratings"
+      },
+      {
+        "path": "/app/hrm/performance/cycles/competencies",
+        "label": "Competency Evaluation"
+      },
+      {
+        "path": "/app/hrm/performance/cycles/calibration",
+        "label": "HR Calibration"
+      },
+      {
+        "path": "/app/hrm/performance/cycles/pip",
+        "label": "PIP Workspace"
+      }
+    ]
+  },
+  {
+    "title": "Exit",
+    "entries": [
+      {
+        "path": "/app/hrm/separation/home",
+        "label": "Separation Dashboard"
+      },
+      {
+        "path": "/app/hrm/separation/cases",
+        "label": "Separation Cases"
+      },
+      {
+        "path": "/app/hrm/separation/alumni",
+        "label": "Alumni & Rehire"
+      }
+    ]
+  },
+  {
+    "title": "Analytics",
+    "entries": [
+      {
+        "path": "/app/hrm/analytics/executive",
+        "label": "Executive Analytics"
+      }
+    ]
+  },
+  {
+    "title": "Audit & Compliance",
+    "entries": [
+      {
+        "path": "/app/hrm/activity-logs",
+        "label": "Activity Logs"
+      }
+    ]
+  },
+  {
+    "title": "Configure",
+    "entries": [
+      {
+        "path": "/app/hrm/enterprise-controls",
+        "label": "Enterprise Controls"
+      },
+      {
+        "path": "/app/hrm/recruitment/career-site",
+        "label": "Career Site Settings"
+      }
+    ]
+  },
+  {
+    "title": "Guides",
+    "entries": [
+      {
+        "path": "/app/hrm/user-guide",
+        "label": "HRM User Guide"
+      },
+      {
+        "path": "/app/hrm/business-flow-guide",
+        "label": "Business Flow Guide"
+      }
+    ]
+  }
+]

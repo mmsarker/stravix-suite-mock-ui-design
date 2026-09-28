@@ -1,0 +1,5106 @@
+<div class="suite-workspace education-workspace">
+  <aside class="suite-rail education-rail">
+    <a
+      class="suite-brand"
+      [routerLink]="
+        page.base +
+        (page.base === '/app/training-institute'
+          ? '/learning/dashboard'
+          : page.base === '/app/guardian'
+            ? '/home'
+            : '/home')
+      "
+      ><span class="suite-mark">S</span
+      ><span><strong>Stravix</strong><small>SUITE WORKSPACE</small></span></a
+    >
+    <div class="suite-app-label">{{ page.app }}</div>
+    <div class="education-context">
+      <span>ACADEMIC SESSION</span
+      ><strong>{{ isClassStructure ? classAcademicYear : "2026–27" }}</strong
+      ><span>CAMPUS / CENTRE</span
+      ><strong>{{
+        page.app.includes("Training")
+          ? "Dhaka Learning Centre"
+          : isClassStructure
+            ? classCampus
+            : "Stravix Main Campus"
+      }}</strong>
+    </div>
+    <nav
+      class="suite-nav education-nav"
+      aria-label="Education workspace navigation"
+    >
+      <details *ngFor="let group of navGroups" [open]="isNavGroupActive(group)">
+        <summary>{{ group.label }}</summary>
+        <a
+          *ngFor="let item of group.items"
+          [routerLink]="item.path"
+          [class.active]="isCurrentNav(item.path)"
+          >{{ item.label }}</a
+        >
+      </details>
+    </nav>
+    <div class="rail-foot">
+      <span class="rail-avatar">SA</span
+      ><span
+        ><strong>Stravix Admin</strong><small>Stravix Group BD</small></span
+      >
+    </div>
+  </aside>
+
+  <div class="suite-main-column">
+    <header class="suite-topbar education-topbar">
+      <div class="suite-breadcrumb">
+        <a routerLink="/app/dashboard">Workspace</a><span>›</span
+        ><strong>{{ page.app }}</strong
+        ><span>›</span><strong>{{ page.title }}</strong>
+      </div>
+      <div class="suite-top-actions">
+        <span class="tenant-chip"
+          ><i></i>
+          {{ isClassStructure ? classCampus : "Stravix Main Campus" }}</span
+        ><button
+          class="quiet-button"
+          type="button"
+          (click)="reviewerOpen = !reviewerOpen"
+        >
+          Review states
+        </button>
+        <div *ngIf="reviewerOpen" class="education-review-menu">
+          <button
+            *ngFor="let option of reviewStates"
+            type="button"
+            (click)="setState(option)"
+          >
+            {{ option | titlecase }}
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="suite-content education-content">
+      <div
+        *ngIf="state !== 'populated'"
+        class="review-state-banner"
+        [class]="'review-state-banner state-' + state"
+      >
+        <div>
+          <strong>{{ stateTitle }}</strong>
+          <p>{{ stateDescription }}</p>
+        </div>
+        <button
+          type="button"
+          class="suite-button secondary"
+          (click)="setState('populated')"
+        >
+          Return to sample data
+        </button>
+      </div>
+      <section class="suite-page-head education-page-head">
+        <div>
+          <span class="suite-eyebrow"
+            >{{ page.group | uppercase }} · {{ page.app | uppercase }}</span
+          >
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.description }}</p>
+        </div>
+        <div class="suite-head-actions">
+          <ng-container *ngIf="isStudentForm"
+            ><label class="education-form-context-field"
+              ><span>Academic year</span
+              ><select
+                [(ngModel)]="selectedAcademicYear"
+                name="student-form-academic-year"
+              >
+                <option>2026–27</option>
+                <option>2025–26</option>
+              </select></label
+            ><label class="education-form-context-field"
+              ><span>Campus</span
+              ><select [(ngModel)]="selectedCampus" name="student-form-campus">
+                <option>Stravix Main Campus</option>
+                <option>Gulshan Campus</option>
+                <option>Chattogram Campus</option>
+              </select></label
+            ><a
+              class="suite-button secondary"
+              [routerLink]="
+                isStudentEdit && studentRecord
+                  ? '/app/school-management/students/' + studentRecord.code
+                  : '/app/school-management/students'
+              "
+              >Cancel</a
+            ></ng-container
+          ><button
+            *ngIf="
+              page.kind === 'list' &&
+              !isStudentRequests &&
+              !isStudentDirectory &&
+              !isClassStructure &&
+              !isAcademicSessions &&
+              !isSchoolIdentity &&
+              !isApplicationsList &&
+              !isApplicationDetail
+            "
+            class="suite-button primary"
+            type="button"
+            (click)="createPrimary()"
+          >
+            ＋
+            {{
+              page.entity === "student"
+                ? "Add student"
+                : page.entity === "instructor"
+                  ? "Add staff"
+                  : page.entity === "course"
+                    ? "Create course"
+                    : "Create record"
+            }}</button
+          ><a
+            *ngIf="isApplicationsList"
+            class="suite-button primary"
+            routerLink="/app/school-management/admissions/applications/create"
+            >＋ Create application</a
+          ><a
+            *ngIf="isStudentDetail && studentRecord"
+            class="suite-button primary"
+            [routerLink]="
+              '/app/school-management/students/' + studentRecord.code + '/edit'
+            "
+            >Edit Profile</a
+          ><button
+            *ngIf="
+              page.kind === 'detail' && !isStudentDetail && !isApplicationDetail
+            "
+            class="suite-button primary"
+            type="button"
+            (click)="act('Update opened in the local preview.')"
+          >
+            Edit record
+          </button>
+        </div>
+      </section>
+
+      <section *ngIf="page.kind === 'home'" class="education-home">
+        <div
+          *ngIf="!page.app.includes('Training')"
+          class="suite-card education-campus-strip"
+        >
+          <div><span>ORGANIZATION</span><strong>Stravix Group BD</strong></div>
+          <label
+            ><span>CAMPUS / BRANCH</span
+            ><select [(ngModel)]="selectedCampus">
+              <option>Stravix Main Campus</option>
+              <option>Gulshan Campus</option>
+              <option>Chattogram Campus</option>
+            </select></label
+          >
+          <div><span>STUDENTS</span><strong>1,248 enrolled</strong></div>
+        </div>
+        <div
+          class="suite-metrics"
+          [class.education-training-stats]="page.app.includes('Training')"
+        >
+          <article *ngFor="let stat of page.stats">
+            <a
+              *ngIf="stat[3]; else staticMetric"
+              [routerLink]="stat[3]"
+              class="education-stat-link"
+              ><span>{{ stat[0] }}</span
+              ><strong>{{ stat[1] }}</strong
+              ><small>{{ stat[2] }}</small
+              ><i aria-hidden="true">→</i></a
+            ><ng-template #staticMetric
+              ><span>{{ stat[0] }}</span
+              ><strong>{{ stat[1] }}</strong
+              ><small>{{ stat[2] }}</small></ng-template
+            >
+          </article>
+        </div>
+        <div class="education-home-grid">
+          <section class="suite-card education-overview">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">{{
+                  page.app.includes("Training")
+                    ? "DELIVERY PULSE"
+                    : "QUICK ACCESS"
+                }}</span>
+                <h2>
+                  {{
+                    page.app.includes("Training")
+                      ? "Pending enrollment requests"
+                      : "Jump into a module"
+                  }}
+                </h2>
+                <p>
+                  {{
+                    page.app.includes("Training")
+                      ? "Learners waiting for approval across current course runs."
+                      : "Open a school workspace for the selected academic year and campus."
+                  }}
+                </p>
+              </div>
+              <label
+                *ngIf="!page.app.includes('Training')"
+                class="education-session-select"
+                ><span>ACADEMIC YEAR</span
+                ><select [(ngModel)]="selectedAcademicYear">
+                  <option>2026–27</option>
+                  <option>2025–26</option>
+                </select></label
+              ><span
+                *ngIf="page.app.includes('Training')"
+                class="education-session-tag"
+                >11 awaiting review</span
+              >
+            </div>
+            <div
+              *ngIf="page.app.includes('Training')"
+              class="education-pending-requests"
+            >
+              <a
+                *ngFor="let row of rows.slice(0, 4)"
+                [routerLink]="'/app/training-institute/learning/runs/RUN-26-B'"
+                ><span class="education-request-avatar">{{
+                  row.name.slice(0, 1)
+                }}</span
+                ><span
+                  ><strong>{{ row.name }}</strong
+                  ><small>{{ row.detail }} · submitted 23 Sep</small></span
+                ><em>{{ row.status }}</em></a
+              ><a
+                class="education-view-all"
+                routerLink="/app/training-institute/learning/enrollment-requests"
+                >View all enrollment requests →</a
+              >
+            </div>
+            <ng-container *ngIf="!page.app.includes('Training')">
+              <div class="education-progress-list">
+                <div>
+                  <span>Attendance</span>
+                  <div class="education-progress">
+                    <i style="width: 94%"></i>
+                  </div>
+                  <strong>94%</strong>
+                </div>
+                <div>
+                  <span>{{
+                    page.app.includes("Training")
+                      ? "Course completion"
+                      : "Fee collection"
+                  }}</span>
+                  <div class="education-progress">
+                    <i style="width: 78%"></i>
+                  </div>
+                  <strong>{{
+                    page.app.includes("Training") ? "78%" : "78%"
+                  }}</strong>
+                </div>
+                <div>
+                  <span>{{
+                    page.app.includes("Training")
+                      ? "Learner satisfaction"
+                      : "Assessment readiness"
+                  }}</span>
+                  <div class="education-progress">
+                    <i style="width: 86%"></i>
+                  </div>
+                  <strong>86%</strong>
+                </div>
+              </div>
+              <div class="education-quick-links">
+                <a *ngFor="let item of quickAccess" [routerLink]="item.path"
+                  ><span>{{ item.label }}</span
+                  ><small>{{ item.description }}</small
+                  ><strong>Open workspace →</strong></a
+                >
+              </div>
+            </ng-container>
+          </section>
+          <aside class="suite-side-card education-agenda">
+            <span class="suite-eyebrow">TODAY · THURSDAY 25 SEP</span>
+            <h3>
+              {{
+                page.app.includes("Training")
+                  ? "Upcoming live classes"
+                  : "Campus schedule"
+              }}
+            </h3>
+            <div class="education-agenda-item">
+              <b>09:00</b
+              ><span
+                ><strong>{{
+                  page.app.includes("Training")
+                    ? "Digital Skills · Cohort B"
+                    : "Grade 8 · Mathematics"
+                }}</strong
+                ><small>{{
+                  page.app.includes("Training")
+                    ? "Room 204 · Farhana Ahmed"
+                    : "Room 3B · Mahmud Hasan"
+                }}</small></span
+              >
+            </div>
+            <div class="education-agenda-item">
+              <b>11:30</b
+              ><span
+                ><strong>{{
+                  page.app.includes("Training")
+                    ? "Business English · Cohort A"
+                    : "Grade 10 · Biology"
+                }}</strong
+                ><small>Science block · Main campus</small></span
+              >
+            </div>
+            <div class="education-agenda-item">
+              <b>14:00</b
+              ><span
+                ><strong>{{
+                  page.app.includes("Training")
+                    ? "Assessment review"
+                    : "Parent–teacher meeting"
+                }}</strong
+                ><small>Learning services · Conference room</small></span
+              >
+            </div>
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="act('Schedule opened in the local preview.')"
+            >
+              View full schedule
+            </button>
+          </aside>
+        </div>
+        <section
+          *ngIf="page.app.includes('Training')"
+          class="suite-card education-commercial-health"
+        >
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">COMMERCIAL & DELIVERY HEALTH</span>
+              <h2>Institute operations</h2>
+              <p>
+                Current settlement, messaging and learner follow-up signals.
+              </p>
+            </div>
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="
+                act(
+                  'Commercial and delivery report opened in the local preview.'
+                )
+              "
+            >
+              View report
+            </button>
+          </div>
+          <div class="education-health-grid">
+            <div><span>Settled revenue</span><strong>৳ 684,200</strong></div>
+            <div><span>Refunded revenue</span><strong>৳ 12,400</strong></div>
+            <div><span>Payment failures</span><strong>3</strong></div>
+            <div><span>Invitation failures</span><strong>2</strong></div>
+            <div><span>Waitlisted learners</span><strong>8</strong></div>
+          </div>
+        </section>
+        <section class="suite-card education-activity">
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">RECENT ACTIVITY</span>
+              <h2>
+                {{
+                  page.app.includes("Training")
+                    ? "Learning activity"
+                    : "Latest updates"
+                }}
+              </h2>
+            </div>
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="act('Activity history opened in the local preview.')"
+            >
+              View activity
+            </button>
+          </div>
+          <div class="education-activity-grid">
+            <div *ngFor="let row of rows.slice(0, 4)">
+              <span class="education-dot"></span><strong>{{ row.name }}</strong>
+              <p>
+                {{ row.detail }} · updated {{ 4 + (row.code.length % 9) }} min
+                ago
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section *ngIf="isClassStructure" class="education-class-structure">
+        <div
+          *ngIf="stateOnly"
+          class="suite-card education-class-state"
+          [class.error]="state === 'error'"
+        >
+          <span
+            class="education-class-state-mark"
+            [class.spinning]="state === 'loading'"
+            >{{
+              state === "error"
+                ? "!"
+                : state === "loading"
+                  ? "↻"
+                  : state === "forbidden"
+                    ? "•"
+                    : "＋"
+            }}</span
+          >
+          <h2>
+            {{
+              state === "loading"
+                ? "Loading class structure"
+                : state === "error"
+                  ? "Class structure unavailable"
+                  : state === "forbidden"
+                    ? "Access to this structure is restricted"
+                    : "No class levels yet"
+            }}
+          </h2>
+          <p>
+            {{
+              state === "loading"
+                ? "Class levels and sections for the selected academic year are loading."
+                : state === "error"
+                  ? "The selected academic year’s class structure could not be loaded."
+                  : state === "forbidden"
+                    ? "Your current role cannot manage class levels for this campus."
+                    : "Create a class level, then add sections under it."
+            }}
+          </p>
+          <button
+            *ngIf="state === 'error'"
+            type="button"
+            class="suite-button secondary"
+            (click)="setState('populated')"
+          >
+            Retry</button
+          ><button
+            *ngIf="state === 'empty'"
+            type="button"
+            class="suite-button primary"
+            (click)="openClassLevelFormFromEmptyState()"
+          >
+            Create class level
+          </button>
+        </div>
+        <ng-container *ngIf="!stateOnly">
+          <div class="suite-card education-class-context">
+            <label
+              ><span>ACADEMIC YEAR</span
+              ><select [(ngModel)]="classAcademicYear">
+                <option>2026–2027</option>
+                <option>2025–2026</option>
+              </select></label
+            ><label
+              ><span>CAMPUS / BRANCH</span
+              ><select [(ngModel)]="classCampus">
+                <option>Stravix Main Campus</option>
+                <option>Gulshan Campus</option>
+                <option>Chattogram Campus</option>
+              </select></label
+            >
+            <div class="education-class-context-count">
+              <strong>{{ classLevels.length }}</strong
+              ><span>class levels</span><i></i
+              ><strong>{{ classSectionCount }}</strong
+              ><span>sections</span>
+            </div>
+          </div>
+          <div class="education-class-actions">
+            <div>
+              <span class="suite-eyebrow">ACADEMIC STRUCTURE</span>
+              <h2>Build the class framework</h2>
+              <p>
+                Organize levels for {{ classAcademicYear }} and assign sections,
+                capacity, campus, shift, and class teacher.
+              </p>
+            </div>
+            <div>
+              <button
+                type="button"
+                class="suite-button secondary"
+                (click)="classCopyModalOpen = true"
+              >
+                Copy from previous year</button
+              ><button
+                type="button"
+                class="suite-button primary"
+                (click)="openClassLevelForm()"
+              >
+                ＋ Create class level
+              </button>
+            </div>
+          </div>
+          <section class="suite-card education-class-levels">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">CLASS LEVELS</span>
+                <h2>Academic levels</h2>
+                <p>
+                  Select a level to manage its sections. Use the controls on
+                  each card to edit or remove it.
+                </p>
+              </div>
+              <span class="status-pill active"
+                >{{ classLevels.length }} levels</span
+              >
+            </div>
+            <div class="education-class-level-grid">
+              <article
+                *ngFor="let level of classLevels"
+                class="education-class-level"
+                [class.selected]="level.id === selectedClassLevelId"
+              >
+                <button
+                  class="education-class-level-select"
+                  type="button"
+                  (click)="selectedClassLevelId = level.id"
+                  [attr.aria-pressed]="level.id === selectedClassLevelId"
+                >
+                  <span class="education-class-code">{{ level.code }}</span
+                  ><strong>{{ level.name }}</strong
+                  ><small
+                    >{{
+                      classSectionsForLevel(level.id).length
+                    }}
+                    sections</small
+                  >
+                </button>
+                <div class="education-class-level-actions">
+                  <button
+                    type="button"
+                    (click)="openClassLevelForm(level)"
+                    [attr.aria-label]="'Edit ' + level.name"
+                  >
+                    Edit</button
+                  ><button
+                    type="button"
+                    (click)="requestClassDelete('level', level)"
+                    [attr.aria-label]="'Delete ' + level.name"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </article>
+              <div *ngIf="!classLevels.length" class="education-class-empty">
+                <strong>No class levels yet</strong
+                ><span>Create a level to start adding sections.</span>
+              </div>
+            </div>
+          </section>
+          <section class="suite-card education-class-sections">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">SECTION ASSIGNMENTS</span>
+                <h2>
+                  {{
+                    selectedClassLevel
+                      ? "Sections · " + selectedClassLevel.name
+                      : "Sections"
+                  }}
+                </h2>
+                <p>
+                  Campus, shift, capacity, and teacher assignment for the
+                  selected class.
+                </p>
+              </div>
+              <div class="education-class-section-heading">
+                <span>{{ selectedClassSections.length }} sections</span
+                ><button
+                  type="button"
+                  class="suite-button primary"
+                  (click)="openClassSectionForm()"
+                  [disabled]="!selectedClassLevel"
+                >
+                  ＋ Create section
+                </button>
+              </div>
+            </div>
+            <div class="suite-table-wrap">
+              <table class="suite-table education-table education-class-table">
+                <thead>
+                  <tr>
+                    <th>SECTION</th>
+                    <th>CAPACITY</th>
+                    <th>CAMPUS</th>
+                    <th>SHIFT</th>
+                    <th>CLASS TEACHER</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let section of selectedClassSections">
+                    <td>
+                      <strong class="education-section-name"
+                        >{{ selectedClassLevel?.code }} ·
+                        {{ section.name }}</strong
+                      ><small>{{ section.occupied }} learners enrolled</small>
+                    </td>
+                    <td>
+                      <div class="education-capacity">
+                        <div>
+                          <strong
+                            >{{ section.occupied }} /
+                            {{ section.capacity }}</strong
+                          ><span
+                            class="status-pill"
+                            [class.active]="
+                              capacityStatus(section) === 'Available'
+                            "
+                            [class.pending-review]="
+                              capacityStatus(section) === 'Near capacity'
+                            "
+                            [class.needs-attention]="
+                              capacityStatus(section) === 'Full'
+                            "
+                            >{{ capacityStatus(section) }}</span
+                          >
+                        </div>
+                        <div class="education-capacity-track">
+                          <i
+                            [style.width.%]="
+                              (section.occupied / section.capacity) * 100
+                            "
+                            [class.near]="
+                              capacityStatus(section) === 'Near capacity'
+                            "
+                            [class.full]="capacityStatus(section) === 'Full'"
+                          ></i>
+                        </div>
+                        <small *ngIf="section.pending"
+                          >+{{ section.pending }} pending admission{{
+                            section.pending > 1 ? "s" : ""
+                          }}</small
+                        >
+                      </div>
+                    </td>
+                    <td>{{ section.campus }}</td>
+                    <td>{{ section.shift }}</td>
+                    <td>{{ section.teacher || "—" }}</td>
+                    <td>
+                      <div class="education-class-row-actions">
+                        <button
+                          type="button"
+                          (click)="openClassSectionForm(section)"
+                          [attr.aria-label]="'Edit section ' + section.name"
+                        >
+                          Edit</button
+                        ><button
+                          type="button"
+                          (click)="requestClassDelete('section', section)"
+                          [attr.aria-label]="'Delete section ' + section.name"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="!selectedClassSections.length">
+                    <td colspan="6">
+                      <div class="education-class-empty">
+                        <strong>No sections under this level</strong
+                        ><span
+                          >Create the first section for
+                          {{ selectedClassLevel?.name }}.</span
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <div
+            *ngIf="classLevelDrawerOpen"
+            class="education-overlay"
+            (click)="
+              $event.target === $event.currentTarget &&
+                (classLevelDrawerOpen = false)
+            "
+          >
+            <aside
+              class="education-drawer"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="class-level-title"
+            >
+              <div class="education-drawer-head">
+                <div>
+                  <span class="suite-eyebrow">{{
+                    classEditingLevelId ? "UPDATE LEVEL" : "NEW LEVEL"
+                  }}</span>
+                  <h2 id="class-level-title">
+                    {{
+                      classEditingLevelId
+                        ? "Edit class level"
+                        : "Create class level"
+                    }}
+                  </h2>
+                  <p>Manage class level details for {{ classAcademicYear }}.</p>
+                </div>
+                <button
+                  type="button"
+                  class="icon-button"
+                  aria-label="Close"
+                  (click)="classLevelDrawerOpen = false"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="education-drawer-fields">
+                <label
+                  ><span>Code <b>*</b></span
+                  ><input
+                    [(ngModel)]="classForm.code"
+                    (ngModelChange)="classCodeError = ''"
+                    placeholder="e.g. G6"
+                  /><small *ngIf="classFormSubmitted && classCodeError">{{
+                    classCodeError
+                  }}</small></label
+                ><label
+                  ><span>Name <b>*</b></span
+                  ><input
+                    [(ngModel)]="classForm.name"
+                    (ngModelChange)="classNameError = ''"
+                    placeholder="e.g. Grade 6"
+                  /><small *ngIf="classFormSubmitted && classNameError">{{
+                    classNameError
+                  }}</small></label
+                ><label
+                  ><span>Sort order</span
+                  ><input
+                    type="number"
+                    min="0"
+                    [(ngModel)]="classForm.sortOrder"
+                /></label>
+                <div class="education-drawer-note">
+                  This level belongs to
+                  <strong>{{ classAcademicYear }}</strong> at
+                  <strong>{{ classCampus }}</strong
+                  >.
+                </div>
+              </div>
+              <div class="education-drawer-foot">
+                <button
+                  type="button"
+                  class="suite-button secondary"
+                  (click)="classLevelDrawerOpen = false"
+                >
+                  Cancel</button
+                ><button
+                  type="button"
+                  class="suite-button primary"
+                  (click)="saveClassLevel()"
+                >
+                  {{
+                    classEditingLevelId
+                      ? "Update class level"
+                      : "Create class level"
+                  }}
+                </button>
+              </div>
+            </aside>
+          </div>
+
+          <div
+            *ngIf="classSectionDrawerOpen"
+            class="education-overlay"
+            (click)="
+              $event.target === $event.currentTarget &&
+                (classSectionDrawerOpen = false)
+            "
+          >
+            <aside
+              class="education-drawer"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="class-section-title"
+            >
+              <div class="education-drawer-head">
+                <div>
+                  <span class="suite-eyebrow">{{
+                    classEditingSectionId ? "UPDATE SECTION" : "NEW SECTION"
+                  }}</span>
+                  <h2 id="class-section-title">
+                    {{
+                      classEditingSectionId ? "Edit section" : "Create section"
+                    }}
+                  </h2>
+                  <p>Assign the section to {{ selectedClassLevel?.name }}.</p>
+                </div>
+                <button
+                  type="button"
+                  class="icon-button"
+                  aria-label="Close"
+                  (click)="classSectionDrawerOpen = false"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="education-drawer-fields">
+                <div class="education-drawer-note">
+                  <span>CLASS</span
+                  ><strong
+                    >{{ selectedClassLevel?.name }} ({{
+                      selectedClassLevel?.code
+                    }})</strong
+                  >
+                </div>
+                <label
+                  ><span>Name <b>*</b></span
+                  ><input
+                    [(ngModel)]="classSectionForm.name"
+                    (ngModelChange)="classSectionNameError = ''"
+                    placeholder="e.g. A"
+                  /><small
+                    *ngIf="classFormSubmitted && classSectionNameError"
+                    >{{ classSectionNameError }}</small
+                  ></label
+                ><label
+                  ><span>Capacity <b>*</b></span
+                  ><input
+                    type="number"
+                    min="1"
+                    [(ngModel)]="classSectionForm.capacity"
+                    (ngModelChange)="classCapacityError = ''"
+                  /><small *ngIf="classFormSubmitted && classCapacityError">{{
+                    classCapacityError
+                  }}</small></label
+                ><label
+                  ><span>Campus <b>*</b></span
+                  ><input [value]="classCampus" readonly /></label
+                ><label
+                  ><span>Shift</span
+                  ><select [(ngModel)]="classSectionForm.shift">
+                    <option value="">No shift selected</option>
+                    <option *ngFor="let shift of classShifts">
+                      {{ shift }}
+                    </option>
+                  </select></label
+                ><label
+                  ><span>Class teacher</span
+                  ><select [(ngModel)]="classSectionForm.teacher">
+                    <option value="">No teacher selected</option>
+                    <option *ngFor="let teacher of classTeachers">
+                      {{ teacher }}
+                    </option>
+                  </select></label
+                >
+              </div>
+              <div class="education-drawer-foot">
+                <button
+                  type="button"
+                  class="suite-button secondary"
+                  (click)="classSectionDrawerOpen = false"
+                >
+                  Cancel</button
+                ><button
+                  type="button"
+                  class="suite-button primary"
+                  (click)="saveClassSection()"
+                >
+                  {{
+                    classEditingSectionId ? "Update section" : "Create section"
+                  }}
+                </button>
+              </div>
+            </aside>
+          </div>
+
+          <div
+            *ngIf="classCopyModalOpen"
+            class="education-overlay"
+            (click)="
+              $event.target === $event.currentTarget &&
+                (classCopyModalOpen = false)
+            "
+          >
+            <section
+              class="education-confirm-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="class-copy-title"
+            >
+              <span class="suite-eyebrow">ACADEMIC YEAR TRANSITION</span>
+              <h2 id="class-copy-title">Copy from previous year</h2>
+              <p>
+                Copy class levels and their sections from
+                <strong>2025–2026</strong> into
+                <strong>{{ classAcademicYear }}</strong
+                >? You can adjust the new structure after copying.
+              </p>
+              <div class="education-drawer-foot">
+                <button
+                  type="button"
+                  class="suite-button secondary"
+                  (click)="classCopyModalOpen = false"
+                >
+                  Cancel</button
+                ><button
+                  type="button"
+                  class="suite-button primary"
+                  (click)="copyClassStructure()"
+                >
+                  Copy structure
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <div
+            *ngIf="classDeleteTarget"
+            class="education-overlay"
+            (click)="
+              $event.target === $event.currentTarget &&
+                (classDeleteTarget = null)
+            "
+          >
+            <section
+              class="education-confirm-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="class-delete-title"
+            >
+              <span class="suite-eyebrow">REMOVE ACADEMIC RECORD</span>
+              <h2 id="class-delete-title">
+                Delete {{ classDeleteTarget.kind }}?
+              </h2>
+              <p>
+                <strong>{{ classDeleteTarget.label }}</strong> will be removed
+                from this local preview.
+                {{
+                  classDeleteTarget.kind === "level"
+                    ? "Its sections will also be removed."
+                    : ""
+                }}
+              </p>
+              <div class="education-drawer-foot">
+                <button
+                  type="button"
+                  class="suite-button secondary"
+                  (click)="classDeleteTarget = null"
+                >
+                  Cancel</button
+                ><button
+                  type="button"
+                  class="suite-button danger"
+                  (click)="confirmClassDelete()"
+                >
+                  Delete {{ classDeleteTarget.kind }}
+                </button>
+              </div>
+            </section>
+          </div>
+        </ng-container>
+      </section>
+
+      <section
+        *ngIf="isApplicationsList"
+        class="education-applications-workspace"
+      >
+        <div class="suite-card education-application-context">
+          <label
+            ><span>ACADEMIC YEAR</span
+            ><select [(ngModel)]="selectedAcademicYear">
+              <option>2026–27</option>
+              <option>2025–26</option>
+            </select></label
+          ><label
+            ><span>CAMPUS / BRANCH</span
+            ><select
+              [(ngModel)]="applicationCampus"
+              (ngModelChange)="applicationPage = 1"
+            >
+              <option>Stravix Main Campus</option>
+              <option>Gulshan Campus</option>
+              <option>Chattogram Campus</option>
+            </select></label
+          >
+          <div class="education-application-context-total">
+            <strong>{{ filteredApplications.length }}</strong
+            ><span>applications in this campus</span>
+          </div>
+        </div>
+        <section class="suite-card education-applications-card">
+          <div class="suite-card-heading education-applications-heading">
+            <div>
+              <span class="suite-eyebrow">ADMISSIONS · APPLICATION REVIEW</span>
+              <h2>Applications</h2>
+              <p>
+                Search applications, check supporting documents, and move each
+                applicant through review.
+              </p>
+            </div>
+            <span class="education-application-year-tag"
+              >{{ selectedAcademicYear }} · {{ applicationCampus }}</span
+            >
+          </div>
+          <div class="education-application-toolbar">
+            <label class="search-field"
+              ><span>⌕</span
+              ><input
+                [ngModel]="applicationSearch"
+                (ngModelChange)="setApplicationSearch($event)"
+                placeholder="Application no, student, guardian, phone"
+                aria-label="Search applications"
+            /></label>
+            <div
+              class="education-view-toggle"
+              role="group"
+              aria-label="Applications view"
+            >
+              <button
+                type="button"
+                [class.selected]="applicationsView === 'list'"
+                [attr.aria-pressed]="applicationsView === 'list'"
+                (click)="applicationsView = 'list'"
+              >
+                List view</button
+              ><button
+                type="button"
+                [class.selected]="applicationsView === 'cards'"
+                [attr.aria-pressed]="applicationsView === 'cards'"
+                (click)="applicationsView = 'cards'"
+              >
+                Card view
+              </button>
+            </div>
+          </div>
+          <div *ngIf="state === 'loading'" class="education-class-state">
+            <span class="education-class-state-mark spinning">↻</span>
+            <h2>Loading applications</h2>
+            <p>Admissions records for the selected campus are loading.</p>
+          </div>
+          <div *ngIf="state === 'error'" class="education-class-state error">
+            <span class="education-class-state-mark">!</span>
+            <h2>Application list unavailable</h2>
+            <p>We couldn’t load applications for this campus.</p>
+            <button
+              type="button"
+              class="suite-button secondary"
+              (click)="setState('populated')"
+            >
+              Retry
+            </button>
+          </div>
+          <div *ngIf="state === 'forbidden'" class="education-class-state">
+            <span class="education-class-state-mark">•</span>
+            <h2>Application access is restricted</h2>
+            <p>
+              Your current role does not have permission to review admission
+              applications.
+            </p>
+          </div>
+          <div *ngIf="state === 'empty'" class="education-class-state">
+            <span class="education-class-state-mark">＋</span>
+            <h2>No applications found</h2>
+            <p>
+              There are no applications to review for the selected campus yet.
+            </p>
+            <a
+              class="suite-button primary"
+              routerLink="/app/school-management/admissions/applications/create"
+              >Create application</a
+            >
+          </div>
+          <ng-container *ngIf="!stateOnly">
+            <div
+              *ngIf="!filteredApplications.length"
+              class="education-class-state"
+            >
+              <span class="education-class-state-mark">⌕</span>
+              <h2>No matching applications</h2>
+              <p>
+                Try another application number, student, guardian, phone, or
+                campus.
+              </p>
+              <button
+                type="button"
+                class="suite-button secondary"
+                (click)="setApplicationSearch('')"
+              >
+                Clear search
+              </button>
+            </div>
+            <ng-container *ngIf="filteredApplications.length">
+              <div
+                *ngIf="applicationsView === 'list'"
+                class="suite-table-wrap education-applications-table-wrap"
+              >
+                <table
+                  class="suite-table education-table education-applications-table"
+                >
+                  <thead>
+                    <tr>
+                      <th>APPLICATION #</th>
+                      <th>STUDENT</th>
+                      <th>GUARDIAN</th>
+                      <th>STATUS</th>
+                      <th>CAMPUS</th>
+                      <th>CREATED</th>
+                      <th>DOCUMENTS</th>
+                      <th>ENROLLMENT</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let application of visibleApplications">
+                      <td>
+                        <strong class="education-application-number">{{
+                          application.applicationNo
+                        }}</strong
+                        ><small
+                          >{{ application.category }} ·
+                          {{ application.group }}</small
+                        >
+                      </td>
+                      <td>
+                        <strong
+                          >{{ application.studentFirstName }}
+                          {{ application.studentLastName }}</strong
+                        ><small>{{ application.className }}</small>
+                      </td>
+                      <td>
+                        <strong>{{ application.guardianName }}</strong
+                        ><small>{{ application.guardianPhone }}</small>
+                      </td>
+                      <td>
+                        <span
+                          class="status-pill"
+                          [class.pending-review]="
+                            application.status === 'draft' ||
+                            application.status === 'submitted'
+                          "
+                          [class.active]="
+                            application.status === 'verified' ||
+                            application.status === 'approved'
+                          "
+                          [class.needs-attention]="
+                            application.status === 'rejected'
+                          "
+                          >{{ application.status | titlecase }}</span
+                        >
+                      </td>
+                      <td>{{ application.campus }}</td>
+                      <td>{{ application.created }}</td>
+                      <td>
+                        <div
+                          *ngIf="
+                            application.documents.length;
+                            else noApplicationDocs
+                          "
+                          class="education-application-docs"
+                        >
+                          <div *ngFor="let document of application.documents">
+                            <span [class.verified]="document.verified">{{
+                              document.verified ? "Verified" : "Pending"
+                            }}</span
+                            ><button
+                              type="button"
+                              (click)="
+                                verifyApplicationDocument(
+                                  application,
+                                  document.name
+                                )
+                              "
+                            >
+                              {{ document.verified ? "Undo" : "Verify" }}
+                            </button>
+                          </div>
+                        </div>
+                        <ng-template #noApplicationDocs
+                          ><span class="education-app-muted"
+                            >No documents</span
+                          ></ng-template
+                        >
+                      </td>
+                      <td>
+                        <span
+                          *ngIf="
+                            application.enrolledStudentId;
+                            else noEnrollment
+                          "
+                          >{{ application.enrolledStudentId }}</span
+                        ><button
+                          *ngIf="
+                            application.enrolledStudentId &&
+                            !application.feeAssigned
+                          "
+                          type="button"
+                          class="education-inline-action"
+                          (click)="assignApplicationFees(application)"
+                        >
+                          Auto assign fees</button
+                        ><span
+                          *ngIf="application.feeAssigned"
+                          class="education-app-muted"
+                          >Fees assigned</span
+                        ><ng-template #noEnrollment
+                          ><span class="education-app-muted"
+                            >Not enrolled</span
+                          ></ng-template
+                        >
+                      </td>
+                      <td>
+                        <div class="education-application-actions">
+                          <a
+                            [routerLink]="
+                              '/app/school-management/admissions/applications/' +
+                              application.id
+                            "
+                            >View</a
+                          ><button
+                            *ngIf="application.status === 'draft'"
+                            type="button"
+                            (click)="
+                              updateApplicationStatus(application, 'submitted')
+                            "
+                          >
+                            Submit</button
+                          ><button
+                            *ngIf="application.status === 'submitted'"
+                            type="button"
+                            (click)="
+                              updateApplicationStatus(application, 'verified')
+                            "
+                          >
+                            Verify
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                *ngIf="applicationsView === 'cards'"
+                class="education-application-cards"
+              >
+                <article
+                  *ngFor="let application of visibleApplications"
+                  class="suite-card education-application-card"
+                >
+                  <div class="education-application-card-head">
+                    <div>
+                      <span class="suite-eyebrow">{{
+                        application.applicationNo
+                      }}</span>
+                      <h3>
+                        {{ application.studentFirstName }}
+                        {{ application.studentLastName }}
+                      </h3>
+                      <p>
+                        {{ application.className }} · {{ application.category }}
+                      </p>
+                    </div>
+                    <span
+                      class="status-pill"
+                      [class.pending-review]="
+                        application.status === 'draft' ||
+                        application.status === 'submitted'
+                      "
+                      [class.active]="
+                        application.status === 'verified' ||
+                        application.status === 'approved'
+                      "
+                      [class.needs-attention]="
+                        application.status === 'rejected'
+                      "
+                      >{{ application.status | titlecase }}</span
+                    >
+                  </div>
+                  <div class="education-application-card-facts">
+                    <div>
+                      <span>Guardian</span
+                      ><strong>{{ application.guardianName }}</strong
+                      ><small>{{ application.guardianPhone }}</small>
+                    </div>
+                    <div>
+                      <span>Campus</span
+                      ><strong>{{ application.campus }}</strong>
+                    </div>
+                    <div>
+                      <span>Applied</span
+                      ><strong>{{ application.created }}</strong>
+                    </div>
+                    <div>
+                      <span>Documents</span
+                      ><strong>{{
+                        applicationDocumentSummary(application)
+                      }}</strong>
+                    </div>
+                    <div *ngIf="application.enrolledStudentId">
+                      <span>Enrollment</span
+                      ><strong>{{ application.enrolledStudentId }}</strong>
+                    </div>
+                  </div>
+                  <div class="education-application-card-actions">
+                    <a
+                      [routerLink]="
+                        '/app/school-management/admissions/applications/' +
+                        application.id
+                      "
+                      >View application</a
+                    ><button
+                      *ngIf="application.status === 'draft'"
+                      type="button"
+                      (click)="
+                        updateApplicationStatus(application, 'submitted')
+                      "
+                    >
+                      Submit</button
+                    ><button
+                      *ngIf="application.status === 'submitted'"
+                      type="button"
+                      (click)="updateApplicationStatus(application, 'verified')"
+                    >
+                      Verify</button
+                    ><button
+                      *ngIf="
+                        application.enrolledStudentId &&
+                        !application.feeAssigned
+                      "
+                      type="button"
+                      (click)="assignApplicationFees(application)"
+                    >
+                      Auto assign fees
+                    </button>
+                  </div>
+                </article>
+              </div>
+              <suite-pagination
+                [first]="applicationFirst"
+                [last]="applicationLast"
+                [total]="filteredApplications.length"
+                [page]="applicationPage"
+                [pages]="applicationPages"
+                [size]="applicationPageSize"
+                [sizes]="applicationPageSizes"
+                (pageChange)="setApplicationPage($event)"
+                (pageSizeChange)="setApplicationPageSize($event)"
+              />
+            </ng-container>
+          </ng-container>
+        </section>
+      </section>
+
+      <section
+        *ngIf="isApplicationCreate"
+        class="education-application-create-layout"
+      >
+        <form
+          class="education-application-form"
+          (ngSubmit)="createApplicationRecord()"
+          novalidate
+        >
+          <div class="suite-card-heading education-application-form-title">
+            <div>
+              <span class="suite-eyebrow">ADMISSIONS · NEW APPLICATION</span>
+              <h2>Create student application</h2>
+              <p>
+                Record the student, guardian, placement, and supporting
+                documents.
+              </p>
+            </div>
+            <span class="education-required-note">* Required fields</span>
+          </div>
+          <section class="suite-card education-application-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <h3>Student &amp; placement</h3>
+                <p>
+                  Set the intended campus and class, then identify the student.
+                </p>
+              </div>
+            </div>
+            <div class="education-application-form-grid">
+              <label class="wide"
+                ><span>Campus</span
+                ><input [value]="applicationCampus" readonly /></label
+              ><label
+                ><span>Applicant category <b>*</b></span
+                ><select
+                  name="applicantCategory"
+                  [(ngModel)]="applicationNew.applicantCategory"
+                >
+                  <option value="">Select category</option>
+                  <option *ngFor="let category of applicationCategories">
+                    {{ category }}
+                  </option></select
+                ><small
+                  *ngIf="
+                    applicationCreateSubmitted &&
+                    applicationCreateErrors['applicantCategory']
+                  "
+                  >{{ applicationCreateErrors["applicantCategory"] }}</small
+                ></label
+              ><label
+                ><span>Class <b>*</b></span
+                ><select
+                  name="className"
+                  [(ngModel)]="applicationNew.className"
+                >
+                  <option value="">Select class</option>
+                  <option *ngFor="let level of classLevels">
+                    {{ level.name }}
+                  </option></select
+                ><small
+                  *ngIf="
+                    applicationCreateSubmitted &&
+                    applicationCreateErrors['className']
+                  "
+                  >{{ applicationCreateErrors["className"] }}</small
+                ></label
+              ><label
+                ><span>Group</span
+                ><select name="group" [(ngModel)]="applicationNew.group">
+                  <option value="">Select group</option>
+                  <option *ngFor="let group of applicationGroups">
+                    {{ group }}
+                  </option>
+                </select></label
+              ><label
+                ><span>First name <b>*</b></span
+                ><input
+                  name="firstName"
+                  [(ngModel)]="applicationNew.firstName"
+                  placeholder="Student first name"
+                /><small
+                  *ngIf="
+                    applicationCreateSubmitted &&
+                    applicationCreateErrors['firstName']
+                  "
+                  >{{ applicationCreateErrors["firstName"] }}</small
+                ></label
+              ><label
+                ><span>Last name <b>*</b></span
+                ><input
+                  name="lastName"
+                  [(ngModel)]="applicationNew.lastName"
+                  placeholder="Student last name"
+                /><small
+                  *ngIf="
+                    applicationCreateSubmitted &&
+                    applicationCreateErrors['lastName']
+                  "
+                  >{{ applicationCreateErrors["lastName"] }}</small
+                ></label
+              ><label
+                ><span>Date of birth</span
+                ><input
+                  name="dateOfBirth"
+                  type="date"
+                  [(ngModel)]="applicationNew.dateOfBirth" /></label
+              ><label
+                ><span>Gender</span
+                ><select name="gender" [(ngModel)]="applicationNew.gender">
+                  <option value="">Select</option>
+                  <option>Female</option>
+                  <option>Male</option>
+                  <option>Other</option>
+                </select></label
+              >
+            </div>
+          </section>
+          <section class="suite-card education-application-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <h3>Guardian contact</h3>
+                <p>Add the primary contact for admission communication.</p>
+              </div>
+            </div>
+            <div class="education-application-form-grid">
+              <label
+                ><span>Guardian name <b>*</b></span
+                ><input
+                  name="guardianName"
+                  [(ngModel)]="applicationNew.guardianName"
+                  placeholder="Guardian name"
+                /><small
+                  *ngIf="
+                    applicationCreateSubmitted &&
+                    applicationCreateErrors['guardianName']
+                  "
+                  >{{ applicationCreateErrors["guardianName"] }}</small
+                ></label
+              ><label
+                ><span>Relationship</span
+                ><input
+                  name="guardianRelation"
+                  [(ngModel)]="applicationNew.guardianRelation"
+                  placeholder="Father, mother, or guardian" /></label
+              ><label
+                ><span>Phone</span
+                ><input
+                  name="guardianPhone"
+                  [(ngModel)]="applicationNew.guardianPhone"
+                  placeholder="01xxxxxxxxx" /></label
+              ><label class="wide"
+                ><span>Email</span
+                ><input
+                  name="guardianEmail"
+                  type="email"
+                  [(ngModel)]="applicationNew.guardianEmail"
+                  placeholder="guardian@email.com"
+              /></label>
+            </div>
+          </section>
+          <section class="suite-card education-application-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <h3>Photo &amp; supporting documents</h3>
+                <p>
+                  Attach a student photo and admission records. Files remain in
+                  this browser preview.
+                </p>
+              </div>
+            </div>
+            <div class="education-application-upload-grid">
+              <label class="education-upload-zone"
+                ><span class="education-upload-icon">▧</span
+                ><strong>Student photo</strong
+                ><small>Optional · Image up to 10 MB</small
+                ><input
+                  type="file"
+                  accept="image/*"
+                  (change)="onApplicationPhotoSelected($event)"
+                /><em *ngIf="applicationPhotoName">{{
+                  applicationPhotoName
+                }}</em></label
+              >
+              <div class="education-document-upload">
+                <label
+                  ><span>Document type <b>*</b></span
+                  ><select
+                    [(ngModel)]="applicationDocumentType"
+                    name="documentType"
+                  >
+                    <option value="">Select document type</option>
+                    <option *ngFor="let type of applicationDocumentTypes">
+                      {{ type }}
+                    </option></select
+                  ><small
+                    *ngIf="
+                      applicationCreateSubmitted &&
+                      applicationCreateErrors['documentType']
+                    "
+                    >{{ applicationCreateErrors["documentType"] }}</small
+                  ></label
+                ><label class="education-upload-zone"
+                  ><span class="education-upload-icon">⇧</span
+                  ><strong>Upload document</strong
+                  ><small>PDF, JPG or PNG · Max 10 MB</small
+                  ><input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/*"
+                    (change)="onApplicationDocumentSelected($event)"
+                  /><em *ngIf="applicationDocumentName">{{
+                    applicationDocumentName
+                  }}</em></label
+                >
+                <div
+                  *ngIf="applicationDocumentName"
+                  class="education-selected-document"
+                >
+                  <span
+                    ><strong>{{
+                      applicationDocumentType || "Choose a document type"
+                    }}</strong
+                    ><small>{{ applicationDocumentName }}</small></span
+                  ><button type="button" (click)="removeApplicationDocument()">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div
+            *ngIf="
+              applicationCreateSubmitted &&
+              (applicationCreateErrors['firstName'] ||
+                applicationCreateErrors['lastName'] ||
+                applicationCreateErrors['className'] ||
+                applicationCreateErrors['applicantCategory'] ||
+                applicationCreateErrors['guardianName'] ||
+                applicationCreateErrors['documentType'])
+            "
+            class="form-error"
+            role="alert"
+          >
+            Complete the required fields before creating the application.
+          </div>
+          <div class="education-application-submit">
+            <label
+              ><input
+                type="checkbox"
+                [(ngModel)]="applicationAdminOverride"
+                name="adminOverride"
+              />
+              Admin override capacity checks</label
+            >
+            <div>
+              <button
+                type="button"
+                class="suite-button secondary"
+                (click)="resetApplicationForm()"
+              >
+                Reset</button
+              ><button type="submit" class="suite-button primary">
+                Create application
+              </button>
+            </div>
+          </div>
+        </form>
+        <aside class="suite-side-card education-application-aside">
+          <span class="suite-eyebrow">APPLICATION WORKFLOW</span>
+          <h3>Admission checklist</h3>
+          <p>
+            Keep the student profile, guardian contact, placement, and evidence
+            together for review.
+          </p>
+          <div class="education-application-checklist">
+            <span
+              ><i>1</i><strong>Student &amp; class</strong
+              ><small>Identity and intended placement</small></span
+            ><span
+              ><i>2</i><strong>Guardian contact</strong
+              ><small>Primary admission contact</small></span
+            ><span
+              ><i>3</i><strong>Documents</strong
+              ><small>Evidence for application review</small></span
+            >
+          </div>
+          <div class="side-fact">
+            <span>Academic year</span
+            ><strong>{{ selectedAcademicYear }}</strong>
+          </div>
+          <div class="side-fact">
+            <span>Campus</span><strong>{{ applicationCampus }}</strong>
+          </div>
+          <div class="side-fact">
+            <span>Sample data</span><strong>Saved in this browser only</strong>
+          </div>
+        </aside>
+      </section>
+      <div
+        *ngIf="applicationPhotoReviewOpen"
+        class="education-overlay"
+        (click)="
+          $event.target === $event.currentTarget &&
+            (applicationPhotoReviewOpen = false)
+        "
+      >
+        <section
+          class="education-confirm-dialog education-photo-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="student-photo-title"
+        >
+          <span class="suite-eyebrow">PHOTO PREPARATION</span>
+          <h2 id="student-photo-title">Prepare student photo</h2>
+          <p>
+            Position the student’s face inside a square frame. In this mock, the
+            selected file stays local.
+          </p>
+          <div class="education-photo-preview">
+            {{ applicationPhotoName.slice(0, 2).toUpperCase() }}
+          </div>
+          <div class="education-drawer-foot">
+            <button
+              type="button"
+              class="suite-button secondary"
+              (click)="applicationPhotoReviewOpen = false"
+            >
+              Cancel</button
+            ><button
+              type="button"
+              class="suite-button primary"
+              (click)="applicationPhotoReviewOpen = false"
+            >
+              Use photo
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <section *ngIf="isStudentRequests" class="student-requests-workspace">
+        <div class="student-request-context">
+          <div>
+            <span class="suite-eyebrow">ACTIVE REVIEW SCOPE</span
+            ><strong>2026–27 · {{ selectedCampus }}</strong>
+          </div>
+          <span class="student-request-context-tag"
+            >Student & guardian access</span
+          >
+        </div>
+        <div class="student-request-metrics">
+          <button
+            type="button"
+            class="suite-card student-request-metric selected"
+            (click)="setUserRequestFilter('status', 'pending')"
+          >
+            <span>Pending review</span
+            ><strong>{{ pendingUserRequestCount }}</strong
+            ><small>Requests needing an action</small><i>→</i>
+          </button>
+          <button
+            type="button"
+            class="suite-card student-request-metric"
+            (click)="setUserRequestFilter('type', 'new_profile')"
+          >
+            <span>New profiles</span
+            ><strong>{{ newProfileRequestCount }}</strong
+            ><small>Ready for student registration</small><i>→</i>
+          </button>
+          <button
+            type="button"
+            class="suite-card student-request-metric"
+            (click)="setUserRequestFilter('type', 'guardian_link')"
+          >
+            <span>Guardian links</span
+            ><strong>{{ guardianLinkRequestCount }}</strong
+            ><small>Awaiting profile verification</small><i>→</i>
+          </button>
+        </div>
+        <section class="suite-card student-request-list">
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">REQUEST INBOX</span>
+              <h2>Access & profile requests</h2>
+              <p>
+                Review account requests before linking them to a student or
+                guardian record.
+              </p>
+            </div>
+            <span class="student-request-total"
+              >{{ filteredUserRequests.length }} requests</span
+            >
+          </div>
+          <div class="suite-filters student-request-filters">
+            <label class="search-field"
+              ><span>⌕</span
+              ><input
+                [(ngModel)]="requestSearch"
+                (ngModelChange)="requestPage = 1"
+                placeholder="Search name, email or request ID"
+                aria-label="Search student requests"
+            /></label>
+            <label
+              ><span>TYPE</span
+              ><select
+                [ngModel]="requestTypeFilter"
+                (ngModelChange)="setUserRequestFilter('type', $event)"
+              >
+                <option value="">All types</option>
+                <option value="profile_link">Profile Link</option>
+                <option value="guardian_link">Guardian Link</option>
+                <option value="new_profile">New Profile</option>
+                <option value="question">Question</option>
+              </select></label
+            >
+            <label
+              ><span>STATUS</span
+              ><select
+                [ngModel]="requestStatusFilter"
+                (ngModelChange)="setUserRequestFilter('status', $event)"
+              >
+                <option value="">All statuses</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+              </select></label
+            >
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="
+                requestSearch = '';
+                requestTypeFilter = '';
+                requestStatusFilter = '';
+                requestPage = 1
+              "
+            >
+              Clear filters
+            </button>
+          </div>
+          <div class="suite-table-wrap student-request-table-wrap">
+            <table class="suite-table education-table student-request-table">
+              <thead>
+                <tr>
+                  <th>
+                    <button
+                      type="button"
+                      (click)="toggleRequestSort('requesterName')"
+                    >
+                      REQUESTED BY
+                      <span>{{
+                        requestSortBy === "requesterName"
+                          ? requestSortDir === "asc"
+                            ? "↑"
+                            : "↓"
+                          : "↕"
+                      }}</span>
+                    </button>
+                  </th>
+                  <th>
+                    <button type="button" (click)="toggleRequestSort('type')">
+                      TYPE
+                      <span>{{
+                        requestSortBy === "type"
+                          ? requestSortDir === "asc"
+                            ? "↑"
+                            : "↓"
+                          : "↕"
+                      }}</span>
+                    </button>
+                  </th>
+                  <th>
+                    <button type="button" (click)="toggleRequestSort('status')">
+                      STATUS
+                      <span>{{
+                        requestSortBy === "status"
+                          ? requestSortDir === "asc"
+                            ? "↑"
+                            : "↓"
+                          : "↕"
+                      }}</span>
+                    </button>
+                  </th>
+                  <th>NOTE</th>
+                  <th>
+                    <button
+                      type="button"
+                      (click)="toggleRequestSort('createdAt')"
+                    >
+                      SUBMITTED
+                      <span>{{
+                        requestSortBy === "createdAt"
+                          ? requestSortDir === "asc"
+                            ? "↑"
+                            : "↓"
+                          : "↕"
+                      }}</span>
+                    </button>
+                  </th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let request of visibleUserRequests">
+                  <td>
+                    <strong class="student-request-person">{{
+                      request.requesterName
+                    }}</strong
+                    ><small class="student-request-email">{{
+                      request.requesterEmail
+                    }}</small
+                    ><small class="student-request-id">{{ request.id }}</small>
+                  </td>
+                  <td>
+                    <span class="student-request-type">{{
+                      requestTypeLabel(request.type)
+                    }}</span>
+                  </td>
+                  <td>
+                    <span
+                      class="status-pill"
+                      [class.active]="request.status === 'approved'"
+                      [class.pending-review]="request.status === 'pending'"
+                      [class.needs-attention]="request.status === 'rejected'"
+                      >{{ requestStatusLabel(request.status) }}</span
+                    >
+                  </td>
+                  <td class="student-request-note">
+                    {{ request.note
+                    }}<small *ngIf="request.reviewNote"
+                      >Review: {{ request.reviewNote }}</small
+                    >
+                  </td>
+                  <td class="student-request-date">{{ request.createdAt }}</td>
+                  <td>
+                    <div
+                      *ngIf="
+                        request.status === 'pending';
+                        else completedRequestActions
+                      "
+                      class="student-request-actions"
+                    >
+                      <button
+                        *ngIf="request.type === 'new_profile'"
+                        type="button"
+                        class="suite-button primary compact"
+                        (click)="createProfileFromRequest(request)"
+                      >
+                        Create Profile</button
+                      ><button
+                        type="button"
+                        class="suite-button secondary compact"
+                        (click)="openUserRequestDecision(request, 'approved')"
+                      >
+                        Approve</button
+                      ><button
+                        type="button"
+                        class="suite-button danger compact"
+                        (click)="openUserRequestDecision(request, 'rejected')"
+                      >
+                        Reject
+                      </button>
+                    </div>
+                    <ng-template #completedRequestActions
+                      ><span class="student-request-reviewed"
+                        >Reviewed</span
+                      ></ng-template
+                    >
+                  </td>
+                </tr>
+                <tr *ngIf="!visibleUserRequests.length">
+                  <td colspan="6">
+                    <div class="student-request-empty">
+                      <span class="suite-eyebrow">NO MATCHING REQUESTS</span
+                      ><strong>Nothing to review with these filters</strong>
+                      <p>
+                        Change the request type or status, or clear your search.
+                      </p>
+                      <button
+                        type="button"
+                        class="suite-button secondary"
+                        (click)="
+                          requestSearch = '';
+                          requestTypeFilter = '';
+                          requestStatusFilter = '';
+                          requestPage = 1
+                        "
+                      >
+                        Clear filters
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <suite-pagination
+            [first]="userRequestFirst"
+            [last]="userRequestLast"
+            [total]="filteredUserRequests.length"
+            [page]="requestPage"
+            [pages]="userRequestPageCount"
+            [size]="requestPageSize"
+            [sizes]="pageSizes"
+            (pageChange)="setUserRequestPage($event)"
+            (pageSizeChange)="setUserRequestPageSize($event)"
+          />
+        </section>
+      </section>
+
+      <section *ngIf="isSchoolIdentity" class="education-identity-workspace">
+        <div class="education-identity-summary">
+          <div class="education-identity-mark">SI</div>
+          <div>
+            <span class="suite-eyebrow">INSTITUTION PROFILE</span
+            ><strong>{{ identityForm.nameEn || "School identity" }}</strong
+            ><small>Stravix Group BD · Main school profile</small>
+          </div>
+          <div class="education-identity-summary-facts">
+            <span
+              >EIIN<strong>{{ identityForm.eiin || "—" }}</strong></span
+            ><span
+              >EMAIL<strong>{{ identityForm.email || "—" }}</strong></span
+            ><span
+              >PHONE<strong>{{
+                identityForm.phonePrimary || "—"
+              }}</strong></span
+            ><span>LAST SAVED<strong>10 days ago</strong></span
+            ><span
+              >LOGO<strong>{{ identityLogoName || "Not set" }}</strong></span
+            >
+          </div>
+        </div>
+        <div class="education-identity-grid">
+          <section class="suite-card education-identity-form-card">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">SCHOOL BASICS</span>
+                <h2>Institution Profile</h2>
+                <p>
+                  Core information used across operations, reports, and public
+                  materials.
+                </p>
+              </div>
+              <button
+                type="submit"
+                form="school-identity-form"
+                class="suite-button primary"
+              >
+                Save Changes
+              </button>
+            </div>
+            <form
+              id="school-identity-form"
+              class="education-identity-form"
+              (ngSubmit)="saveSchoolIdentity()"
+            >
+              <label
+                ><span>Name (English) <b>*</b></span
+                ><input
+                  [(ngModel)]="identityForm.nameEn"
+                  name="identity-name-en"
+                  required
+                /><small
+                  *ngIf="identitySubmitted && !identityForm.nameEn.trim()"
+                  >Enter the institution name.</small
+                ></label
+              ><label
+                ><span>Name (Bangla)</span
+                ><input
+                  [(ngModel)]="identityForm.nameBn"
+                  name="identity-name-bn" /></label
+              ><label
+                ><span>EIIN <b>*</b></span
+                ><input
+                  [(ngModel)]="identityForm.eiin"
+                  name="identity-eiin"
+                  required
+                /><small *ngIf="identitySubmitted && !identityForm.eiin.trim()"
+                  >Enter the EIIN.</small
+                ></label
+              ><label
+                ><span>Principal name</span
+                ><input
+                  [(ngModel)]="identityForm.principalName"
+                  name="identity-principal" /></label
+              ><label
+                ><span>Established year</span
+                ><input
+                  type="number"
+                  min="1800"
+                  max="2026"
+                  [(ngModel)]="identityForm.establishedYear"
+                  name="identity-established" /></label
+              ><label
+                ><span>Website</span
+                ><input
+                  type="url"
+                  [(ngModel)]="identityForm.website"
+                  name="identity-website"
+                  placeholder="https://" /></label
+              ><label
+                ><span>Contact & address email <b>*</b></span
+                ><input
+                  type="email"
+                  [(ngModel)]="identityForm.email"
+                  name="identity-email"
+                  required
+                /><small *ngIf="identitySubmitted && !identityForm.email.trim()"
+                  >Enter an email address.</small
+                ><small
+                  *ngIf="
+                    identitySubmitted &&
+                    identityForm.email.trim() &&
+                    !identityForm.email.match('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$')
+                  "
+                  >Enter a valid email address.</small
+                ></label
+              ><label
+                ><span>Phone (primary) <b>*</b></span
+                ><input
+                  [(ngModel)]="identityForm.phonePrimary"
+                  name="identity-phone-primary"
+                  required
+                /><small
+                  *ngIf="identitySubmitted && !identityForm.phonePrimary.trim()"
+                  >Enter the primary phone number.</small
+                ></label
+              ><label
+                ><span>Phone (secondary)</span
+                ><input
+                  [(ngModel)]="identityForm.phoneSecondary"
+                  name="identity-phone-secondary" /></label
+              ><label
+                ><span>Postcode</span
+                ><input
+                  [(ngModel)]="identityForm.postcode"
+                  name="identity-postcode" /></label
+              ><label class="wide"
+                ><span>Address line 1 <b>*</b></span
+                ><input
+                  [(ngModel)]="identityForm.addressLine1"
+                  name="identity-address-1"
+                  required
+                /><small
+                  *ngIf="identitySubmitted && !identityForm.addressLine1.trim()"
+                  >Enter address line 1.</small
+                ></label
+              ><label class="wide"
+                ><span>Address line 2</span
+                ><input
+                  [(ngModel)]="identityForm.addressLine2"
+                  name="identity-address-2" /></label
+              ><label
+                ><span>Upazila</span
+                ><input
+                  [(ngModel)]="identityForm.upazila"
+                  name="identity-upazila" /></label
+              ><label
+                ><span>District</span
+                ><input
+                  [(ngModel)]="identityForm.district"
+                  name="identity-district" /></label
+              ><label
+                ><span>Division</span
+                ><input
+                  [(ngModel)]="identityForm.division"
+                  name="identity-division"
+              /></label>
+              <div class="education-identity-logo">
+                <div>
+                  <span class="suite-eyebrow">LOGO & BRANDING</span
+                  ><strong>{{
+                    identityLogoName || "No logo uploaded yet"
+                  }}</strong
+                  ><small
+                    >Upload a PNG or JPG logo for reports, certificates, public
+                    pages, and identity documents. You can crop and position it
+                    before upload.</small
+                  ><input
+                    #identityLogoInput
+                    type="file"
+                    accept="image/png,image/jpeg"
+                    (change)="onIdentityLogoSelected($event)"
+                  />
+                </div>
+                <button
+                  type="button"
+                  class="suite-button secondary"
+                  (click)="identityLogoInput.click()"
+                >
+                  Choose logo
+                </button>
+              </div>
+              <div
+                *ngIf="identityValidationMessage"
+                class="education-inline-error"
+                role="alert"
+              >
+                {{ identityValidationMessage }}
+              </div>
+              <div
+                *ngIf="identitySavedMessage"
+                class="education-inline-success"
+                role="status"
+              >
+                {{ identitySavedMessage }}
+              </div>
+            </form>
+          </section>
+          <aside class="education-identity-side">
+            <section class="suite-card education-identity-health">
+              <span class="suite-eyebrow">SI · IDENTITY PREVIEW</span>
+              <div class="education-identity-preview-mark">SI</div>
+              <h2>{{ identityForm.nameEn || "School identity" }}</h2>
+              <span class="education-identity-completion"
+                >INCOMPLETE · 33%</span
+              >
+              <div class="education-identity-meter">
+                <i style="width: 33%"></i>
+              </div>
+              <h3>Setup Health</h3>
+              <p>5/15 profile details complete · 10 remaining</p>
+              <h3>Required Profile Fields <small>5/5 complete</small></h3>
+              <ul>
+                <li>Name (English) <i>✓</i></li>
+                <li>EIIN <i>✓</i></li>
+                <li>Address line 1 <i>✓</i></li>
+                <li>Primary phone <i>✓</i></li>
+                <li>Email <i>✓</i></li>
+              </ul>
+              <h3>Recommended Next Details</h3>
+              <ul class="education-identity-recommendations">
+                <li>
+                  Add Bangla name for localised documents and public pages.
+                </li>
+                <li>
+                  Add address line 2 when there is a building, road, or area
+                  detail.
+                </li>
+                <li>
+                  Complete upazila, district, and division so reports show a
+                  full official address.
+                </li>
+                <li>
+                  Add postcode for letters, forms, and public contact
+                  information.
+                </li>
+                <li>
+                  Add a secondary phone number for backup office communication.
+                </li>
+                <li>
+                  Add website so families can verify the official online
+                  presence.
+                </li>
+              </ul>
+            </section>
+            <section class="suite-card education-identity-history">
+              <div class="suite-card-heading">
+                <div>
+                  <h3>Change History</h3>
+                  <p>Track who changed what and when.</p>
+                </div>
+                <button
+                  class="suite-button secondary"
+                  type="button"
+                  (click)="toggleSchoolIdentityHistory()"
+                >
+                  {{ identityHistoryUnavailable ? "Hide" : "View history" }}
+                </button>
+              </div>
+              <div
+                *ngIf="identityHistoryUnavailable"
+                class="education-identity-history-empty"
+              >
+                <span>↻</span><strong>History unavailable</strong
+                ><small
+                  >Change history is not available for your current access
+                  level.</small
+                ><button
+                  type="button"
+                  (click)="identityHistoryUnavailable = false"
+                >
+                  Retry
+                </button>
+              </div>
+            </section>
+            <section class="suite-card education-identity-setup">
+              <span class="suite-eyebrow">SCHOOL SETUP IS READY</span
+              ><a routerLink="/app/school-management/settings/school-identity"
+                ><strong>School identity</strong
+                ><small>Keep the official profile fields complete.</small></a
+              ><a routerLink="/app/school-management/settings/branches"
+                ><strong>Active campus</strong
+                ><small
+                  >Create or activate a campus before student operations.</small
+                ></a
+              ><a routerLink="/app/school-management/settings/academic-sessions"
+                ><strong>Academic year</strong
+                ><small
+                  >Create an active academic session for classes and
+                  records.</small
+                ></a
+              >
+            </section>
+            <section class="suite-card education-identity-logo-status">
+              <h3>Logo Status</h3>
+              <p>Shown on reports, certificates, and public pages.</p>
+              <div class="education-identity-logo-status-preview">
+                {{ identityLogoName ? "SI" : "No logo uploaded yet." }}
+              </div>
+            </section>
+            <section class="suite-card education-identity-metadata">
+              <h3>Record Metadata</h3>
+              <p>Audit context for this school profile.</p>
+              <dl>
+                <dt>Created</dt>
+                <dd>Sep 15, 2026 · 10:47 PM</dd>
+                <dt>Created by</dt>
+                <dd>603f99f1...</dd>
+                <dt>Last updated</dt>
+                <dd>Sep 15, 2026 · 10:47 PM</dd>
+                <dt>Updated by</dt>
+                <dd>603f99f1...</dd>
+              </dl>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section *ngIf="isAcademicSessions" class="education-academic-sessions">
+        <div class="suite-card education-academic-context">
+          <div>
+            <span class="suite-eyebrow">ACADEMIC SETUP</span
+            ><strong>2026–2027</strong><small>Stravix Main Campus</small>
+          </div>
+          <p>Create academic sessions and keep exactly one active.</p>
+        </div>
+        <section class="suite-card education-session-list">
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">SCHOOL CALENDAR</span>
+              <h2>Academic Sessions</h2>
+              <p>{{ filteredAcademicSessions.length }} session(s)</p>
+            </div>
+            <a
+              routerLink="/app/school-management/settings/academic-year-rollover"
+              class="suite-button secondary"
+              >Start new academic year</a
+            >
+          </div>
+          <div class="education-session-toolbar">
+            <div class="education-session-search">
+              <label class="search-field"
+                ><span>⌕</span
+                ><input
+                  [(ngModel)]="academicSessionSearch"
+                  (ngModelChange)="academicSessionPage = 1"
+                  placeholder="Search by name/status..."
+                  aria-label="Search sessions" /></label
+              ><button
+                type="button"
+                class="suite-button secondary"
+                (click)="academicSessionPage = 1"
+              >
+                Search
+              </button>
+            </div>
+            <div class="education-session-actions">
+              <button
+                type="button"
+                class="suite-button primary"
+                (click)="openAcademicSessionDrawer()"
+              >
+                ＋ Create session
+              </button>
+              <div
+                class="education-session-view-toggle"
+                role="group"
+                aria-label="Session view mode"
+              >
+                <button
+                  type="button"
+                  [class.active]="academicSessionView === 'list'"
+                  (click)="academicSessionView = 'list'"
+                >
+                  List View</button
+                ><button
+                  type="button"
+                  [class.active]="academicSessionView === 'card'"
+                  (click)="academicSessionView = 'card'"
+                >
+                  Card View
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="academicSessionView === 'list'"
+            class="suite-table-wrap education-session-table-wrap"
+          >
+            <table class="suite-table education-table education-session-table">
+              <thead>
+                <tr>
+                  <th><button type="button">Name</button></th>
+                  <th><button type="button">Start</button></th>
+                  <th><button type="button">End</button></th>
+                  <th><button type="button">Active</button></th>
+                  <th>Locked</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let session of visibleAcademicSessions">
+                  <td>
+                    <strong>{{ session.name }}</strong>
+                  </td>
+                  <td>{{ session.start }}</td>
+                  <td>{{ session.end }}</td>
+                  <td>
+                    <span class="status-pill" [class.active]="session.active">{{
+                      session.active ? "Yes" : "No"
+                    }}</span>
+                  </td>
+                  <td>
+                    <span
+                      class="status-pill"
+                      [class.pending-review]="session.locked"
+                      >{{ session.locked ? "Yes" : "No" }}</span
+                    >
+                  </td>
+                  <td>
+                    <div class="education-session-row-actions">
+                      <button
+                        type="button"
+                        (click)="openAcademicSessionDrawer(session)"
+                      >
+                        Edit</button
+                      ><button
+                        type="button"
+                        [disabled]="session.active"
+                        (click)="activateAcademicSession(session)"
+                      >
+                        Activate</button
+                      ><button
+                        type="button"
+                        (click)="toggleAcademicSessionLock(session)"
+                      >
+                        {{ session.locked ? "Unlock" : "Lock" }}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr *ngIf="!visibleAcademicSessions.length">
+                  <td colspan="6">
+                    <div class="education-class-empty">
+                      <strong>No academic sessions found</strong
+                      ><span>Create a session or adjust the search.</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            *ngIf="academicSessionView === 'card'"
+            class="education-session-card-grid"
+          >
+            <article
+              *ngFor="let session of visibleAcademicSessions"
+              class="education-session-card"
+            >
+              <div class="education-session-card-head">
+                <strong>{{ session.name }}</strong
+                ><span class="status-pill" [class.active]="session.active">{{
+                  session.active ? "Active" : "Inactive"
+                }}</span>
+              </div>
+              <div>
+                <span>Start</span><strong>{{ session.start }}</strong
+                ><span>End</span><strong>{{ session.end }}</strong>
+              </div>
+              <div class="education-session-row-actions">
+                <button
+                  type="button"
+                  (click)="openAcademicSessionDrawer(session)"
+                >
+                  Edit</button
+                ><button
+                  type="button"
+                  [disabled]="session.active"
+                  (click)="activateAcademicSession(session)"
+                >
+                  Activate</button
+                ><button
+                  type="button"
+                  (click)="toggleAcademicSessionLock(session)"
+                >
+                  {{ session.locked ? "Unlock" : "Lock" }}
+                </button>
+              </div>
+            </article>
+          </div>
+          <suite-pagination
+            [first]="academicSessionFirst"
+            [last]="academicSessionLast"
+            [total]="filteredAcademicSessions.length"
+            [page]="academicSessionPage"
+            [pages]="academicSessionPages"
+            [size]="academicSessionPageSize"
+            [sizes]="pageSizes"
+            (pageChange)="setAcademicSessionPage($event)"
+            (pageSizeChange)="setAcademicSessionPageSize($event)"
+          />
+        </section>
+        <div
+          *ngIf="academicSessionDrawerOpen"
+          class="education-overlay"
+          (click)="
+            $event.target === $event.currentTarget &&
+              (academicSessionDrawerOpen = false)
+          "
+        >
+          <aside
+            class="education-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="academic-session-drawer-title"
+          >
+            <div class="education-drawer-head">
+              <div>
+                <span class="suite-eyebrow">{{
+                  academicSessionEditingId ? "UPDATE SESSION" : "NEW SESSION"
+                }}</span>
+                <h2 id="academic-session-drawer-title">
+                  {{
+                    academicSessionEditingId
+                      ? "Edit academic session"
+                      : "Create academic session"
+                  }}
+                </h2>
+                <p>
+                  Set the academic year name, date range, and active status.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="icon-button"
+                aria-label="Close"
+                (click)="academicSessionDrawerOpen = false"
+              >
+                ×
+              </button>
+            </div>
+            <div class="education-drawer-fields">
+              <label
+                ><span>Name <b>*</b></span
+                ><input
+                  [(ngModel)]="academicSessionForm.name"
+                  name="session-name"
+                  placeholder="e.g. 2026-2027"
+                /><small
+                  *ngIf="
+                    academicSessionSubmitted && !academicSessionForm.name.trim()
+                  "
+                  >Enter the session name.</small
+                ></label
+              ><label class="education-session-active-field"
+                ><span>Active</span
+                ><button
+                  type="button"
+                  class="education-session-switch"
+                  role="switch"
+                  [attr.aria-checked]="academicSessionForm.active"
+                  [class.checked]="academicSessionForm.active"
+                  (click)="
+                    academicSessionForm.active = !academicSessionForm.active
+                  "
+                >
+                  <i></i></button></label
+              ><label
+                ><span>Start date <b>*</b></span
+                ><input
+                  type="date"
+                  [(ngModel)]="academicSessionForm.start"
+                  name="session-start"
+                /><small
+                  *ngIf="academicSessionSubmitted && !academicSessionForm.start"
+                  >Choose a start date.</small
+                ></label
+              ><label
+                ><span>End date <b>*</b></span
+                ><input
+                  type="date"
+                  [(ngModel)]="academicSessionForm.end"
+                  name="session-end"
+                /><small
+                  *ngIf="
+                    academicSessionSubmitted &&
+                    (!academicSessionForm.end ||
+                      academicSessionForm.end < academicSessionForm.start)
+                  "
+                  >Choose an end date after the start date.</small
+                ></label
+              >
+            </div>
+            <div class="education-drawer-foot">
+              <button
+                type="button"
+                class="suite-button secondary"
+                (click)="academicSessionDrawerOpen = false"
+              >
+                Cancel</button
+              ><button
+                type="button"
+                class="suite-button primary"
+                (click)="saveAcademicSession()"
+              >
+                {{
+                  academicSessionEditingId ? "Update session" : "Create session"
+                }}
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        *ngIf="
+          page.kind === 'list' &&
+          !isStudentRequests &&
+          !isClassStructure &&
+          !isAcademicSessions &&
+          !isSchoolIdentity &&
+          !isApplicationsList &&
+          !isApplicationDetail
+        "
+        class="suite-card education-list-card"
+      >
+        <div *ngIf="isStudentDirectory" class="education-directory-context">
+          <label
+            ><span>ACADEMIC YEAR</span
+            ><select [(ngModel)]="selectedAcademicYear">
+              <option>2026–27</option>
+              <option>2025–26</option>
+            </select></label
+          ><label
+            ><span>CAMPUS / BRANCH</span
+            ><select [(ngModel)]="selectedCampus">
+              <option>Stravix Main Campus</option>
+              <option>Gulshan Campus</option>
+              <option>Chattogram Campus</option>
+            </select></label
+          >
+        </div>
+        <div class="suite-card-heading education-directory-heading">
+          <div>
+            <span class="suite-eyebrow">{{
+              isStudentDirectory
+                ? "STUDENT DIRECTORY"
+                : (page.entity | uppercase) + " DIRECTORY"
+            }}</span>
+            <h2>{{ isStudentDirectory ? "Student Directory" : page.title }}</h2>
+            <p>
+              {{
+                isStudentDirectory
+                  ? "Academic year " +
+                    selectedAcademicYear +
+                    " · " +
+                    selectedCampus
+                  : filteredRows.length +
+                    " records in the current " +
+                    (page.app.includes("Training") ? "institute" : "campus") +
+                    " scope"
+              }}
+            </p>
+          </div>
+          <div *ngIf="!isStudentDirectory" class="card-heading-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="act('Export prepared in the browser preview.')"
+            >
+              Export</button
+            ><button
+              class="icon-button"
+              type="button"
+              aria-label="More options"
+              (click)="act('More list options opened in the preview.')"
+            >
+              •••
+            </button>
+          </div>
+          <div *ngIf="isStudentDirectory" class="education-directory-actions">
+            <span class="status-pill pending-review"
+              >{{ filteredRows.length }} students</span
+            ><a
+              class="suite-button secondary"
+              routerLink="/app/school-management/students/exports"
+              >Export jobs</a
+            ><a
+              class="suite-button secondary"
+              routerLink="/app/school-management/students/bulk-import"
+              >Bulk Import</a
+            ><a
+              class="suite-button primary"
+              routerLink="/app/school-management/students/new"
+              >Register Student</a
+            >
+          </div>
+        </div>
+        <div
+          *ngIf="isStudentDirectory; else standardFilters"
+          class="suite-filters education-filters education-student-filters"
+        >
+          <label class="search-field"
+            ><span>⌕</span
+            ><input
+              [ngModel]="search"
+              (ngModelChange)="setSearch($event)"
+              placeholder="Search name/email/student #"
+              aria-label="Search students" /></label
+          ><label
+            ><span>CLASS</span
+            ><select
+              [ngModel]="scopeFilter"
+              (ngModelChange)="setClassFilter($event)"
+            >
+              <option value="">All classes</option>
+              <option *ngFor="let item of gradeOptions" [value]="item">
+                {{ item }}
+              </option>
+            </select></label
+          ><label
+            ><span>SECTION</span
+            ><select
+              [ngModel]="sectionFilter"
+              (ngModelChange)="setSectionFilter($event)"
+              [disabled]="!scopeFilter"
+            >
+              <option value="">All sections</option>
+              <option
+                *ngFor="let item of filteredSectionOptions"
+                [value]="item"
+              >
+                {{ item }}
+              </option>
+            </select></label
+          ><label
+            ><span>STATUS</span
+            ><select
+              [(ngModel)]="statusFilter"
+              (ngModelChange)="currentPage = 1"
+            >
+              <option value="">All statuses</option>
+              <option *ngFor="let status of statusOptions" [value]="status">
+                {{ status }}
+              </option>
+            </select></label
+          ><button
+            class="suite-button secondary"
+            type="button"
+            (click)="
+              search = '';
+              statusFilter = '';
+              scopeFilter = '';
+              sectionFilter = '';
+              currentPage = 1
+            "
+          >
+            Clear filters
+          </button>
+        </div>
+        <ng-template #standardFilters
+          ><div class="suite-filters education-filters">
+            <label class="search-field"
+              ><span>⌕</span
+              ><input
+                [ngModel]="search"
+                (ngModelChange)="setSearch($event)"
+                placeholder="Search {{ page.title.toLowerCase() }}" /></label
+            ><label
+              ><span>STATUS</span
+              ><select
+                [(ngModel)]="statusFilter"
+                (ngModelChange)="currentPage = 1"
+              >
+                <option value="">All statuses</option>
+                <option *ngFor="let status of statusOptions" [value]="status">
+                  {{ status }}
+                </option>
+              </select></label
+            ><label
+              ><span>{{
+                page.app.includes("Training")
+                  ? "COURSE / COHORT"
+                  : "CLASS / GRADE"
+              }}</span
+              ><select
+                [(ngModel)]="scopeFilter"
+                (ngModelChange)="currentPage = 1"
+              >
+                <option value="">
+                  All
+                  {{ page.app.includes("Training") ? "courses" : "classes" }}
+                </option>
+                <option *ngFor="let item of scopeOptions" [value]="item">
+                  {{ item }}
+                </option>
+              </select></label
+            ><button
+              class="suite-button secondary"
+              type="button"
+              (click)="
+                search = '';
+                statusFilter = '';
+                scopeFilter = '';
+                currentPage = 1
+              "
+            >
+              Clear filters
+            </button>
+          </div></ng-template
+        >
+        <div *ngIf="!stateOnly" class="suite-table-wrap">
+          <table
+            *ngIf="isStudentDirectory; else standardTable"
+            class="suite-table education-table education-student-table"
+          >
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>STUDENT #</th>
+                <th>EMAIL</th>
+                <th>GRADE</th>
+                <th>STATUS</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of visibleRows">
+                <td>
+                  <a
+                    class="education-student-name"
+                    [routerLink]="'/app/school-management/students/' + row.code"
+                    >{{ row.name }}</a
+                  >
+                </td>
+                <td>{{ row.code }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.values[0].split(" · ")[0] }}</td>
+                <td>
+                  <span
+                    class="status-pill"
+                    [class.active]="row.status === 'Active'"
+                    [class.needs-attention]="row.status === 'Inactive'"
+                    >{{ row.status }}</span
+                  >
+                </td>
+                <td>
+                  <div class="education-student-row-actions">
+                    <a
+                      [routerLink]="
+                        '/app/school-management/students/' + row.code
+                      "
+                      >View details</a
+                    ><a
+                      [routerLink]="
+                        '/app/school-management/students/' + row.code + '/edit'
+                      "
+                      >Edit</a
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr *ngIf="!visibleRows.length">
+                <td class="empty-row" colspan="6">No students found.</td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #standardTable
+            ><table class="suite-table education-table">
+              <thead>
+                <tr>
+                  <th>REFERENCE</th>
+                  <th *ngFor="let col of page.columns">{{ col }}</th>
+                  <th>STATUS</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of visibleRows">
+                  <td>
+                    <strong>{{ row.code }}</strong
+                    ><small>{{ page.entity | titlecase }} record</small>
+                  </td>
+                  <td>
+                    <strong>{{ row.name }}</strong
+                    ><small>{{ row.detail }}</small>
+                  </td>
+                  <td *ngFor="let value of row.values">{{ value }}</td>
+                  <td>
+                    <span
+                      class="status-pill"
+                      [class.active]="
+                        row.status === 'Active' || row.status === 'Approved'
+                      "
+                      [class.pending-review]="
+                        row.status === 'Pending review' ||
+                        row.status === 'Needs attention'
+                      "
+                      >{{ row.status }}</span
+                    >
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      class="table-action"
+                      (click)="openRow(row)"
+                    >
+                      Open
+                    </button>
+                  </td>
+                </tr>
+                <tr *ngIf="!visibleRows.length">
+                  <td
+                    class="empty-row"
+                    [attr.colspan]="page.columns.length + 3"
+                  >
+                    No records match the current filters.
+                  </td>
+                </tr>
+              </tbody>
+            </table></ng-template
+          >
+        </div>
+        <div *ngIf="stateOnly" class="education-state-placeholder">
+          <span class="suite-eyebrow">{{ state | uppercase }} STATE</span>
+          <h3>{{ stateTitle }}</h3>
+          <p>{{ stateDescription }}</p>
+        </div>
+        <suite-pagination
+          [first]="firstVisible"
+          [last]="lastVisible"
+          [total]="filteredRows.length"
+          [page]="currentPage"
+          [pages]="pageCount"
+          [size]="pageSize"
+          [sizes]="pageSizes"
+          (pageChange)="setPage($event)"
+          (pageSizeChange)="setSize($event)"
+        />
+      </section>
+
+      <section
+        *ngIf="page.kind === 'form' && isStudentForm"
+        class="student-form-workspace"
+      >
+        <form
+          class="education-student-form"
+          #studentForm="ngForm"
+          (ngSubmit)="saveStudent(studentForm)"
+          novalidate
+        >
+          <div
+            *ngIf="studentSourceRequestId"
+            class="student-request-prefill-note"
+          >
+            <span>REQUEST {{ studentSourceRequestId }}</span
+            ><strong>Requester details prefilled</strong
+            ><small
+              >Complete the remaining student and family information before
+              creating this local preview record.</small
+            >
+          </div>
+          <div
+            *ngIf="submitted && studentForm.invalid"
+            class="education-student-validation"
+            role="alert"
+          >
+            <strong>Complete the required student details</strong
+            ><span
+              >Review the highlighted fields and correct any invalid email
+              addresses.</span
+            >
+          </div>
+          <div
+            *ngIf="studentParentContactError"
+            class="education-student-validation"
+            role="alert"
+          >
+            <strong>Parent contact required</strong
+            ><span
+              >Provide a name and phone number for either the father or
+              mother.</span
+            >
+          </div>
+          <section class="suite-card education-student-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">PROFILE</span>
+                <h2>Student information</h2>
+                <p>Identity and contact details for the student record.</p>
+              </div>
+              <span class="education-required-note">* Required</span>
+            </div>
+            <div class="suite-form-grid">
+              <label
+                ><span>Student number</span
+                ><input
+                  name="student-number"
+                  [(ngModel)]="studentFormValues['Student Number']"
+                  [readonly]="isStudentEdit"
+                  placeholder="Leave blank to auto-generate" /></label
+              ><label
+                ><span>First name <b>*</b></span
+                ><input
+                  name="student-first-name"
+                  [(ngModel)]="studentFormValues['First Name']"
+                  required
+                  placeholder="First name" /></label
+              ><label
+                ><span>Last name <b>*</b></span
+                ><input
+                  name="student-last-name"
+                  [(ngModel)]="studentFormValues['Last Name']"
+                  required
+                  placeholder="Last name" /></label
+              ><label
+                ><span>Email</span
+                ><input
+                  type="email"
+                  name="student-email"
+                  [(ngModel)]="studentFormValues['Email']"
+                  placeholder="student@email.com" /></label
+              ><label
+                ><span>Phone</span
+                ><input
+                  name="student-phone"
+                  [(ngModel)]="studentFormValues['Phone']"
+                  placeholder="01xxxxxxxxx" /></label
+              ><label
+                ><span>Date of birth</span
+                ><input
+                  type="date"
+                  name="student-dob"
+                  [(ngModel)]="studentFormValues['Date of Birth']" /></label
+              ><label
+                ><span>Status</span
+                ><select
+                  name="student-status"
+                  [(ngModel)]="studentFormValues['Status']"
+                >
+                  <option>Active</option>
+                  <option>Enrolled</option>
+                  <option>Inactive</option>
+                </select></label
+              >
+            </div>
+          </section>
+          <section class="suite-card education-student-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">FAMILY & CONTACTS</span>
+                <h2>Parent and guardian details</h2>
+                <p>
+                  A complete father or mother contact is required. Additional
+                  contacts are optional.
+                </p>
+              </div>
+            </div>
+            <div class="education-contact-form-group">
+              <h3>Father details</h3>
+              <div class="suite-form-grid">
+                <label
+                  ><span>Father name <b>*</b></span
+                  ><input
+                    name="student-father-name"
+                    [(ngModel)]="studentFormValues['Father Name']"
+                    (ngModelChange)="studentParentContactError = false"
+                    placeholder="Father name" /></label
+                ><label
+                  ><span>Father phone <b>*</b></span
+                  ><input
+                    name="student-father-phone"
+                    [(ngModel)]="studentFormValues['Father Phone']"
+                    (ngModelChange)="studentParentContactError = false"
+                    placeholder="01xxxxxxxxx" /></label
+                ><label
+                  ><span>Father email</span
+                  ><input
+                    type="email"
+                    name="student-father-email"
+                    [(ngModel)]="studentFormValues['Father Email']"
+                    placeholder="father@email.com" /></label
+                ><label
+                  ><span>Occupation</span
+                  ><input
+                    name="student-father-occupation"
+                    [(ngModel)]="studentFormValues['Father Occupation']"
+                    placeholder="Occupation" /></label
+                ><label
+                  ><span>NID / passport</span
+                  ><input
+                    name="student-father-identity"
+                    [(ngModel)]="studentFormValues['Father Identity']"
+                    placeholder="Identity number"
+                /></label>
+              </div>
+            </div>
+            <div class="education-contact-form-group">
+              <h3>Mother details</h3>
+              <div class="suite-form-grid">
+                <label
+                  ><span>Mother name <b>*</b></span
+                  ><input
+                    name="student-mother-name"
+                    [(ngModel)]="studentFormValues['Mother Name']"
+                    (ngModelChange)="studentParentContactError = false"
+                    placeholder="Mother name" /></label
+                ><label
+                  ><span>Mother phone <b>*</b></span
+                  ><input
+                    name="student-mother-phone"
+                    [(ngModel)]="studentFormValues['Mother Phone']"
+                    (ngModelChange)="studentParentContactError = false"
+                    placeholder="01xxxxxxxxx" /></label
+                ><label
+                  ><span>Mother email</span
+                  ><input
+                    type="email"
+                    name="student-mother-email"
+                    [(ngModel)]="studentFormValues['Mother Email']"
+                    placeholder="mother@email.com" /></label
+                ><label
+                  ><span>Occupation</span
+                  ><input
+                    name="student-mother-occupation"
+                    [(ngModel)]="studentFormValues['Mother Occupation']"
+                    placeholder="Occupation" /></label
+                ><label
+                  ><span>NID / passport</span
+                  ><input
+                    name="student-mother-identity"
+                    [(ngModel)]="studentFormValues['Mother Identity']"
+                    placeholder="Identity number"
+                /></label>
+              </div>
+            </div>
+            <div class="education-contact-form-group">
+              <h3>Other guardian / local guardian</h3>
+              <div class="suite-form-grid">
+                <label
+                  ><span>Name</span
+                  ><input
+                    name="student-local-guardian-name"
+                    [(ngModel)]="studentFormValues['Local Guardian Name']"
+                    placeholder="Guardian name" /></label
+                ><label
+                  ><span>Relation</span
+                  ><input
+                    name="student-local-guardian-relation"
+                    [(ngModel)]="studentFormValues['Local Guardian Relation']"
+                    placeholder="Uncle, aunt, sibling" /></label
+                ><label
+                  ><span>Phone</span
+                  ><input
+                    name="student-local-guardian-phone"
+                    [(ngModel)]="studentFormValues['Local Guardian Phone']"
+                    placeholder="01xxxxxxxxx" /></label
+                ><label
+                  ><span>Email</span
+                  ><input
+                    type="email"
+                    name="student-local-guardian-email"
+                    [(ngModel)]="studentFormValues['Local Guardian Email']"
+                    placeholder="guardian@email.com"
+                /></label>
+              </div>
+            </div>
+            <div class="education-contact-form-group">
+              <h3>Emergency contact</h3>
+              <div class="suite-form-grid">
+                <label
+                  ><span>Name</span
+                  ><input
+                    name="student-emergency-name"
+                    [(ngModel)]="studentFormValues['Emergency Contact Name']"
+                    placeholder="Contact name" /></label
+                ><label
+                  ><span>Relation</span
+                  ><input
+                    name="student-emergency-relation"
+                    [(ngModel)]="
+                      studentFormValues['Emergency Contact Relation']
+                    "
+                    placeholder="Relationship" /></label
+                ><label
+                  ><span>Phone</span
+                  ><input
+                    name="student-emergency-phone"
+                    [(ngModel)]="studentFormValues['Emergency Contact Phone']"
+                    placeholder="01xxxxxxxxx"
+                /></label>
+              </div>
+            </div>
+          </section>
+          <section class="suite-card education-student-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">PLACEMENT</span>
+                <h2>Academic assignment</h2>
+                <p>
+                  Select class and section first, then set group or roll if
+                  required.
+                </p>
+              </div>
+            </div>
+            <div class="suite-form-grid">
+              <label
+                ><span>Class <b>*</b></span
+                ><select
+                  name="student-class"
+                  [(ngModel)]="studentFormValues['Class']"
+                  required
+                  [disabled]="isStudentEdit"
+                  (ngModelChange)="studentFormValues['Section'] = ''"
+                >
+                  <option value="">Select class</option>
+                  <option *ngFor="let grade of gradeOptions">
+                    {{ grade }}
+                  </option>
+                </select></label
+              ><label
+                ><span>Section <b>*</b></span
+                ><select
+                  name="student-section"
+                  [(ngModel)]="studentFormValues['Section']"
+                  required
+                  [disabled]="isStudentEdit || !studentFormValues['Class']"
+                >
+                  <option value="">Select section</option>
+                  <option *ngFor="let section of studentSections">
+                    {{ section }}
+                  </option>
+                </select></label
+              ><label
+                ><span>Group</span
+                ><select
+                  name="student-group"
+                  [(ngModel)]="studentFormValues['Group']"
+                >
+                  <option value="">Select group</option>
+                  <option>General</option>
+                  <option>Science</option>
+                  <option>Business Studies</option>
+                  <option>Humanities</option>
+                </select></label
+              ><label
+                ><span>Roll</span
+                ><input
+                  name="student-roll"
+                  [(ngModel)]="studentFormValues['Roll Number']"
+                  [readonly]="isStudentEdit"
+                  placeholder="Leave blank to auto-generate"
+              /></label>
+            </div>
+          </section>
+          <section class="suite-card education-student-form-section">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">ADDRESS</span>
+                <h2>Address</h2>
+                <p>
+                  Current address used for reporting, transport planning, and
+                  emergency contacts.
+                </p>
+              </div>
+            </div>
+            <div class="suite-form-grid">
+              <label
+                ><span>Line 1</span
+                ><input
+                  name="student-address-line-1"
+                  [(ngModel)]="studentFormValues['Address Line 1']"
+                  placeholder="Address line 1" /></label
+              ><label
+                ><span>Line 2</span
+                ><input
+                  name="student-address-line-2"
+                  [(ngModel)]="studentFormValues['Address Line 2']"
+                  placeholder="Address line 2 (optional)" /></label
+              ><label
+                ><span>City</span
+                ><input
+                  name="student-city"
+                  [(ngModel)]="studentFormValues['City']"
+                  placeholder="City" /></label
+              ><label
+                ><span>State / division</span
+                ><input
+                  name="student-state"
+                  [(ngModel)]="studentFormValues['State']"
+                  placeholder="State / division" /></label
+              ><label
+                ><span>Postal code</span
+                ><input
+                  name="student-postal-code"
+                  [(ngModel)]="studentFormValues['Postal Code']"
+                  placeholder="Postal code" /></label
+              ><label class="wide"
+                ><span>Notes</span
+                ><textarea
+                  name="student-notes"
+                  [(ngModel)]="studentFormValues['Notes']"
+                  rows="3"
+                  placeholder="Add relevant details"
+                ></textarea>
+              </label>
+            </div>
+          </section>
+          <p
+            *ngIf="submitted && studentForm.invalid"
+            class="form-error"
+            role="alert"
+          >
+            Please complete required details and correct any invalid email
+            addresses.
+          </p>
+          <div class="suite-form-actions">
+            <a
+              class="suite-button secondary"
+              [routerLink]="
+                isStudentEdit && studentRecord
+                  ? '/app/school-management/students/' + studentRecord.code
+                  : '/app/school-management/students'
+              "
+              >Cancel</a
+            ><button class="suite-button primary" type="submit">
+              {{ isStudentEdit ? "Save student" : "Create student" }}
+            </button>
+          </div>
+        </form>
+        <aside class="suite-side-card education-student-form-aside">
+          <span class="suite-eyebrow">RECORD CHECKLIST</span>
+          <h3>
+            {{
+              isStudentEdit ? "Review student changes" : "Ready for enrollment"
+            }}
+          </h3>
+          <p>
+            {{
+              isStudentEdit
+                ? "Keep identity and academic placement accurate while updating family contacts."
+                : "A complete profile helps the school team prepare the student’s enrollment."
+            }}
+          </p>
+          <div class="education-form-step">
+            <span>01</span>
+            <div>
+              <strong>Student profile</strong
+              ><small>Name and contact details</small>
+            </div>
+          </div>
+          <div class="education-form-step">
+            <span>02</span>
+            <div>
+              <strong>Family contacts</strong
+              ><small>Parent contact is required</small>
+            </div>
+          </div>
+          <div class="education-form-step">
+            <span>03</span>
+            <div>
+              <strong>Class placement</strong
+              ><small>Class and section required</small>
+            </div>
+          </div>
+          <div class="education-form-aside-context">
+            <div class="side-fact">
+              <span>Academic year</span
+              ><strong>{{ selectedAcademicYear }}</strong>
+            </div>
+            <div class="side-fact">
+              <span>Campus</span><strong>{{ selectedCampus }}</strong>
+            </div>
+            <div class="side-fact">
+              <span>Data mode</span><strong>Local preview</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section
+        *ngIf="page.kind === 'form' && !isStudentForm && !isApplicationCreate"
+        class="suite-form-layout education-form-layout"
+      >
+        <form
+          class="suite-card form-card"
+          #recordForm="ngForm"
+          (ngSubmit)="save(recordForm)"
+        >
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">{{ page.group | uppercase }}</span>
+              <h2>{{ page.title }}</h2>
+              <p>
+                Enter the key information for this {{ page.entity }} record.
+              </p>
+            </div>
+            <span class="education-required-note">* Required fields</span>
+          </div>
+          <div class="suite-form-grid">
+            <label *ngFor="let field of page.fields" [class.wide]="field.wide"
+              ><span>{{ field.label }}<b *ngIf="field.required"> *</b></span
+              ><textarea
+                *ngIf="field.type === 'textarea'; else regularField"
+                [name]="field.label"
+                [required]="!!field.required"
+                ngModel
+                rows="3"
+                placeholder="Add relevant details"
+              ></textarea
+              ><ng-template #regularField
+                ><select
+                  *ngIf="field.options?.length; else textField"
+                  [name]="field.label"
+                  [required]="!!field.required"
+                  ngModel
+                >
+                  <option value="">
+                    Choose {{ field.label.toLowerCase() }}
+                  </option>
+                  <option *ngFor="let choice of field.options">
+                    {{ choice }}
+                  </option></select
+                ><ng-template #textField
+                  ><input
+                    [type]="field.type || 'text'"
+                    [name]="field.label"
+                    [required]="!!field.required"
+                    ngModel
+                    [placeholder]="field.label" /></ng-template></ng-template
+              ><small
+                *ngIf="
+                  submitted &&
+                  field.required &&
+                  recordForm.controls[field.label]?.invalid
+                "
+                class="education-field-error"
+                >{{ field.label }} is required.</small
+              ></label
+            >
+          </div>
+          <p
+            *ngIf="submitted && recordForm.invalid"
+            class="form-error"
+            role="alert"
+          >
+            Please complete the required fields before saving.
+          </p>
+          <div class="suite-form-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="act('Changes discarded in the browser preview.')"
+            >
+              Cancel</button
+            ><button class="suite-button primary" type="submit">
+              Save preview
+            </button>
+          </div>
+        </form>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">RECORD GUIDANCE</span>
+          <h3>Keep the record complete</h3>
+          <p>
+            Check the campus, academic session, and contact information before
+            you save.
+          </p>
+          <div class="side-fact">
+            <span>Organization</span><strong>Stravix Group BD</strong>
+          </div>
+          <div class="side-fact">
+            <span>Session</span><strong>2026–27</strong>
+          </div>
+          <div class="side-fact">
+            <span>Data mode</span><strong>Local preview</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section
+        *ngIf="page.kind === 'detail' && isStudentDetail"
+        class="education-student-detail"
+      >
+        <ng-container *ngIf="studentRecord as student; else missingStudent">
+          <header class="suite-card education-student-profile-head">
+            <div class="education-student-avatar">
+              {{ student.name.slice(0, 1) }}
+            </div>
+            <div class="education-student-profile-identity">
+              <span class="suite-eyebrow">STUDENT PROFILE</span>
+              <h2>{{ student.name }}</h2>
+              <p>
+                Student # {{ student.code }} <span>·</span> Status:
+                <b
+                  [class.status-inactive-text]="student.status === 'Inactive'"
+                  >{{ student.status }}</b
+                >
+              </p>
+            </div>
+            <span
+              class="status-pill"
+              [class.active]="student.status === 'Active'"
+              [class.needs-attention]="student.status === 'Inactive'"
+              >{{ student.status }}</span
+            >
+          </header>
+          <div class="education-student-summary-grid">
+            <article class="suite-card">
+              <span class="education-summary-label">Identity</span
+              ><strong>{{ student.name }}</strong
+              ><small class="education-mono">ID: {{ student.code }}</small
+              ><small>User: Not linked yet</small>
+            </article>
+            <article class="suite-card">
+              <span class="education-summary-label">Academic Snapshot</span
+              ><strong>{{ student.values[0] }}</strong
+              ><small>Group: General</small
+              ><small>Roll: {{ 8 + (student.code.length % 20) }}</small>
+            </article>
+            <article class="suite-card">
+              <span class="education-summary-label">Lifecycle</span
+              ><strong>3 academic events</strong
+              ><small
+                >{{ studentAttendanceHistory.length }} attendance records for
+                selected class</small
+              ><small>{{ studentExamResults.length }} exam entries</small>
+            </article>
+          </div>
+          <nav
+            class="suite-tabs education-student-tabs"
+            role="tablist"
+            aria-label="Student detail sections"
+          >
+            <button
+              *ngFor="let tab of studentTabs"
+              type="button"
+              role="tab"
+              [class.selected]="studentTab === tab.id"
+              [attr.aria-selected]="studentTab === tab.id"
+              (click)="setStudentTab(tab.id)"
+            >
+              {{ tab.label }}
+            </button>
+          </nav>
+          <section
+            *ngIf="studentTab === 'overview'"
+            class="education-student-overview"
+          >
+            <article class="suite-card education-student-panel">
+              <h3>Student Profile</h3>
+              <div class="education-student-kv">
+                <span>Student ID</span><strong>{{ student.code }}</strong
+                ><span>User ID</span><strong>Not linked yet</strong
+                ><span>Email</span><strong>{{ student.email }}</strong
+                ><span>Phone</span><strong>+880 1712 340 567</strong
+                ><span>Date of Birth</span><strong>18 Apr 2012</strong
+                ><span>Status</span><strong>{{ student.status }}</strong
+                ><span>Address Line 1</span><strong>House 18, Road 6</strong
+                ><span>Address Line 2</span><strong>Dhanmondi</strong
+                ><span>City</span><strong>Dhaka</strong><span>State</span
+                ><strong>Dhaka</strong><span>Postal Code</span
+                ><strong>1209</strong><span>Grade</span
+                ><strong>{{ student.values[0].split(" · ")[0] }}</strong
+                ><span>Class</span
+                ><strong>{{ student.values[0].split(" · ")[0] }}</strong
+                ><span>Section</span
+                ><strong>{{ student.values[0].split(" · ")[1] }}</strong
+                ><span>Group / roll</span
+                ><strong>General · {{ 8 + (student.code.length % 20) }}</strong>
+              </div>
+            </article>
+            <article class="suite-card education-student-panel">
+              <h3>Parent And Guardian Contacts</h3>
+              <div class="education-contact-block">
+                <span>Father</span
+                ><strong>Mr. {{ student.name.split(" ").at(-1) }}</strong
+                ><small
+                  >+880 1712 340 500 · father.{{
+                    student.name.split(" ").at(-1)?.toLowerCase()
+                  }}@mail.example</small
+                ><small>Occupation · Business owner</small>
+              </div>
+              <div class="education-contact-block">
+                <span>Mother</span
+                ><strong>Mrs. {{ student.name.split(" ").at(-1) }}</strong
+                ><small
+                  >+880 1712 340 501 · mother.{{
+                    student.name.split(" ").at(-1)?.toLowerCase()
+                  }}@mail.example</small
+                ><small>Occupation · Teacher</small>
+              </div>
+              <div class="education-contact-block">
+                <span>Emergency contact</span
+                ><strong>Mr. {{ student.name.split(" ").at(-1) }}</strong
+                ><small>+880 1712 340 502 · Guardian</small>
+              </div>
+            </article>
+            <article class="suite-card education-student-panel">
+              <h3>Admission Info</h3>
+              <div class="education-student-kv">
+                <span>Application ID</span><strong>APP-25-0014</strong
+                ><span>Application No</span><strong>ADM-2025-014</strong
+                ><span>Status</span><strong>Approved</strong
+                ><span>Class / section</span
+                ><strong>{{ student.values[0] }}</strong
+                ><span>Approved At</span><strong>15 Jun 2025</strong
+                ><span>Created</span><strong>15 Jun 2025</strong
+                ><span>Updated</span><strong>24 Sep 2026</strong>
+              </div>
+            </article>
+          </section>
+          <section
+            *ngIf="studentTab === 'academic'"
+            class="suite-card education-student-tab-panel"
+          >
+            <div class="suite-card-heading">
+              <div>
+                <h3>Academic/Class History</h3>
+                <p>
+                  Class and section changes during the student's time at school.
+                </p>
+              </div>
+            </div>
+            <div class="suite-table-wrap">
+              <table class="suite-table education-student-history-table">
+                <thead>
+                  <tr>
+                    <th>WHEN</th>
+                    <th>ACTION</th>
+                    <th>FROM</th>
+                    <th>TO</th>
+                    <th>SESSION SHIFT</th>
+                    <th>BY</th>
+                    <th>NOTE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let record of studentAcademicHistory">
+                    <td>{{ record.when }}</td>
+                    <td>{{ record.action }}</td>
+                    <td>{{ record.from }}</td>
+                    <td>{{ record.to }}</td>
+                    <td>{{ record.session }}</td>
+                    <td>{{ record.by }}</td>
+                    <td>{{ record.note }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section
+            *ngIf="studentTab === 'attendance'"
+            class="suite-card education-student-tab-panel"
+          >
+            <div class="suite-card-heading">
+              <div>
+                <h3>Attendance History</h3>
+                <p>Attendance recorded across the student's classes.</p>
+              </div>
+              <label class="education-attendance-filter"
+                ><span>CLASS</span
+                ><select
+                  [ngModel]="studentAttendanceClass"
+                  (ngModelChange)="setStudentAttendanceClass($event)"
+                >
+                  <option value="">All classes</option>
+                  <option
+                    *ngFor="let className of classOptions"
+                    [value]="className"
+                  >
+                    {{ className }}
+                  </option>
+                </select></label
+              >
+            </div>
+            <div class="suite-table-wrap">
+              <table
+                class="suite-table education-table education-student-history-table"
+              >
+                <thead>
+                  <tr>
+                    <th>DATE</th>
+                    <th>CLASS</th>
+                    <th>SECTION</th>
+                    <th>SUBJECT</th>
+                    <th>STATUS</th>
+                    <th>MARKED BY</th>
+                    <th>MARKED AT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let record of visibleStudentAttendance">
+                    <td>{{ record.when }}</td>
+                    <td>{{ record.className.split(" · ")[0] }}</td>
+                    <td>{{ record.sectionName }}</td>
+                    <td>{{ record.subjectCode }}</td>
+                    <td>
+                      <span
+                        class="status-pill"
+                        [class.active]="record.status === 'Present'"
+                        [class.needs-attention]="record.status === 'Absent'"
+                        >{{ record.status }}</span
+                      >
+                    </td>
+                    <td>{{ record.recordedBy }}</td>
+                    <td>{{ record.markedAt }}</td>
+                  </tr>
+                  <tr *ngIf="!visibleStudentAttendance.length">
+                    <td colspan="7" class="empty-row">
+                      No attendance records found for this class.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <suite-pagination
+              [first]="
+                filteredStudentAttendance.length
+                  ? (studentAttendancePage - 1) * studentAttendancePageSize + 1
+                  : 0
+              "
+              [last]="studentAttendanceLast"
+              [total]="filteredStudentAttendance.length"
+              [page]="studentAttendancePage"
+              [pages]="studentAttendancePages"
+              [size]="studentAttendancePageSize"
+              [sizes]="[10, 25, 50]"
+              (pageChange)="setStudentAttendancePage($event)"
+              (pageSizeChange)="setStudentAttendancePageSize($event)"
+            />
+          </section>
+          <section
+            *ngIf="studentTab === 'exams'"
+            class="suite-card education-student-tab-panel"
+          >
+            <div class="suite-card-heading">
+              <div>
+                <h3>Exam Results (All Classes)</h3>
+                <p>Published results and assessment history.</p>
+              </div>
+            </div>
+            <div class="suite-table-wrap">
+              <table
+                class="suite-table education-table education-student-history-table"
+              >
+                <thead>
+                  <tr>
+                    <th>ENTERED</th>
+                    <th>TERM</th>
+                    <th>CLASS</th>
+                    <th>SECTION</th>
+                    <th>SUBJECT</th>
+                    <th>TYPE</th>
+                    <th>MARKS</th>
+                    <th>%</th>
+                    <th>GRADE</th>
+                    <th>PASS</th>
+                    <th>PUBLISH</th>
+                    <th>REMARKS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let result of studentExamResults">
+                    <td>{{ result.entered }}</td>
+                    <td>{{ result.term }}</td>
+                    <td>{{ result.className }}</td>
+                    <td>{{ result.section }}</td>
+                    <td>{{ result.subject }}</td>
+                    <td>{{ result.type }}</td>
+                    <td>{{ result.marks }}</td>
+                    <td>{{ result.percent }}</td>
+                    <td>{{ result.grade }}</td>
+                    <td>{{ result.pass }}</td>
+                    <td>{{ result.publish }}</td>
+                    <td>{{ result.remarks }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section
+            *ngIf="studentTab === 'access'"
+            class="education-student-access"
+          >
+            <article class="suite-card education-student-tab-panel">
+              <div class="suite-card-heading">
+                <div>
+                  <h3>Lifecycle Audit Trail</h3>
+                  <p>Key actions recorded on the student profile.</p>
+                </div>
+              </div>
+              <div class="suite-table-wrap">
+                <table class="suite-table education-table">
+                  <thead>
+                    <tr>
+                      <th>WHEN</th>
+                      <th>ACTION</th>
+                      <th>ACTOR</th>
+                      <th>NOTE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of studentAuditTrail">
+                      <td>{{ event.when }}</td>
+                      <td>{{ event.action }}</td>
+                      <td>{{ event.actor }}</td>
+                      <td>{{ event.note }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+            <article class="suite-card education-student-tab-panel">
+              <div class="suite-card-heading">
+                <div>
+                  <h3>Transfer Certificates</h3>
+                  <p>Issued transfer records for this student.</p>
+                </div>
+              </div>
+              <div class="suite-table-wrap">
+                <table class="suite-table education-table">
+                  <thead>
+                    <tr>
+                      <th>TC NO</th>
+                      <th>SESSION</th>
+                      <th>ISSUED AT</th>
+                      <th>ISSUED BY</th>
+                      <th>REASON</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let certificate of transferCertificates">
+                      <td>{{ certificate.number }}</td>
+                      <td>{{ certificate.session }}</td>
+                      <td>{{ certificate.issued }}</td>
+                      <td>{{ certificate.by }}</td>
+                      <td>{{ certificate.reason }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </section> </ng-container
+        ><ng-template #missingStudent
+          ><section class="suite-card education-student-missing">
+            <h2>Student record not found</h2>
+            <p>Choose a student from the directory to open a sample profile.</p>
+            <a
+              routerLink="/app/school-management/students"
+              class="suite-button secondary"
+              >Back to students</a
+            >
+          </section></ng-template
+        >
+      </section>
+
+      <section *ngIf="isApplicationDetail" class="education-application-detail">
+        <div
+          *ngIf="state === 'loading'"
+          class="suite-card education-application-detail-state"
+        >
+          <span class="education-class-state-mark spinning">↻</span>
+          <h2>Loading application</h2>
+          <p>Applicant, policy, document, and payment details are loading.</p>
+        </div>
+        <div
+          *ngIf="state === 'error'"
+          class="suite-card education-application-detail-state error"
+        >
+          <span class="education-class-state-mark">!</span>
+          <h2>Application details unavailable</h2>
+          <p>The sample application could not be loaded.</p>
+          <button
+            class="suite-button secondary"
+            type="button"
+            (click)="setState('populated')"
+          >
+            Retry
+          </button>
+        </div>
+        <div
+          *ngIf="state === 'forbidden'"
+          class="suite-card education-application-detail-state"
+        >
+          <span class="education-class-state-mark">•</span>
+          <h2>Application access is restricted</h2>
+          <p>Your current sample role cannot view this admission record.</p>
+        </div>
+        <div
+          *ngIf="
+            state === 'empty' || (!applicationDetail && state === 'populated')
+          "
+          class="suite-card education-application-detail-state"
+        >
+          <span class="education-class-state-mark">⌕</span>
+          <h2>Application not found</h2>
+          <p>This application is not available in the local sample records.</p>
+          <a
+            class="suite-button secondary"
+            routerLink="/app/school-management/admissions/applications"
+            >Back to applications</a
+          >
+        </div>
+        <ng-container
+          *ngIf="
+            applicationDetail &&
+            !['loading', 'error', 'forbidden', 'empty'].includes(state)
+          "
+        >
+          <div class="education-application-detail-hero suite-card">
+            <a
+              class="education-application-back"
+              routerLink="/app/school-management/admissions/applications"
+              >← Back to applications</a
+            >
+            <div class="education-application-detail-identity">
+              <span class="education-application-avatar">{{
+                applicationInitials(applicationDetail)
+              }}</span>
+              <div>
+                <span class="suite-eyebrow"
+                  >ADMISSION APPLICATION ·
+                  {{ applicationDetail.applicationNo }}</span
+                >
+                <h2>
+                  {{ applicationDetail.studentFirstName }}
+                  {{ applicationDetail.studentLastName }}
+                </h2>
+                <p>
+                  {{ applicationDetail.className }} <span>·</span>
+                  {{ applicationDetail.campus }} <span>·</span> Applied
+                  {{ applicationDetail.created }}
+                </p>
+              </div>
+              <span
+                class="status-pill"
+                [class.active]="
+                  applicationStatusClass(applicationDetail.status) === 'active'
+                "
+                [class.pending-review]="
+                  applicationStatusClass(applicationDetail.status) ===
+                  'pending-review'
+                "
+                [class.needs-attention]="
+                  applicationStatusClass(applicationDetail.status) ===
+                  'needs-attention'
+                "
+                >{{ applicationDetail.status | titlecase }}</span
+              >
+            </div>
+            <div class="education-application-detail-actions">
+              <button
+                *ngIf="applicationDetail.status !== 'approved'"
+                class="suite-button secondary"
+                type="button"
+                (click)="openApplicationEdit()"
+              >
+                Edit application</button
+              ><button
+                *ngIf="applicationDetail.status === 'submitted'"
+                class="suite-button primary"
+                type="button"
+                (click)="openApplicationConfirm('verify')"
+              >
+                Verify application</button
+              ><button
+                *ngIf="applicationDetail.status === 'verified'"
+                class="suite-button primary"
+                type="button"
+                (click)="openApplicationConfirm('approve')"
+              >
+                Approve application</button
+              ><button
+                *ngIf="
+                  applicationDetail.status === 'submitted' ||
+                  applicationDetail.status === 'verified'
+                "
+                class="suite-button danger"
+                type="button"
+                (click)="openApplicationConfirm('reject')"
+              >
+                Reject</button
+              ><button
+                *ngIf="canUpdateApplicationPayment"
+                class="suite-button secondary"
+                type="button"
+                (click)="openApplicationPayment()"
+              >
+                Update payment status</button
+              ><button
+                *ngIf="applicationDetail.status === 'approved'"
+                class="suite-button secondary"
+                type="button"
+                (click)="applicationAdmitCardOpen = true"
+              >
+                Generate admit card</button
+              ><button
+                class="education-detail-more"
+                type="button"
+                (click)="openApplicationConfirm('delete')"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+          <div class="education-application-lifecycle suite-card">
+            <div class="education-application-lifecycle-head">
+              <div>
+                <span class="suite-eyebrow">APPLICATION LIFECYCLE</span>
+                <h3>Review progress</h3>
+              </div>
+              <span class="education-application-lifecycle-note">{{
+                applicationDetail.status === "rejected"
+                  ? "Review ended"
+                  : applicationDetail.status === "approved"
+                    ? "Admission approved"
+                    : "Next: " +
+                      (applicationDetail.status === "draft"
+                        ? "Submit for review"
+                        : applicationDetail.status === "submitted"
+                          ? "Verify documents and details"
+                          : "Approve applicant")
+              }}</span>
+            </div>
+            <div
+              class="education-application-steps"
+              [class.rejected]="applicationDetail.status === 'rejected'"
+            >
+              <div
+                *ngFor="
+                  let step of ['Draft', 'Submitted', 'Verified', 'Approved'];
+                  let i = index
+                "
+                [class.complete]="
+                  applicationDetail.status !== 'rejected' &&
+                  i < applicationWorkflowStep(applicationDetail.status)
+                "
+                [class.current]="
+                  applicationDetail.status !== 'rejected' &&
+                  i === applicationWorkflowStep(applicationDetail.status)
+                "
+                [class.rejected-step]="
+                  applicationDetail.status === 'rejected' && i === 2
+                "
+              >
+                <span>{{
+                  applicationDetail.status !== "rejected" &&
+                  i < applicationWorkflowStep(applicationDetail.status)
+                    ? "✓"
+                    : applicationDetail.status === "rejected" && i === 2
+                      ? "!"
+                      : i + 1
+                }}</span
+                ><strong>{{ step }}</strong>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="applicationEditOpen"
+            class="suite-card education-application-edit"
+          >
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">APPLICATION PROFILE</span>
+                <h2>Edit application</h2>
+                <p>
+                  Update student, guardian, and placement information. Changes
+                  remain in this browser preview.
+                </p>
+              </div>
+              <button
+                class="education-modal-close"
+                type="button"
+                aria-label="Close edit form"
+                (click)="cancelApplicationEdit()"
+              >
+                ×
+              </button>
+            </div>
+            <form (ngSubmit)="saveApplicationEdit()" novalidate>
+              <div class="education-application-edit-grid">
+                <label
+                  ><span>Student first name *</span
+                  ><input
+                    name="firstName"
+                    [(ngModel)]="applicationEditForm['firstName']"
+                  /><small
+                    *ngIf="
+                      applicationEditSubmitted &&
+                      applicationEditErrors['firstName']
+                    "
+                    >{{ applicationEditErrors["firstName"] }}</small
+                  ></label
+                ><label
+                  ><span>Student last name *</span
+                  ><input
+                    name="lastName"
+                    [(ngModel)]="applicationEditForm['lastName']"
+                  /><small
+                    *ngIf="
+                      applicationEditSubmitted &&
+                      applicationEditErrors['lastName']
+                    "
+                    >{{ applicationEditErrors["lastName"] }}</small
+                  ></label
+                ><label
+                  ><span>Date of birth</span
+                  ><input
+                    name="dateOfBirth"
+                    type="date"
+                    [(ngModel)]="applicationEditForm['dateOfBirth']" /></label
+                ><label
+                  ><span>Gender</span
+                  ><select
+                    name="gender"
+                    [(ngModel)]="applicationEditForm['gender']"
+                  >
+                    <option value="">Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select></label
+                ><label
+                  ><span>Guardian name *</span
+                  ><input
+                    name="guardianName"
+                    [(ngModel)]="applicationEditForm['guardianName']"
+                  /><small
+                    *ngIf="
+                      applicationEditSubmitted &&
+                      applicationEditErrors['guardianName']
+                    "
+                    >{{ applicationEditErrors["guardianName"] }}</small
+                  ></label
+                ><label
+                  ><span>Relationship</span
+                  ><input
+                    name="guardianRelation"
+                    [(ngModel)]="
+                      applicationEditForm['guardianRelation']
+                    " /></label
+                ><label
+                  ><span>Guardian phone</span
+                  ><input
+                    name="guardianPhone"
+                    [(ngModel)]="applicationEditForm['guardianPhone']" /></label
+                ><label
+                  ><span>Guardian email</span
+                  ><input
+                    name="guardianEmail"
+                    type="email"
+                    [(ngModel)]="applicationEditForm['guardianEmail']"
+                  /><small
+                    *ngIf="
+                      applicationEditSubmitted &&
+                      applicationEditErrors['guardianEmail']
+                    "
+                    >{{ applicationEditErrors["guardianEmail"] }}</small
+                  ></label
+                ><label
+                  ><span>Class *</span
+                  ><select
+                    name="className"
+                    [(ngModel)]="applicationEditForm['className']"
+                    [disabled]="applicationPolicyLocked"
+                  >
+                    <option value="">Choose class</option>
+                    <option *ngFor="let item of classLevels">
+                      {{ item.name }}
+                    </option></select
+                  ><small
+                    *ngIf="
+                      applicationEditSubmitted &&
+                      applicationEditErrors['className']
+                    "
+                    >{{ applicationEditErrors["className"] }}</small
+                  ></label
+                ><label
+                  ><span>Section</span
+                  ><select
+                    name="section"
+                    [(ngModel)]="applicationEditForm['section']"
+                    [disabled]="applicationPolicyLocked"
+                  >
+                    <option *ngFor="let item of ['A', 'B', 'C']">
+                      {{ item }}
+                    </option>
+                  </select></label
+                ><label
+                  ><span>Branch / campus</span
+                  ><select
+                    name="campus"
+                    [(ngModel)]="applicationEditForm['campus']"
+                    [disabled]="applicationPolicyLocked"
+                  >
+                    <option>Stravix Main Campus</option>
+                    <option>Gulshan Campus</option>
+                    <option>Chattogram Campus</option>
+                  </select></label
+                ><label
+                  ><span>Academic group</span
+                  ><select
+                    name="group"
+                    [(ngModel)]="applicationEditForm['group']"
+                  >
+                    <option *ngFor="let item of applicationGroups">
+                      {{ item }}
+                    </option>
+                  </select></label
+                >
+              </div>
+              <p *ngIf="applicationPolicyLocked" class="education-inline-note">
+                Placement fields are locked after submission for this record.
+              </p>
+              <div class="education-application-edit-actions">
+                <button
+                  class="suite-button secondary"
+                  type="button"
+                  (click)="cancelApplicationEdit()"
+                >
+                  Cancel</button
+                ><button class="suite-button primary" type="submit">
+                  Save changes
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="education-application-detail-grid">
+            <section class="education-detail-facts suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">RECORD OVERVIEW</span>
+                  <h2>Application summary</h2>
+                </div>
+              </div>
+              <div class="education-detail-kv">
+                <span>Tracking number</span
+                ><strong>{{ applicationDetail.applicationNo }}</strong
+                ><span>Application number</span
+                ><strong>{{ applicationDetail.applicationNo }}</strong
+                ><span>Application status</span
+                ><strong>{{ applicationDetail.status | titlecase }}</strong
+                ><span>Payment status</span
+                ><strong>{{ applicationPaymentStatusLabel }}</strong
+                ><span>Class & section</span
+                ><strong
+                  >{{ applicationDetail.className }} ·
+                  {{ applicationDetail.section || "Unassigned" }}</strong
+                ><span>Campus / branch</span
+                ><strong>{{ applicationDetail.campus }}</strong
+                ><span>Created</span
+                ><strong>{{ applicationDetail.created }} · 09:18</strong
+                ><span>Last updated</span><strong>25 Sep 2026 · 11:06</strong>
+              </div>
+            </section>
+            <section class="education-detail-facts suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">APPLICANT</span>
+                  <h2>Student</h2>
+                </div>
+              </div>
+              <div class="education-detail-kv">
+                <span>Name</span
+                ><strong
+                  >{{ applicationDetail.studentFirstName }}
+                  {{ applicationDetail.studentLastName }}</strong
+                ><span>Date of birth</span
+                ><strong>{{ applicationDetail.dateOfBirth || "—" }}</strong
+                ><span>Gender</span
+                ><strong>{{ applicationDetail.gender || "—" }}</strong
+                ><span>Applicant category</span
+                ><strong>{{ applicationDetail.category }}</strong
+                ><span>Academic group</span
+                ><strong>{{ applicationDetail.group }}</strong>
+              </div>
+            </section>
+            <section class="education-detail-facts suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">PRIMARY CONTACT</span>
+                  <h2>Guardian</h2>
+                </div>
+              </div>
+              <div class="education-detail-kv">
+                <span>Name</span
+                ><strong>{{ applicationDetail.guardianName }}</strong
+                ><span>Relationship</span
+                ><strong>{{ applicationDetail.guardianRelation || "—" }}</strong
+                ><span>Phone</span
+                ><strong>{{ applicationDetail.guardianPhone || "—" }}</strong
+                ><span>Email</span
+                ><strong>{{ applicationDetail.guardianEmail || "—" }}</strong>
+              </div>
+            </section>
+            <section class="education-detail-facts suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">ENROLLMENT & FEES</span>
+                  <h2>Admission account</h2>
+                </div>
+                <span
+                  class="status-pill"
+                  [class.active]="applicationDetail.feeStatus === 'paid'"
+                  [class.pending-review]="
+                    applicationDetail.feeStatus !== 'paid'
+                  "
+                  >{{ applicationPaymentStatusLabel }}</span
+                >
+              </div>
+              <div class="education-detail-kv">
+                <span>Student ID</span
+                ><strong>{{
+                  applicationDetail.enrolledStudentId || "Not enrolled"
+                }}</strong
+                ><span>Admission fee</span
+                ><strong
+                  >৳
+                  {{
+                    applicationDetail.admissionFee || 0 | number: "1.0-0"
+                  }}
+                  BDT</strong
+                ><span>Paid amount</span
+                ><strong
+                  >৳ {{ applicationPaidAmount | number: "1.0-0" }} BDT</strong
+                ><span>Balance due</span
+                ><strong
+                  >৳ {{ applicationDueAmount | number: "1.0-0" }} BDT</strong
+                ><span>Receipt</span
+                ><strong>{{ applicationDetail.receiptNo || "—" }}</strong
+                ><span>Payment method</span
+                ><strong>{{ applicationDetail.paymentMethod || "—" }}</strong
+                ><span>Payment date</span
+                ><strong>{{ applicationDetail.paymentDate || "—" }}</strong
+                ><span>Approved at</span
+                ><strong>{{ applicationDetail.approvedAt || "—" }}</strong>
+              </div>
+            </section>
+          </div>
+          <section class="education-detail-policy suite-card">
+            <div class="suite-card-heading">
+              <div>
+                <span class="suite-eyebrow">ADMISSION PROGRAMME</span>
+                <h2>Programme & policy snapshot</h2>
+                <p>Policy values retained with this application for review.</p>
+              </div>
+            </div>
+            <div class="education-policy-grid">
+              <div>
+                <span>Programme</span
+                ><a routerLink="/app/school-management/admissions/campaigns"
+                  >{{
+                    applicationDetail.campaignTitle || "Campaign unavailable"
+                  }}
+                  ↗</a
+                >
+              </div>
+              <div>
+                <span>Policy version</span
+                ><strong
+                  >Version
+                  {{ applicationDetail.campaignVersion || "—" }}</strong
+                >
+              </div>
+              <div>
+                <span>Applicant category</span
+                ><strong>{{ applicationDetail.category }}</strong>
+              </div>
+              <div>
+                <span>Admission fee snapshot</span
+                ><strong
+                  >৳
+                  {{
+                    applicationDetail.admissionFee || 0 | number: "1.0-0"
+                  }}
+                  BDT</strong
+                >
+              </div>
+              <div><span>Academic year</span><strong>2026–27</strong></div>
+              <div>
+                <span>Campus / branch</span
+                ><strong>{{ applicationDetail.campus }}</strong>
+              </div>
+            </div>
+          </section>
+          <div class="education-detail-lower-grid">
+            <section class="education-detail-documents suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">APPLICATION FILES</span>
+                  <h2>Documents</h2>
+                  <p>Review evidence submitted with this application.</p>
+                </div>
+                <span class="education-doc-count"
+                  >{{ applicationDetail.documents.length }} file{{
+                    applicationDetail.documents.length === 1 ? "" : "s"
+                  }}</span
+                >
+              </div>
+              <div
+                *ngIf="!applicationDetail.documents.length"
+                class="education-detail-empty"
+              >
+                <strong>No documents uploaded</strong
+                ><span>Supporting files will appear here once attached.</span>
+              </div>
+              <article
+                *ngFor="let document of applicationDetail.documents"
+                class="education-detail-document"
+              >
+                <span class="education-document-icon">PDF</span>
+                <div class="education-document-main">
+                  <strong>{{ document.name }}</strong
+                  ><small
+                    >{{
+                      document.fileName ||
+                        document.name.toLowerCase().replaceAll(" ", "-") +
+                          ".pdf"
+                    }}
+                    · {{ document.size || "1.2 MB" }}</small
+                  ><span
+                    class="status-pill"
+                    [class.active]="document.verified"
+                    [class.pending-review]="!document.verified"
+                    >{{
+                      document.verified ? "Verified" : "Pending verification"
+                    }}</span
+                  ><small *ngIf="document.signed" class="education-signed-note"
+                    >Signed by admissions reviewer</small
+                  >
+                </div>
+                <div class="education-document-actions">
+                  <button
+                    type="button"
+                    (click)="downloadApplicationDocument(document.name)"
+                  >
+                    Download</button
+                  ><button
+                    type="button"
+                    (click)="toggleApplicationDocument(document.name)"
+                  >
+                    {{ document.verified ? "Undo verify" : "Verify" }}</button
+                  ><button
+                    *ngIf="!document.signed"
+                    type="button"
+                    (click)="openApplicationSignature(document.name)"
+                  >
+                    Sign
+                  </button>
+                </div>
+              </article>
+            </section>
+            <section class="education-detail-activity suite-card">
+              <div class="suite-card-heading">
+                <div>
+                  <span class="suite-eyebrow">AUDIT TRAIL</span>
+                  <h2>Activity</h2>
+                  <p>Key events recorded for this applicant.</p>
+                </div>
+              </div>
+              <div class="education-detail-timeline">
+                <button
+                  *ngFor="let activity of visibleApplicationActivity"
+                  type="button"
+                  (click)="selectApplicationActivity(activity)"
+                >
+                  <i></i
+                  ><span
+                    ><strong>{{ activity.title }}</strong
+                    ><small>{{ activity.detail }}</small
+                    ><em>{{ activity.when }}</em></span
+                  >
+                </button>
+              </div>
+              <button
+                *ngIf="
+                  applicationActivity.length > visibleApplicationActivity.length
+                "
+                class="education-load-activity"
+                type="button"
+                (click)="applicationActivityExpanded = true"
+              >
+                Load more activity
+              </button>
+            </section>
+          </div>
+        </ng-container>
+      </section>
+
+      <div
+        *ngIf="applicationConfirmAction"
+        class="education-modal-backdrop"
+        (click)="applicationConfirmAction = null"
+      >
+        <section
+          class="education-confirm-dialog"
+          role="dialog"
+          aria-modal="true"
+          (click)="$event.stopPropagation()"
+        >
+          <span
+            class="education-confirm-mark"
+            [class.danger]="
+              applicationConfirmAction === 'reject' ||
+              applicationConfirmAction === 'delete'
+            "
+            >{{ applicationConfirmAction === "delete" ? "!" : "?" }}</span
+          >
+          <h2>{{ applicationDetailConfirmTitle }}</h2>
+          <p>{{ applicationDetailConfirmCopy }}</p>
+          <div class="education-application-edit-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="applicationConfirmAction = null"
+            >
+              Cancel</button
+            ><button
+              class="suite-button"
+              [class.primary]="
+                applicationConfirmAction === 'verify' ||
+                applicationConfirmAction === 'approve'
+              "
+              [class.danger]="
+                applicationConfirmAction === 'reject' ||
+                applicationConfirmAction === 'delete'
+              "
+              type="button"
+              (click)="confirmApplicationAction()"
+            >
+              {{
+                applicationConfirmAction === "verify"
+                  ? "Verify application"
+                  : applicationConfirmAction === "approve"
+                    ? "Approve application"
+                    : applicationConfirmAction === "reject"
+                      ? "Reject application"
+                      : "Delete application"
+              }}
+            </button>
+          </div>
+        </section>
+      </div>
+      <div
+        *ngIf="applicationPaymentOpen"
+        class="education-modal-backdrop"
+        (click)="applicationPaymentOpen = false"
+      >
+        <section
+          class="education-detail-modal"
+          role="dialog"
+          aria-modal="true"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="education-detail-modal-head">
+            <div>
+              <span class="suite-eyebrow">ADMISSION ACCOUNT</span>
+              <h2>Update payment status</h2>
+              <p>
+                Record the admission fee outcome for
+                {{ applicationDetail?.applicationNo }}.
+              </p>
+            </div>
+            <button
+              class="education-modal-close"
+              type="button"
+              aria-label="Close payment form"
+              (click)="applicationPaymentOpen = false"
+            >
+              ×
+            </button>
+          </div>
+          <div class="education-payment-context">
+            <span
+              >Current status
+              <strong>{{ applicationPaymentStatusLabel }}</strong></span
+            ><span
+              >Current due
+              <strong
+                >৳ {{ applicationDueAmount | number: "1.0-0" }} BDT</strong
+              ></span
+            >
+          </div>
+          <div class="education-payment-grid">
+            <label
+              ><span>Status *</span
+              ><select [(ngModel)]="applicationPayment.status">
+                <option value="pending">Pending</option>
+                <option value="pending_verification">
+                  Pending verification
+                </option>
+                <option value="paid">Paid</option>
+              </select></label
+            ><label
+              ><span>Payment option *</span
+              ><select [(ngModel)]="applicationPayment.method">
+                <option
+                  *ngFor="let method of applicationPaymentMethods"
+                  [value]="method"
+                >
+                  {{ method }}
+                </option>
+              </select></label
+            ><label
+              ><span>{{ applicationPaymentAccountLabel }}</span
+              ><input
+                [(ngModel)]="applicationPayment.reference"
+                placeholder="Enter account or reference" /></label
+            ><label
+              ><span>Payment date</span
+              ><input
+                type="date"
+                [(ngModel)]="applicationPayment.date" /></label
+            ><label
+              ><span>Amount paid</span
+              ><input
+                type="number"
+                min="0"
+                step="0.01"
+                [(ngModel)]="applicationPayment.amount"
+                placeholder="0.00" /></label
+            ><label class="wide"
+              ><span>Note</span
+              ><textarea
+                rows="3"
+                [(ngModel)]="applicationPayment.note"
+                placeholder="Add a note for this payment update"
+              ></textarea>
+            </label>
+          </div>
+          <p
+            *ngIf="applicationPaymentError"
+            class="education-inline-error"
+            role="alert"
+          >
+            {{ applicationPaymentError }}
+          </p>
+          <div class="education-application-edit-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="applicationPaymentOpen = false"
+            >
+              Cancel</button
+            ><button
+              class="suite-button primary"
+              type="button"
+              (click)="saveApplicationPayment()"
+            >
+              Save payment update
+            </button>
+          </div>
+        </section>
+      </div>
+      <div
+        *ngIf="applicationSignatureDocument"
+        class="education-modal-backdrop"
+        (click)="applicationSignatureDocument = null"
+      >
+        <section
+          class="education-detail-modal education-signature-modal"
+          role="dialog"
+          aria-modal="true"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="education-detail-modal-head">
+            <div>
+              <span class="suite-eyebrow">DOCUMENT SIGNATURE</span>
+              <h2>Sign document</h2>
+              <p>
+                Capture a sample signature for
+                {{ applicationSignatureDocument }}.
+              </p>
+            </div>
+            <button
+              class="education-modal-close"
+              type="button"
+              aria-label="Close signature dialog"
+              (click)="applicationSignatureDocument = null"
+            >
+              ×
+            </button>
+          </div>
+          <button
+            class="education-signature-pad"
+            type="button"
+            [class.has-signature]="applicationSignatureDrawn"
+            (click)="applicationSignatureDrawn = true"
+          >
+            <span *ngIf="!applicationSignatureDrawn"
+              >Click to add a sample signature</span
+            ><strong *ngIf="applicationSignatureDrawn"
+              >{{ applicationDetail?.studentFirstName }}
+              {{ applicationDetail?.studentLastName }}</strong
+            ><i>Authorized reviewer signature</i>
+          </button>
+          <div class="education-application-edit-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="applicationSignatureDrawn = false"
+            >
+              Clear</button
+            ><button
+              class="suite-button secondary"
+              type="button"
+              (click)="applicationSignatureDocument = null"
+            >
+              Cancel</button
+            ><button
+              class="suite-button primary"
+              type="button"
+              [disabled]="!applicationSignatureDrawn"
+              (click)="saveApplicationSignature()"
+            >
+              Save signature
+            </button>
+          </div>
+        </section>
+      </div>
+      <div
+        *ngIf="applicationAdmitCardOpen && applicationDetail"
+        class="education-modal-backdrop"
+        (click)="applicationAdmitCardOpen = false"
+      >
+        <section
+          class="education-admit-card"
+          role="dialog"
+          aria-modal="true"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="education-admit-card-head">
+            <span class="suite-mark">S</span>
+            <div>
+              <span class="suite-eyebrow"
+                >STRAVIX GROUP BD · SCHOOL MANAGEMENT</span
+              >
+              <h2>Admission admit card</h2>
+              <p>Academic year 2026–27 · {{ applicationDetail.campus }}</p>
+            </div>
+          </div>
+          <div class="education-admit-card-student">
+            <span class="education-application-avatar">{{
+              applicationInitials(applicationDetail)
+            }}</span>
+            <div>
+              <strong
+                >{{ applicationDetail.studentFirstName }}
+                {{ applicationDetail.studentLastName }}</strong
+              ><small>Application {{ applicationDetail.applicationNo }}</small>
+            </div>
+          </div>
+          <div class="education-admit-card-facts">
+            <div>
+              <span>Class</span
+              ><strong>{{ applicationDetail.className }}</strong>
+            </div>
+            <div>
+              <span>Section</span
+              ><strong>{{
+                applicationDetail.section || "To be assigned"
+              }}</strong>
+            </div>
+            <div>
+              <span>Applicant category</span
+              ><strong>{{ applicationDetail.category }}</strong>
+            </div>
+            <div>
+              <span>Guardian</span
+              ><strong>{{ applicationDetail.guardianName }}</strong>
+            </div>
+          </div>
+          <p class="education-admit-card-note">
+            This sample admit card is generated locally for design review.
+          </p>
+          <div class="education-application-edit-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="applicationAdmitCardOpen = false"
+            >
+              Close</button
+            ><button
+              class="suite-button primary"
+              type="button"
+              (click)="act('Sample admit card prepared in this preview.')"
+            >
+              Prepare print preview
+            </button>
+          </div>
+        </section>
+      </div>
+      <div
+        *ngIf="selectedApplicationActivity"
+        class="education-modal-backdrop"
+        (click)="selectedApplicationActivity = null"
+      >
+        <section
+          class="education-confirm-dialog education-activity-dialog"
+          role="dialog"
+          aria-modal="true"
+          (click)="$event.stopPropagation()"
+        >
+          <button
+            class="education-modal-close"
+            type="button"
+            aria-label="Close activity details"
+            (click)="selectedApplicationActivity = null"
+          >
+            ×</button
+          ><span class="suite-eyebrow">ACTIVITY DETAILS</span>
+          <h2>{{ selectedApplicationActivity.title }}</h2>
+          <div class="education-detail-kv">
+            <span>When</span
+            ><strong>{{ selectedApplicationActivity.when }}</strong
+            ><span>Performed by</span
+            ><strong>Admissions team · Nadia Akter</strong>
+          </div>
+          <p>{{ selectedApplicationActivity.detail }}</p>
+          <button
+            class="suite-button secondary"
+            type="button"
+            (click)="selectedApplicationActivity = null"
+          >
+            Close
+          </button>
+        </section>
+      </div>
+
+      <section
+        *ngIf="
+          page.kind === 'detail' && !isStudentDetail && !isApplicationDetail
+        "
+        class="detail-layout education-detail-layout"
+      >
+        <article class="suite-card">
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow"
+                >{{ page.entity | uppercase }} PROFILE</span
+              >
+              <h2>{{ page.title }}</h2>
+              <p>{{ page.description }}</p>
+            </div>
+            <span class="status-pill active">Active</span>
+          </div>
+          <div class="detail-grid">
+            <div>
+              <span>Record ID</span
+              ><strong>{{ routePath.split("/").at(-1) }}</strong>
+            </div>
+            <div>
+              <span>Campus / centre</span
+              ><strong>{{
+                page.app.includes("Training")
+                  ? "Dhaka Learning Centre"
+                  : "Stravix Main Campus"
+              }}</strong>
+            </div>
+            <div><span>Academic session</span><strong>2026–27</strong></div>
+            <div>
+              <span>Primary contact</span><strong>Farhana Ahmed</strong>
+            </div>
+            <div><span>Last updated</span><strong>24 Sep 2026</strong></div>
+            <div>
+              <span>Record status</span
+              ><strong>Active · in good standing</strong>
+            </div>
+          </div>
+          <div class="detail-section">
+            <h3>Academic & engagement summary</h3>
+            <p>
+              Current activity and key information associated with this record.
+            </p>
+            <div class="education-detail-summary">
+              <div>
+                <span>Current class / cohort</span
+                ><strong>{{
+                  page.app.includes("Training") ? courses[2] : classOptions[0]
+                }}</strong>
+              </div>
+              <div>
+                <span>Attendance / completion</span
+                ><strong>94% this term</strong>
+              </div>
+              <div>
+                <span>Fees / account standing</span
+                ><strong>Current · ৳ 0 overdue</strong>
+              </div>
+            </div>
+          </div>
+          <div class="detail-section">
+            <h3>Recent activity</h3>
+            <div
+              *ngFor="let row of rows.slice(0, 3)"
+              class="education-activity-line"
+            >
+              <i></i
+              ><span
+                ><strong>{{ row.name }}</strong
+                ><small>{{ row.detail }} · updated 24 Sep</small></span
+              >
+            </div>
+          </div>
+        </article>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">QUICK ACTIONS</span>
+          <h3>Record actions</h3>
+          <button
+            class="suite-button secondary"
+            type="button"
+            (click)="act('Edit mode opened in local preview.')"
+          >
+            Edit profile</button
+          ><button
+            class="suite-button secondary"
+            type="button"
+            (click)="act('Export prepared in local preview.')"
+          >
+            Export record</button
+          ><button
+            class="suite-button secondary"
+            type="button"
+            (click)="act('Related records opened in local preview.')"
+          >
+            Related records
+          </button>
+        </aside>
+      </section>
+
+      <section
+        *ngIf="page.kind === 'guide'"
+        class="guide-layout education-guide"
+      >
+        <section class="suite-card guide-card">
+          <span class="suite-eyebrow"
+            >{{ page.app | uppercase }} REFERENCE</span
+          >
+          <h2>{{ page.title }}</h2>
+          <p>{{ page.description }}</p>
+          <div class="guide-sections">
+            <article *ngFor="let section of guideSections; let i = index">
+              <span>0{{ i + 1 }}</span>
+              <div>
+                <h3>{{ section[0] }}</h3>
+                <p>{{ section[1] }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">WORKSPACE CONTEXT</span>
+          <h3>Stravix Group BD</h3>
+          <p>{{ page.app }} · 2026–27 academic year</p>
+          <div class="side-fact">
+            <span>Campus</span><strong>Stravix Main Campus</strong>
+          </div>
+          <div class="side-fact">
+            <span>Preview</span><strong>Sample data only</strong>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div
+    *ngIf="requestDecision as decision"
+    class="education-modal-backdrop"
+    (click)="$event.target === $event.currentTarget && (requestDecision = null)"
+  >
+    <section
+      class="education-confirm-dialog student-request-decision"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="
+        decision.status === 'approved' ? 'Approve request' : 'Reject request'
+      "
+    >
+      <span class="suite-eyebrow"
+        >LOCAL PREVIEW · {{ decision.requestId }}</span
+      >
+      <div
+        class="education-confirm-mark"
+        [class.danger]="decision.status === 'rejected'"
+      >
+        {{ decision.status === "approved" ? "✓" : "!" }}
+      </div>
+      <h2>
+        {{
+          decision.status === "approved"
+            ? "Approve this request?"
+            : "Reject this request?"
+        }}
+      </h2>
+      <p>
+        {{
+          decision.status === "approved"
+            ? "The request will be marked approved in this browser preview."
+            : "The request will be marked rejected in this browser preview."
+        }}
+      </p>
+      <label
+        ><span>Review note <small>(optional)</small></span
+        ><textarea
+          [(ngModel)]="requestReviewNote"
+          name="request-review-note"
+          rows="3"
+          placeholder="Add context for the requester"
+        ></textarea>
+      </label>
+      <div class="education-application-edit-actions">
+        <button
+          class="suite-button secondary"
+          type="button"
+          (click)="requestDecision = null"
+        >
+          Cancel</button
+        ><button
+          [class]="
+            decision.status === 'rejected'
+              ? 'suite-button danger'
+              : 'suite-button primary'
+          "
+          type="button"
+          (click)="confirmUserRequestDecision()"
+        >
+          {{
+            decision.status === "approved"
+              ? "Approve request"
+              : "Reject request"
+          }}
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div
+    *ngIf="createOpen"
+    class="suite-modal-backdrop"
+    (click)="$event.target === $event.currentTarget && closeCreate()"
+  >
+    <section class="suite-modal" role="dialog" aria-modal="true">
+      <div class="suite-card-heading">
+        <div>
+          <span class="suite-eyebrow">LOCAL PREVIEW</span>
+          <h2>New {{ page.entity }} record</h2>
+        </div>
+        <button
+          class="icon-button"
+          type="button"
+          aria-label="Close"
+          (click)="closeCreate()"
+        >
+          ×
+        </button>
+      </div>
+      <form #modalForm="ngForm" (ngSubmit)="save(modalForm)">
+        <div class="suite-form-grid">
+          <label
+            *ngFor="let field of page.fields.slice(0, 6)"
+            [class.wide]="field.wide"
+            ><span>{{ field.label }}<b *ngIf="field.required"> *</b></span
+            ><select
+              *ngIf="field.options?.length; else modalInput"
+              [name]="'modal-' + field.label"
+              [required]="!!field.required"
+              ngModel
+            >
+              <option value="">Choose {{ field.label.toLowerCase() }}</option>
+              <option *ngFor="let choice of field.options">
+                {{ choice }}
+              </option></select
+            ><ng-template #modalInput
+              ><input
+                [type]="field.type || 'text'"
+                [name]="'modal-' + field.label"
+                [required]="!!field.required"
+                ngModel /></ng-template
+          ></label>
+        </div>
+        <div class="suite-form-actions">
+          <button
+            class="suite-button secondary"
+            type="button"
+            (click)="closeCreate()"
+          >
+            Cancel</button
+          ><button class="suite-button primary" type="submit">
+            Save preview
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <div *ngIf="toast" class="suite-toast" role="status">{{ toast }}</div>
+</div>

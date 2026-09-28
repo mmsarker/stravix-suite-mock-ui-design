@@ -1,0 +1,315 @@
+{
+  "/app/user-management/groups": {
+    "title": "groups",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "User group summary",
+      "User group view",
+      "Loading user groups...",
+      "User groups pagination"
+    ],
+    "columns": [
+      "User group",
+      "Members",
+      "Roles",
+      "Action"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/user-management/src/user-management/user-management-groups-page/user-management-groups-page.component.html"
+  },
+  "/app/user-management/access-review/rules": {
+    "title": "Review Rules",
+    "headings": [
+      "Review Rules"
+    ],
+    "buttons": [],
+    "actions": [],
+    "fields": [],
+    "columns": [],
+    "presentation": null,
+    "hasTable": false,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/user-management/src/user-management/user-access-review-rules-page/user-access-review-rules-page.component.html"
+  },
+  "/app/school-management/app.component-reference-guide": {
+    "title": "Permission Legend",
+    "headings": [
+      "Permission Legend",
+      "School Setup & Academic Configuration Components",
+      "Admission & Student Lifecycle Components",
+      "Application Process Component Mapping",
+      "Attendance Components",
+      "Exam Components",
+      "Guides & Cross-Module Components",
+      "Administration Note"
+    ],
+    "buttons": [],
+    "actions": [],
+    "fields": [],
+    "columns": [
+      "Access Level",
+      "Access Rule",
+      "Examples",
+      "Component",
+      "UI Link",
+      "Key Features",
+      "Primary Actor",
+      "Route Permission",
+      "Component / Endpoint",
+      "Path",
+      "Purpose",
+      "Access"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/school-admin/src/school-management/component-reference-guide-page/component-reference-guide-page.component.html"
+  },
+  "/app/inventory/workspace/overview": {
+    "title": "Inventory dashboard",
+    "headings": [
+      "Inventory dashboard",
+      "Low stock",
+      "Recent movements"
+    ],
+    "buttons": [],
+    "actions": [],
+    "fields": [],
+    "columns": [],
+    "presentation": null,
+    "hasTable": false,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/inventory-management/src/inventory-management/workspace-page/inventory-overview-dashboard/inventory-overview-dashboard.component.html"
+  },
+  "/app/inventory/workspace/balances": {
+    "title": "balances",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Product, SKU, branch, or facility",
+      "Inventory balances",
+      "Inventory balances pagination"
+    ],
+    "columns": [
+      "SKU",
+      "Product",
+      "Branch",
+      "Facility",
+      "Location",
+      "On Hand",
+      "Reserved",
+      "Available",
+      "Reorder",
+      "Updated"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/inventory-management/src/inventory-management/workspace-page/inventory-balances-tab/inventory-balances-tab.component.html"
+  },
+  "/app/inventory/workspace/online-stock": {
+    "title": "online-stock",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Product, SKU, branch, or facility",
+      "Channel stock control",
+      "Channel stock control pagination",
+      "Current availability"
+    ],
+    "columns": [
+      "SKU",
+      "Product",
+      "Scope",
+      "Mode",
+      "Control qty",
+      "Online",
+      "POS",
+      "Physical",
+      "Public",
+      "Status",
+      "Action"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/inventory-management/src/inventory-management/workspace-page/inventory-online-stock-tab/inventory-online-stock-tab.component.html"
+  },
+  "/app/inventory/workspace/ledger": {
+    "title": "ledger",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Inventory movement ledger",
+      "Inventory movement ledger pagination"
+    ],
+    "columns": [
+      "When",
+      "Product",
+      "Movement",
+      "Change",
+      "After",
+      "Reference",
+      "Actor"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/inventory-management/src/inventory-management/workspace-page/inventory-ledger-tab/inventory-ledger-tab.component.html"
+  },
+  "/app/training-institute/learning/dashboard": {
+    "title": "dashboard",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Loading Learning operations...",
+      "Learning operations metrics"
+    ],
+    "columns": [],
+    "presentation": null,
+    "hasTable": false,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/training-institute-learning/src/admin/learning-admin-dashboard-page.component.html"
+  },
+  "/app/training-institute/learning/courses": {
+    "title": "courses",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Search courses",
+      "Code, title, category, or tag",
+      "Status",
+      "All statuses",
+      "Category",
+      "All categories",
+      "Difficulty",
+      "All difficulties",
+      "Language",
+      "All languages",
+      "Catalogue visibility",
+      "All visibility",
+      "Learning course catalogue",
+      "Reason",
+      "Explain why this lifecycle change is required."
+    ],
+    "columns": [],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/training-institute-learning/src/admin/course-admin/lms-courses-page/lms-courses-page.component.html"
+  },
+  "/app/training-institute/learning/runs": {
+    "title": "Run details",
+    "headings": [
+      "Run details",
+      "Public enrolment",
+      "Instructors"
+    ],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Loading question-bank access",
+      "Instructor",
+      "Access level",
+      "Run title",
+      "Enrollment opens",
+      "Enrollment closes",
+      "Make this run publicly enrolable",
+      "Public enrolment",
+      "Public price override",
+      "Override currency",
+      "Public experience visibility",
+      "Select instructors",
+      "Search instructors",
+      "Instructors",
+      "Loading delivery run"
+    ],
+    "columns": [],
+    "presentation": null,
+    "hasTable": false,
+    "hasForm": true,
+    "source": "Source/Frontend/libs/domain/training-institute-learning/src/admin/course-admin/lms-course-runs-page/lms-course-runs-page.component.html"
+  },
+  "/app/training-institute/learning/live": {
+    "title": "live",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Live session controls",
+      "Live session attendance"
+    ],
+    "columns": [],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/training-institute-learning/src/admin/learning-admin-live-sessions-page.component.html"
+  },
+  "/app/training-institute/learning/payments": {
+    "title": "payments",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [
+      "Search",
+      "Learner, course, offering, or order",
+      "Status",
+      "Learning payment orders",
+      "Cancel payment",
+      "Reason",
+      "Refund amount"
+    ],
+    "columns": [],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/training-institute-learning/src/admin/learning-payment-admin-page.component.html"
+  },
+  "/app/document-management": {
+    "title": "document-management",
+    "headings": [],
+    "buttons": [],
+    "actions": [],
+    "fields": [],
+    "columns": [],
+    "presentation": null,
+    "hasTable": false,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/document-management/src/document-home-page/document-home-page.component.html"
+  },
+  "/app/docs/task-management": {
+    "title": "Task Management",
+    "headings": [
+      "Task Management",
+      "Overview",
+      "Tenant And Company Scope",
+      "Dashboard",
+      "Projects",
+      "Workflow Policies",
+      "Tasks",
+      "Lifecycle And Audit Safety",
+      "Advanced Work Management",
+      "Operations"
+    ],
+    "buttons": [],
+    "actions": [],
+    "fields": [],
+    "columns": [
+      "Area",
+      "What It Controls"
+    ],
+    "presentation": null,
+    "hasTable": true,
+    "hasForm": false,
+    "source": "Source/Frontend/libs/domain/documentation/src/documentation/docs-task-management-page/docs-task-management-page.component.html"
+  }
+}

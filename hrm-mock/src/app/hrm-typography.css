@@ -1,0 +1,59 @@
+:host .page-heading-copy .eyebrow,
+:host .eyebrow {
+  font-size: 12px;
+}
+
+:host .hero-kicker {
+  font-size: 12px;
+}
+
+:host .page-heading p {
+  font-size: 14px;
+}
+
+:host .form-field,
+:host .filter-field {
+  font-size: 11px;
+}
+
+:host .form-field input,
+:host .form-field select,
+:host .form-field textarea,
+:host .search-field input,
+:host .filter-field select {
+  font-size: 12px;
+}
+
+:host .filter-reset {
+  font-size: 13px;
+}
+
+:host .result-count {
+  font-size: 12px;
+}
+
+@media (max-width: 680px) {
+  :host .hrm-topbar {
+    overflow: hidden;
+  }
+
+  :host .topbar-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  :host .topbar-actions {
+    flex: none;
+    gap: 6px;
+  }
+
+  :host .user-chip {
+    grid-template-columns: 29px;
+    padding: 0;
+  }
+
+  :host .user-chip strong,
+  :host .user-chip small {
+    display: none;
+  }
+}

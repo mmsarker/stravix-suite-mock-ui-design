@@ -1,0 +1,1246 @@
+{
+  "routes": [
+    {
+      "path": "/app/hrm/home",
+      "title": "Home",
+      "group": "Overview",
+      "section": "home",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/enterprise-controls",
+      "title": "Enterprise Controls",
+      "group": "Administration",
+      "section": "enterprise-controls",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/user-guide",
+      "title": "HRM User Guide",
+      "group": "Guides",
+      "section": "user-guide",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/business-flow-guide",
+      "title": "Business Flow Guide",
+      "group": "Guides",
+      "section": "business-flow-guide",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment",
+      "title": "Recruitment",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/recruitment/overview",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/overview",
+      "title": "Recruitment Overview",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/requisitions",
+      "title": "Requisitions",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/requisitions/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/requisitions/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/requisitions/:id/approval",
+      "title": "Approval",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/vacancies",
+      "title": "Vacancies",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/vacancies/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/vacancies/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/vacancies/:id",
+      "title": "Record",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/applications",
+      "title": "Applications",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/applications/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/applications/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/applications/:id",
+      "title": "Record",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/candidates",
+      "title": "Candidates",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/candidates/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/candidates/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/candidates/:id",
+      "title": "Record",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/interviews",
+      "title": "Interviews",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/interviews/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/interviews/:id",
+      "title": "Record",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/interviews/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/offers",
+      "title": "Offers",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/offers/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/offers/:id/edit",
+      "title": "Edit",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/communications",
+      "title": "Communications",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/communications/new",
+      "title": "New",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/reports",
+      "title": "Recruitment Reports",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "report",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/recruitment/career-site",
+      "title": "Career Site Settings",
+      "group": "Recruitment",
+      "section": "recruitment",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding",
+      "title": "Onboarding",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/onboarding/home",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/home",
+      "title": "Onboarding Dashboard",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/templates",
+      "title": "Templates",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/templates/new",
+      "title": "New",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/templates/:id/edit",
+      "title": "Edit",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/processes/:id",
+      "title": "Record",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/processes",
+      "title": "Onboarding Processes",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/orientations",
+      "title": "Orientation Sessions",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/orientations/new",
+      "title": "New",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/onboarding/orientations/:id/edit",
+      "title": "Edit",
+      "group": "Onboarding",
+      "section": "onboarding",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/separation",
+      "title": "Separation",
+      "group": "Separation & Alumni",
+      "section": "separation",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/separation/home",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/separation/home",
+      "title": "Separation Dashboard",
+      "group": "Separation & Alumni",
+      "section": "separation",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/separation/cases",
+      "title": "Separation Cases",
+      "group": "Separation & Alumni",
+      "section": "separation",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/separation/alumni",
+      "title": "Alumni & Rehire",
+      "group": "Separation & Alumni",
+      "section": "separation",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/announcements",
+      "title": "Announcements",
+      "group": "People & Organization",
+      "section": "announcements",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/employees",
+      "title": "Employees",
+      "group": "People & Organization",
+      "section": "employees",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/employees/new",
+      "title": "New",
+      "group": "People & Organization",
+      "section": "employees",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/employees/:id/edit",
+      "title": "Edit",
+      "group": "People & Organization",
+      "section": "employees",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/employees/:id",
+      "title": "Record",
+      "group": "People & Organization",
+      "section": "employees",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance",
+      "title": "Attendance",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/attendance/dashboard",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/dashboard",
+      "title": "Dashboard",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/records/:id",
+      "title": "Record",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/records",
+      "title": "Attendance Records",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/manual-entry",
+      "title": "Manual Entry",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/reports",
+      "title": "Reports",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "report",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/auto-mark-absence",
+      "title": "Auto Mark Absence",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/corrections",
+      "title": "Corrections",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shift-assignments",
+      "title": "Shift Assignments",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shift-assignments/new",
+      "title": "New",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shift-assignments/bulk",
+      "title": "Bulk",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shift-assignments/:id/edit",
+      "title": "Edit",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/breaks",
+      "title": "Break Logs",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shifts",
+      "title": "Shifts",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shifts/new",
+      "title": "New",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/shifts/:id/edit",
+      "title": "Edit",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/holidays",
+      "title": "Holidays",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/holidays/new",
+      "title": "New",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/holidays/:id/edit",
+      "title": "Edit",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/attendance/policy",
+      "title": "Policy",
+      "group": "Time & Attendance",
+      "section": "attendance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave",
+      "title": "Leave",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/leave/requests",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/types",
+      "title": "Leave Types",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/types/new",
+      "title": "New",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/types/:id/edit",
+      "title": "Edit",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/allocations",
+      "title": "Leave Allocations",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/ledger",
+      "title": "Accrual Ledger",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/requests",
+      "title": "Leave Requests",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/calendar",
+      "title": "Leave Calendar",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/reports",
+      "title": "Leave Reports",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "report",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/approval-workflows",
+      "title": "Approval Workflows",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/approval-workflows/new",
+      "title": "New",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/approval-workflows/:id/edit",
+      "title": "Edit",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/comp-off",
+      "title": "Comp-Off Credits",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/leave/encashments",
+      "title": "Leave Encashments",
+      "group": "Leave Management",
+      "section": "leave",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll",
+      "title": "Payroll",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/payroll/runs",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/dashboard",
+      "title": "Dashboard",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/runs",
+      "title": "Payroll Runs",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/runs/new",
+      "title": "New",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/runs/:id/edit",
+      "title": "Edit",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/runs/:id/preview",
+      "title": "Preview",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/runs/:id/entries",
+      "title": "Entries",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/salaries/bulk-assign",
+      "title": "Bulk Assign",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/salaries",
+      "title": "Employee Salaries",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/reviews",
+      "title": "Review Cycles",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/enterprise",
+      "title": "Workspace",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/compliance",
+      "title": "Compliance",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/compliance/:complianceView",
+      "title": "Record",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/recoveries",
+      "title": "Recoveries",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/recoveries/:recoveryView",
+      "title": "Record",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/finance/payment-batches/:id",
+      "title": "Record",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/finance",
+      "title": "Finance",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/finance/:financeView",
+      "title": "Record",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/settlements",
+      "title": "Final Settlements",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles",
+      "title": "Cycles",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "alias",
+      "aliasTo": "/app/hrm/performance/cycles/overview",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/new",
+      "title": "New",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/overview",
+      "title": "Review Cycle Overview",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/view/:id",
+      "title": "Record",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "detail",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/reviews",
+      "title": "Review Queue",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/ratings",
+      "title": "Final Ratings",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/competencies",
+      "title": "Competency Evaluation",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/calibration",
+      "title": "HR Calibration",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/performance/cycles/pip",
+      "title": "PIP Workspace",
+      "group": "Performance & Appraisal",
+      "section": "performance",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/structures",
+      "title": "Salary Structures",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/structures/new",
+      "title": "New",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/structures/:id/edit",
+      "title": "Edit",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/components",
+      "title": "Salary Components",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/components/new",
+      "title": "New",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/components/:id/edit",
+      "title": "Edit",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/benefits/plans",
+      "title": "Benefit Plans",
+      "group": "Benefits & Rewards",
+      "section": "benefits",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/benefits/enrollments",
+      "title": "Enrollments",
+      "group": "Benefits & Rewards",
+      "section": "benefits",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/benefits/policies",
+      "title": "Policies",
+      "group": "Benefits & Rewards",
+      "section": "benefits",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/services",
+      "title": "Employee Services",
+      "group": "Employee Services",
+      "section": "services",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/lifecycle",
+      "title": "Employee Lifecycle",
+      "group": "Employee Operations",
+      "section": "lifecycle",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/lifecycle/new",
+      "title": "New",
+      "group": "Employee Operations",
+      "section": "lifecycle",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/workforce",
+      "title": "Workforce Planning",
+      "group": "Workforce Planning",
+      "section": "workforce",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/analytics/executive",
+      "title": "Executive Analytics",
+      "group": "Analytics",
+      "section": "analytics",
+      "kind": "overview",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/departments",
+      "title": "Departments",
+      "group": "People & Organization",
+      "section": "departments",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/departments/new",
+      "title": "New",
+      "group": "People & Organization",
+      "section": "departments",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/departments/:id/edit",
+      "title": "Edit",
+      "group": "People & Organization",
+      "section": "departments",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/designations",
+      "title": "Designations",
+      "group": "People & Organization",
+      "section": "designations",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/designations/new",
+      "title": "New",
+      "group": "People & Organization",
+      "section": "designations",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/designations/:id/edit",
+      "title": "Edit",
+      "group": "People & Organization",
+      "section": "designations",
+      "kind": "form",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/activity-logs",
+      "title": "Activity Logs",
+      "group": "Audit & Compliance",
+      "section": "activity-logs",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "hrm.routes.ts"
+    },
+    {
+      "path": "/app/hrm/payroll/compliance/settings",
+      "title": "Compliance",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "workspace-sidebar"
+    },
+    {
+      "path": "/app/hrm/payroll/recoveries/loans",
+      "title": "Loans & Arrears",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "workspace-sidebar"
+    },
+    {
+      "path": "/app/hrm/payroll/finance/payment-batches",
+      "title": "Payroll Payments & Accounting",
+      "group": "Payroll & Compensation",
+      "section": "payroll",
+      "kind": "list",
+      "aliasTo": null,
+      "source": "workspace-sidebar"
+    }
+  ]
+}

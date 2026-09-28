@@ -1,0 +1,4605 @@
+{
+  "apps": [
+    {
+      "code": "tenant-management",
+      "name": "Tenant Management",
+      "url": "/admin/organisations",
+      "category": "Platform Administration",
+      "order": 10
+    },
+    {
+      "code": "school-management",
+      "name": "School Management",
+      "url": "/app/school-management",
+      "category": "Education",
+      "order": 10
+    },
+    {
+      "code": "payment-management",
+      "name": "Payment Management",
+      "url": "/app/payment-management/methods",
+      "category": "Finance & Commerce",
+      "order": 10
+    },
+    {
+      "code": "email-management",
+      "name": "Email Management",
+      "url": "/app/email-management",
+      "category": "Communication & Content",
+      "order": 10
+    },
+    {
+      "code": "garments-merchandising",
+      "name": "Garments Merchandising",
+      "url": "/app/garments/merchandising/dashboard",
+      "category": "Garments",
+      "order": 10
+    },
+    {
+      "code": "student-self-service",
+      "name": "Student Self-Service",
+      "url": "/app/student",
+      "category": "Self Service",
+      "order": 10
+    },
+    {
+      "code": "teacher-self-service",
+      "name": "Teacher Self-Service",
+      "url": "/app/teacher",
+      "category": "Self Service",
+      "order": 10
+    },
+    {
+      "code": "employee-self-service",
+      "name": "Employee Self-Service",
+      "url": "/app/employee",
+      "category": "People & Work",
+      "order": 10
+    },
+    {
+      "code": "training-institute-management",
+      "name": "Training Institute Management",
+      "url": "/app/training-institute/learning/dashboard",
+      "category": "Education",
+      "order": 15
+    },
+    {
+      "code": "tenant-admin",
+      "name": "Tenant Admin",
+      "url": "/app/tenant-admin/dashboard",
+      "category": "Platform Administration",
+      "order": 20
+    },
+    {
+      "code": "notification-management",
+      "name": "Notification Management",
+      "url": "/app/notification-management",
+      "category": "Communication & Content",
+      "order": 20
+    },
+    {
+      "code": "catalog",
+      "name": "Catalog",
+      "url": "/app/catalog/home",
+      "category": "Finance & Commerce",
+      "order": 20
+    },
+    {
+      "code": "garments-buyer-portal",
+      "name": "Garments Buyer Portal",
+      "url": "/app/garments/buyer-portal",
+      "category": "Garments",
+      "order": 20
+    },
+    {
+      "code": "hrm",
+      "name": "HR Management",
+      "url": "/app/hrm/home",
+      "category": "People & Work",
+      "order": 20
+    },
+    {
+      "code": "company-admin",
+      "name": "Company Administration",
+      "url": "/app/company-admin/profile",
+      "category": "Platform Administration",
+      "order": 30
+    },
+    {
+      "code": "reporting-management",
+      "name": "Reporting",
+      "url": "/app/reporting",
+      "category": "Communication & Content",
+      "order": 30
+    },
+    {
+      "code": "ecommerce",
+      "name": "Commerce",
+      "url": "/app/ecommerce",
+      "category": "Finance & Commerce",
+      "order": 30
+    },
+    {
+      "code": "crm",
+      "name": "CRM",
+      "url": "/app/crm/home",
+      "category": "People & Work",
+      "order": 30
+    },
+    {
+      "code": "user-management",
+      "name": "User Management",
+      "url": "/app/user-management/users",
+      "category": "Platform Administration",
+      "order": 40
+    },
+    {
+      "code": "storage-management",
+      "name": "Storage Management",
+      "url": "/app/storage",
+      "category": "Communication & Content",
+      "order": 40
+    },
+    {
+      "code": "inventory",
+      "name": "Inventory",
+      "url": "/app/inventory/home",
+      "category": "Finance & Commerce",
+      "order": 40
+    },
+    {
+      "code": "task-management",
+      "name": "Task Management",
+      "url": "/app/task-management",
+      "category": "People & Work",
+      "order": 40
+    },
+    {
+      "code": "procurement",
+      "name": "Procurement",
+      "url": "/app/procurement/home",
+      "category": "Finance & Commerce",
+      "order": 50
+    },
+    {
+      "code": "workflow-management",
+      "name": "Workflow Management",
+      "url": "/app/workflow-management",
+      "category": "People & Work",
+      "order": 50
+    },
+    {
+      "code": "event-management",
+      "name": "Event Management",
+      "url": "/app/event-management",
+      "category": "Communication & Content",
+      "order": 50
+    },
+    {
+      "code": "document-management",
+      "name": "Document Management",
+      "url": "/app/document-management",
+      "category": "Communication & Content",
+      "order": 60
+    },
+    {
+      "code": "finance",
+      "name": "Finance & Accounting",
+      "url": "/app/finance/home",
+      "category": "Finance & Commerce",
+      "order": 70
+    }
+  ],
+  "routes": [
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations/new",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations/new/review",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations/:id",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations/:id/admins/:adminId",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/apps",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/apps/:id/edit",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/apps/:id",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/app-categories",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/permissions",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/labels",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/branding",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/demo-requests",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/observability",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/scheduler-runs",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/failed-events",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/migrations",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/database-latency",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/schema-versions",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/worker-health",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/operations",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/operations/:areaId",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/audit/correlation/:correlationId",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/audit/entity/:entityType/:entityId",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/audit",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organizations",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organizations/new",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organizations/:id",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organizations/:id/admins/:adminId",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/dashboard",
+      "source": "app catalog"
+    },
+    {
+      "code": "tenant-management",
+      "path": "/admin/organisations",
+      "source": "app catalog"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/overview",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/method",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/methods",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/transactions",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/reconciliation",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/reconciliation/review",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/reconciliation/history",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/reconciliation/runs/:runId",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/refund-approvals",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/links",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/settlements",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/disputes",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "payment-management",
+      "path": "/app/payment-management/ledger",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/profile",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/home",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/students",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/fees",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/fees/online-payment",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/guardian/fees/bank-transfer",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/history",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/analytics",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/events",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/settings",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/templates",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/templates/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "email-management",
+      "path": "/app/email-management/templates/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting/templates",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting/templates/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting/templates/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting/generated",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "reporting-management",
+      "path": "/app/reporting/generated/:id",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "notification-management",
+      "path": "/app/notification-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "notification-management",
+      "path": "/app/notification-management/history",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "notification-management",
+      "path": "/app/notification-management/delivery-history",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "notification-management",
+      "path": "/app/notification-management/my-notifications",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "notification-management",
+      "path": "/app/notification-management/settings",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "workflow-management",
+      "path": "/app/workflow-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "workflow-management",
+      "path": "/app/workflow-management/policies",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "workflow-management",
+      "path": "/app/workflow-management/policies/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "workflow-management",
+      "path": "/app/workflow-management/policies/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "workflow-management",
+      "path": "/app/workflow-management/inbox",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "storage-management",
+      "path": "/app/storage",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "storage-management",
+      "path": "/app/storage/files",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/projects",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/tasks",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/saved-views",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/tasks/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/tasks/:id",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/tasks/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/milestones",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/analytics",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/workload",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/workflow-policies",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/webhooks",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/webhooks/deliveries",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/audit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/sla",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/automation",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/automation/simulator",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/assignment-rules",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/delegations",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/evidence-export",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/task-management/gantt",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/events",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/events/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/events/:id/participants",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/events/:id",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/events/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/types",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/templates",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/templates/new",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/templates/:id/edit",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/templates/:id",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/speakers",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "event-management",
+      "path": "/app/event-management/venues",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management",
+      "source": "app.routes.ts"
+    },
+    {
+      "code": "company-admin",
+      "path": "/app/company-admin/profile",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "company-admin",
+      "path": "/app/company-admin/branches",
+      "source": "admin.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/home",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/pipelines",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/contacts",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/contacts/new",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/contacts/:id/edit",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/contacts/:id",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/accounts",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/accounts/new",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/accounts/:id/edit",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/accounts/:id",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/companies",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/companies/new",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/companies/:id/edit",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/companies/:id",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/deals",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/deals/new",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/deals/:id/edit",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/deals/:id",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/leads",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/leads/new",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/leads/:id/edit",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/leads/:id",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/activities",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/reports",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "crm",
+      "path": "/app/crm/activity-logs",
+      "source": "crm.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/home",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/user-guide",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/system-detail",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/accounts",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/accounts/new",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/accounts/:id",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/accounts/:id/edit",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/periods",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/periods/:id",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/period-close",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/journals",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/journals/recurring",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/receivables",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/payables",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/banking",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/reconciliation",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/reports",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/integrations",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/cost-centers",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/partners",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/fixed-assets",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "finance",
+      "path": "/app/finance/budgets",
+      "source": "finance.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/dashboard",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/samples",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/samples/:sampleId",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/tech-pack-clarifications",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/documents",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "garments-buyer-portal",
+      "path": "/app/garments/buyer-portal/shipment-documents",
+      "source": "garments-buyer-portal.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/home",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/user-manual",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/business-process-guide",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/component-reference-guide",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/exports",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/new",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/requests",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/students/:id/edit",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/classes",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/new",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/:id/edit",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me/profile",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me/class-routine",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me/class-students",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me/attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/me/class-attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/workspace",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/daily-marking",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/bulk-upload",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/student/bulk-upload",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/reports",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/students/reports",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/students/detail-report",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/teacher-attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/edit-requests",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/policy-holidays",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/notifications",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/student/attendance/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/guardian",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/terms",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/subject-marks",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/schedules/plan",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/schedules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/marks",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/results",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/corrections",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/papers",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/notifications-analytics",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/exams/guardian",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/shifts",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/classrooms",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/timetable",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/routine/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/subjects",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/class-subjects",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teachers/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/subject-teachers",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/teacher-workload",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/rules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/campaigns/new",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/campaigns/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/campaigns",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/setup/document-types",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/setup/applicant-categories",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/identity-rules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/applications/create",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/applications/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/applications",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/statistics",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/logs",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/promotions",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/promotion-history",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/admissions/guardians",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/fees",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/school-identity",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-page",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-events/new",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-events/:id/edit",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-events",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-notices/new",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-notices/:id/edit",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/public-notices",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/branches/:id/edit",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/branches/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/branches",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/academic-sessions",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/academic-year-rollover",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/academic-year-rollover/:id",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/academic-groups",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/academic-year-archive",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/archive/:academicSessionId/students",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/curriculum-setup-wizard",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/setup-seeds",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-heads",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-terms",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-templates",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-pricing-rules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-schedules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-fine-rules",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-discount-types",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-overrides",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-bulk-invoices",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-single-invoice",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-delivery",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-online-payments",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-bank-transfer-verification",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/quizzes",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/quizzes/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/quizzes/:quizId/attempts/:attemptId",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/attendance/devices",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/dashboard",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/fees/audit-reports",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/settings/fee-counter-collection",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/id-cards/students",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/id-cards/staff",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/assignments",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/assignments/me",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/announcements",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/announcements/my",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/messaging/parent-teacher",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/meetings/availability",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/meetings/book",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/dashboard",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/analytics",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructors/:instructorId",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/certificates",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/audit",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/notifications",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/create",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/edit",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/runs/new",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/runs/:runId/edit",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/content",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/question-banks",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/courses/:courseId/question-banks/:bankId",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs/:runId",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs/:runId/experience",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs/:runId/live",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs/:runId/assignments",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/runs/:runId/assessments",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/attempts/:attemptId/review",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/live",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/recordings",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/payments",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/payments/:orderId",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/moderation",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/settings/course-categories",
+      "source": "learning-management-admin.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/dashboard",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/authoring",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/authoring/create",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/authoring/:courseId/edit",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/:courseId/question-banks",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/:courseId/question-banks/:bankId",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/:courseId/content",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/courses/:courseId",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/work",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/calendar",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches/:batchId",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches/:batchId/participants",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/trainees/:traineeId/progress",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches/:batchId/participants/:traineeId/progress",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/profile",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches/:batchId/attendance",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/batches/:batchId/communications",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/plan",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/sessions",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/learners",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/attendance",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/assignments/new",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/assignments/:assignmentId/edit",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/assignments/:assignmentId",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/learning/instructor/runs/:runId/assignments",
+      "source": "instructor-portal.routes.ts"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/company-access",
+      "source": "tenant-admin.routes.ts"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/branch-access",
+      "source": "tenant-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/scoped-roles",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/groups",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/effective-permissions",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/profile",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/scope",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/access",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/company-profile",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/branches",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/invitations/new",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/invitations",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/portal-access-requests",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/users",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/users/new",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/users/:id/edit",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/users/:id",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/roles",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/roles/:id/edit",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/access-review",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/access-review/rules",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/access-review/notifications",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/delegation-rules",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/groups/new",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/groups/:id/edit",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/role-groups",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/role-groups/new",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "user-management",
+      "path": "/app/user-management/role-groups/:id/edit",
+      "source": "user-management-admin.routes.ts"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/profile",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/class-routine",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/class-students",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/class-attendance",
+      "source": "school.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/home",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/catalog",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/commerce",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/inventory",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/logistics",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/content",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/new/internal",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/catalog",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/commerce",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/variants",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/inventory",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/logistics",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/content",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/internal",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id/edit/suppliers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/products/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/product-types",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/categories",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/brands",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/suppliers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/suppliers/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/suppliers/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/suppliers/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders/search",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders/queue",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders/all-sales",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders/manual-sell",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/pos/registers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/pos/register-setup",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/pos/sales",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/pos",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/orders/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/balances",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/online-stock",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/ledger",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/transfers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/inventory/alerts",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/customers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/customers/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/payments",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/coupons",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/reports",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/general",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/fulfillment",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/storefront",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/content",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/customers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/settings/enterprise",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "ecommerce",
+      "path": "/app/ecommerce/activity-logs",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/home",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/catalog",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/commerce",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/inventory",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/logistics",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/content",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/new/internal",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/catalog",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/commerce",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/variants",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/inventory",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/logistics",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/content",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/internal",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id/edit/suppliers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/products/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/product-types",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/categories",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/brands",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/pricing-rules/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/pricing-rules/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/pricing-rules/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/pricing-rules",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-classes/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-classes/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-classes/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-classes",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-rules/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-rules/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-rules/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/tax-rules",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/promotions",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "catalog",
+      "path": "/app/catalog/coupons",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/home",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/suppliers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/suppliers/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/suppliers/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/suppliers/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/requisitions",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/requisitions/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/requisitions/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/requisitions/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/approval-workflows",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/approval-workflows/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/approval-workflows/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/rfqs",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/rfqs/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/rfqs/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/rfqs/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/purchase-orders",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/purchase-orders/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/purchase-orders/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/purchase-orders/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/goods-receipts",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/purchase-returns",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/basic",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/supplier",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/dates",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/commercial",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/scope",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/legal",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/new/approval",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/contracts/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/bills",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/reports",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/docs/user-guide",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/docs/business",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "procurement",
+      "path": "/app/procurement/docs/technical",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/home",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/workspace",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/workspace/overview",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/workspace/balances",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/workspace/online-stock",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/workspace/ledger",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/transfers",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/transfers/new",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/transfers/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/alerts",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/reservations",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/adjustments",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/adjustment-approvals",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/adjustments/queue",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/cycle-counts",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/stock-card",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/products/:productId",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/replenishment",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/reports",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/locations",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branches",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branches/create",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branches/:id/team",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branches/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branches/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/branch-product-policies",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/facilities",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/facilities/create",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/facilities/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/facilities/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/warehouses",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/warehouses/create",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/warehouses/:id/settings",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/warehouses/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/warehouses/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/bins",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/bins/create",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/bins/:id/edit",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/bins/:id",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/batches",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "inventory",
+      "path": "/app/inventory/serials",
+      "source": "commerce.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/home",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/enterprise-controls",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/user-guide",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/business-flow-guide",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/overview",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/requisitions",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/requisitions/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/requisitions/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/requisitions/:id/approval",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/vacancies",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/vacancies/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/vacancies/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/vacancies/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/applications",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/applications/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/applications/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/applications/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/candidates",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/candidates/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/candidates/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/candidates/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/interviews",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/interviews/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/interviews/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/interviews/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/offers",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/offers/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/offers/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/communications",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/communications/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/reports",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/recruitment/career-site",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/home",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/templates",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/templates/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/templates/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/processes/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/processes",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/orientations",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/orientations/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/onboarding/orientations/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/separation",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/separation/home",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/separation/cases",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/separation/alumni",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/missing-profile",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/dashboard",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/onboarding",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/separation",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/profile",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/profile/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/team",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/directory/:employeeId",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/directory",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/attendance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/interviews",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/interviews/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/interviews/:id/feedback",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/leave",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/leave-approvals",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/performance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/announcements",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/holidays",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/expenses",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/documents",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/security",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/team-leave",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/requests",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/team-payroll-reviews",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/team-performance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/payroll",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/benefits",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/me/team-attendance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/announcements",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/employees",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/employees/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/employees/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/employees/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/dashboard",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/records/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/records",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/manual-entry",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/reports",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/auto-mark-absence",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/corrections",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shift-assignments",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shift-assignments/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shift-assignments/bulk",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shift-assignments/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/breaks",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shifts",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shifts/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/shifts/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/holidays",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/holidays/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/holidays/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/attendance/policy",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/types",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/types/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/types/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/allocations",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/ledger",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/requests",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/calendar",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/reports",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/approval-workflows",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/approval-workflows/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/approval-workflows/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/comp-off",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/leave/encashments",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/dashboard",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/runs",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/runs/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/runs/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/runs/:id/preview",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/runs/:id/entries",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/salaries/bulk-assign",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/salaries",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/reviews",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/enterprise",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/compliance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/compliance/:complianceView",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/recoveries",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/recoveries/:recoveryView",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/finance/payment-batches/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/finance",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/finance/:financeView",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/settlements",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/overview",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/view/:id",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/reviews",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/ratings",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/competencies",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/calibration",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/performance/cycles/pip",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/structures",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/structures/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/structures/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/components",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/components/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/components/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/benefits/plans",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/benefits/enrollments",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/benefits/policies",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/services",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/lifecycle",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/lifecycle/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/workforce",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/analytics/executive",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/departments",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/departments/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/departments/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/designations",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/designations/new",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/designations/:id/edit",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/activity-logs",
+      "source": "hrm.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/dashboard",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyer",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/profile",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/contacts",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/addresses",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/documents",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/timeline",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/buyers/:buyerId/edit/onboarding",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/settings/terms",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/jobs",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/seasons",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/seasons/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/seasons/:seasonId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/seasons/:seasonId",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/styles",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/costings",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/styles/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/styles/:styleId",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/samples",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/samples/:sampleId",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/quotations",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/readiness/material",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/readiness/shipment",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/production-planning",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/quality-compliance",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/commercial-closures",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/traceability",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/ai-suggestions",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/styles/:styleId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/tech-packs",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/tech-packs/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/tech-packs/:techPackId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/convert",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/convert",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/pipeline-report",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/overview",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/header",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/colors-sizes",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/materials",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/samples-compliance",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/conversion",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/inquiries/:inquiryId/edit/**",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/orders",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/orders/new",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/orders/:orderId/edit",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/orders/:orderId",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/amendments",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/tna-templates",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/tna-activities",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/approvals",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/documents",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/comments",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/activity",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/imports",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "garments-merchandising",
+      "path": "/app/garments/merchandising/exports",
+      "source": "garments-merchandising.routes.ts"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/compliance/settings",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/recoveries/loans",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "hrm",
+      "path": "/app/hrm/payroll/finance/payment-batches",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/profile",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/branding",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/defaults",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/modules",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/organization-structure",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/companies",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/branches",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/notifications",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/integrations",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/import-export",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/master-data",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/security",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/system-settings",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/document-management/admin/settings",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "tenant-admin",
+      "path": "/app/tenant-admin/audit-logs",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/dashboard",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/announcements",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/holidays",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/interviews",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/profile",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/onboarding",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/separation",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/documents",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/security",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/attendance",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/leave",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/leave-approvals",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/expenses",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/performance",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/payroll",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/benefits",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/directory",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/team",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/requests",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/team-leave",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/team-attendance",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/team-payroll-reviews",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/hrm/me/team-performance",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "task-management",
+      "path": "/app/docs/task-management",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "school-management",
+      "path": "/app/school-management/app.component-reference-guide",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student/my-profile",
+      "source": "/app/school-management/students/me"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student/my-attendance",
+      "source": "/app/school-management/student/attendance/me"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student/attendance-change-requests",
+      "source": "/app/school-management/attendance/edit-requests"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student/my-exams",
+      "source": "/app/school-management/exams/me"
+    },
+    {
+      "code": "student-self-service",
+      "path": "/app/student/my-class-routine",
+      "source": "/app/school-management/routine/me"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/my-profile",
+      "source": "/app/school-management/teachers/me/profile"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/my-class-routine",
+      "source": "/app/school-management/teachers/me/class-routine"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/my-class-students",
+      "source": "/app/school-management/teachers/me/class-students"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/my-attendance",
+      "source": "/app/school-management/teachers/me/attendance"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/take-attendance",
+      "source": "/app/school-management/teachers/me/class-attendance"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/marks-entry",
+      "source": "/app/school-management/exams/marks"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/my-exam-schedules",
+      "source": "/app/school-management/exams/schedules"
+    },
+    {
+      "code": "teacher-self-service",
+      "path": "/app/teacher/question-papers",
+      "source": "/app/school-management/exams/papers"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/settings/identity",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/settings/public-site",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/admission-campaigns",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/admission-applications",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/course-inquiries",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/trainees",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/programmes",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/batches",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "training-institute-management",
+      "path": "/app/training-institute/instructors",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/workspaces",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/recent",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/favorites",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/trash",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/admin/audit-logs",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "document-management",
+      "path": "/app/document-management/admin/settings",
+      "source": "workspace-sidebar"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/dashboard",
+      "source": "/app/hrm/me/dashboard"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/announcements",
+      "source": "/app/hrm/me/announcements"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/holidays",
+      "source": "/app/hrm/me/holidays"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-interviews",
+      "source": "/app/hrm/me/interviews"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-profile",
+      "source": "/app/hrm/me/profile"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/pre-boarding",
+      "source": "/app/hrm/me/onboarding"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-separation",
+      "source": "/app/hrm/me/separation"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/document-requests",
+      "source": "/app/hrm/me/documents"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/security",
+      "source": "/app/hrm/me/security"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-attendance",
+      "source": "/app/hrm/me/attendance"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-leave",
+      "source": "/app/hrm/me/leave"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/team-leave-requests",
+      "source": "/app/hrm/me/leave-approvals"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/expense-claims",
+      "source": "/app/hrm/me/expenses"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/goals,-self-review-and-ratings",
+      "source": "/app/hrm/me/performance"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-payroll",
+      "source": "/app/hrm/me/payroll"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-benefits",
+      "source": "/app/hrm/me/benefits"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/employee-directory",
+      "source": "/app/hrm/me/directory"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/my-team",
+      "source": "/app/hrm/me/team"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/manager-requests",
+      "source": "/app/hrm/me/requests"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/team-leave",
+      "source": "/app/hrm/me/team-leave"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/team-attendance",
+      "source": "/app/hrm/me/team-attendance"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/team-payroll-reviews",
+      "source": "/app/hrm/me/team-payroll-reviews"
+    },
+    {
+      "code": "employee-self-service",
+      "path": "/app/employee/team-reviews-and-competencies",
+      "source": "/app/hrm/me/team-performance"
+    },
+    {
+      "source": "commerce.routes.ts — alias to products",
+      "path": "/app/catalog",
+      "code": "catalog"
+    },
+    {
+      "source": "commerce.routes.ts",
+      "path": "/app/catalog/tax-hs-code-mappings",
+      "code": "catalog"
+    }
+  ]
+}

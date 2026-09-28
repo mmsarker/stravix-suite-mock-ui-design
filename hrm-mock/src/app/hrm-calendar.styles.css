@@ -1,0 +1,32 @@
+.calendar-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e9eef3;
+  background: #fbfcfd;
+}
+.calendar-filters .filter-field {
+  flex: 1;
+  min-width: 115px;
+}
+.calendar-filters input,
+.calendar-filters select {
+  min-height: 36px;
+}
+.calendar-filters > .btn {
+  min-width: 74px;
+}
+@media (max-width: 680px) {
+  .calendar-filters {
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  .calendar-filters .filter-field {
+    min-width: calc(50% - 6px);
+  }
+  .calendar-filters > .btn {
+    flex: 1;
+  }
+}

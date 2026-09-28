@@ -1,0 +1,63 @@
+{
+  "tenant-management": [
+    {
+      "title": "Tenant Operations",
+      "entries": [
+        {"label": "Organizations", "path": "/admin/organizations"},
+        {"label": "Demo Requests", "path": "/admin/demo-requests"},
+        {"label": "Seed Console", "path": "/admin/seeds"},
+        {"label": "Branding", "path": "/admin/branding"}
+      ]
+    },
+    {
+      "title": "Platform Catalog",
+      "entries": [
+        {"label": "Apps", "path": "/admin/apps"},
+        {"label": "App Categories", "path": "/admin/app-categories"},
+        {"label": "Subscription Plans", "path": "/admin/subscription-plans"},
+        {"label": "Permissions", "path": "/admin/permissions"},
+        {"label": "Labels", "path": "/admin/labels"}
+      ]
+    },
+    {
+      "title": "Reliability",
+      "entries": [
+        {"label": "Observability", "path": "/admin/observability"},
+        {"label": "Scheduler Runs", "path": "/admin/observability/scheduler-runs"},
+        {"label": "Failed Events", "path": "/admin/observability/failed-events"},
+        {"label": "Migrations", "path": "/admin/observability/migrations"},
+        {"label": "Database Latency", "path": "/admin/observability/database-latency"},
+        {"label": "Schema Versions", "path": "/admin/observability/schema-versions"},
+        {"label": "Worker Health", "path": "/admin/observability/worker-health"}
+      ]
+    },
+    {
+      "title": "Governance & Audit",
+      "entries": [
+        {"label": "Audit", "path": "/admin/audit"}
+      ]
+    },
+    {
+      "title": "Architecture & Integration",
+      "entries": [
+        {"label": "Architecture", "path": "/admin/operations/architecture"},
+        {"label": "Integrations", "path": "/admin/operations/integrations"},
+        {"label": "Workflow Versioning", "path": "/admin/operations/workflow-versioning"},
+        {"label": "DR & Portability", "path": "/admin/operations/dr"},
+        {"label": "Load & Resilience", "path": "/admin/operations/load"}
+      ]
+    }
+  ],
+  "garments-buyer-portal": [
+    {
+      "title": "",
+      "entries": [
+        {"label": "Dashboard", "path": "/app/garments/buyer-portal/dashboard"},
+        {"label": "Samples", "path": "/app/garments/buyer-portal/samples"},
+        {"label": "Clarifications", "path": "/app/garments/buyer-portal/tech-pack-clarifications"},
+        {"label": "Documents", "path": "/app/garments/buyer-portal/documents"},
+        {"label": "Shipment Docs", "path": "/app/garments/buyer-portal/shipment-documents"}
+      ]
+    }
+  ]
+}

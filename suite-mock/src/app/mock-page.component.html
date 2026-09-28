@@ -1,0 +1,1087 @@
+<div class="suite-workspace">
+  <aside class="suite-rail" aria-label="Application navigation">
+    <a class="suite-brand" routerLink="/app/dashboard"
+      ><span class="suite-mark">S</span
+      ><span><strong>stravix</strong><small>SUITE · WORKSPACE</small></span></a
+    >
+    <div class="suite-app-label">{{ page.app }}</div>
+    <nav *ngIf="page.app === 'Procurement'" class="suite-nav">
+      <span class="suite-nav-caption">SOURCE TO PURCHASE</span>
+      <a routerLink="/app/procurement/home">Overview</a
+      ><a
+        routerLink="/app/procurement/requisitions"
+        [class.active]="page.key === 'requisitions'"
+        >Requisitions</a
+      >
+      <a
+        routerLink="/app/procurement/approval-workflows"
+        [class.active]="page.key === 'approval-workflows'"
+        >Approval workflows</a
+      ><a
+        routerLink="/app/procurement/rfqs"
+        [class.active]="page.key === 'rfqs'"
+        >Requests for quotation</a
+      >
+      <a
+        routerLink="/app/procurement/purchase-orders"
+        [class.active]="page.key === 'purchase-orders'"
+        >Purchase orders</a
+      ><a
+        routerLink="/app/procurement/goods-receipts"
+        [class.active]="page.key === 'goods-receipts'"
+        >Goods receipts</a
+      >
+      <a
+        routerLink="/app/procurement/purchase-returns"
+        [class.active]="page.key === 'purchase-returns'"
+        >Purchase returns</a
+      ><a
+        routerLink="/app/procurement/contracts"
+        [class.active]="page.key === 'contracts'"
+        >Supplier contracts</a
+      >
+      <a
+        routerLink="/app/procurement/bills"
+        [class.active]="page.key === 'bills'"
+        >Supplier bills</a
+      ><a routerLink="/app/procurement/suppliers">Suppliers</a>
+      <span class="suite-nav-caption">INSIGHTS & GUIDES</span
+      ><a
+        routerLink="/app/procurement/reports"
+        [class.active]="page.key === 'reports'"
+        >Reports</a
+      ><a
+        routerLink="/app/procurement/docs/user-guide"
+        [class.active]="page.key === 'docs' && routePath.endsWith('user-guide')"
+        >User guide</a
+      ><a
+        routerLink="/app/procurement/docs/business"
+        [class.active]="page.key === 'docs' && routePath.endsWith('business')"
+        >Business process</a
+      ><a
+        routerLink="/app/procurement/docs/technical"
+        [class.active]="page.key === 'docs' && routePath.endsWith('technical')"
+        >Technical reference</a
+      >
+    </nav>
+    <nav *ngIf="page.app !== 'Procurement'" class="suite-nav">
+      <span class="suite-nav-caption">ACCOUNTING</span>
+      <a routerLink="/app/finance/home">Overview</a
+      ><a routerLink="/app/finance/accounts">Chart of accounts</a
+      ><a routerLink="/app/finance/periods">Fiscal periods</a
+      ><a routerLink="/app/finance/journals">Journals</a>
+      <a
+        routerLink="/app/finance/receivables"
+        [class.active]="page.key === 'receivables'"
+        >Receivables</a
+      ><a
+        routerLink="/app/finance/payables"
+        [class.active]="page.key === 'payables'"
+        >Payables</a
+      >
+      <a
+        routerLink="/app/finance/banking"
+        [class.active]="page.key === 'banking'"
+        >Banking</a
+      ><a
+        routerLink="/app/finance/reconciliation"
+        [class.active]="page.key === 'reconciliation'"
+        >Reconciliation</a
+      >
+      <span class="suite-nav-caption">SETUP & REPORTING</span
+      ><a
+        routerLink="/app/finance/reports"
+        [class.active]="page.key === 'reports'"
+        >Reports</a
+      ><a
+        routerLink="/app/finance/integrations"
+        [class.active]="page.key === 'integrations'"
+        >Integrations</a
+      >
+      <a
+        routerLink="/app/finance/cost-centers"
+        [class.active]="page.key === 'cost-centers'"
+        >Cost centers</a
+      ><a
+        routerLink="/app/finance/partners"
+        [class.active]="page.key === 'partners'"
+        >Business partners</a
+      >
+      <a
+        routerLink="/app/finance/fixed-assets"
+        [class.active]="page.key === 'fixed-assets'"
+        >Fixed assets</a
+      ><a
+        routerLink="/app/finance/budgets"
+        [class.active]="page.key === 'budgets'"
+        >Budgets</a
+      >
+      <a routerLink="/app/finance/vds" [class.active]="page.key === 'vds'"
+        >VDS withholding</a
+      ><a
+        routerLink="/app/finance/settings/accounting"
+        [class.active]="page.key === 'settings'"
+        >Accounting settings</a
+      ><a routerLink="/app/finance/settings/tax-codes">Tax codes</a
+      ><a routerLink="/app/finance/settings/exchange-rates">Exchange rates</a
+      ><a routerLink="/app/finance/integrations/health">Integration health</a>
+      <span class="suite-nav-caption">EDUCATION BILLING</span
+      ><a
+        routerLink="/app/finance/education-billing/overview"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/overview')
+        "
+        >Overview</a
+      ><a
+        routerLink="/app/finance/education-billing/catalog"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/catalog')
+        "
+        >Fee catalog</a
+      ><a
+        routerLink="/app/finance/education-billing/fee-plans"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/fee-plans')
+        "
+        >Fee plans</a
+      ><a
+        routerLink="/app/finance/education-billing/late-fees"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/late-fees')
+        "
+        >Late fees</a
+      ><a
+        routerLink="/app/finance/education-billing/discounts"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/discounts')
+        "
+        >Discounts</a
+      ><a
+        routerLink="/app/finance/education-billing/audit"
+        [class.active]="
+          page.key === 'education-billing' && routePath.endsWith('/audit')
+        "
+        >Billing audit</a
+      >
+      <a
+        routerLink="/app/finance/user-guide"
+        [class.active]="page.key === 'user-guide'"
+        >User guide</a
+      ><a
+        routerLink="/app/finance/system-detail"
+        [class.active]="page.key === 'system-detail'"
+        >System detail</a
+      >
+    </nav>
+    <div class="rail-foot">
+      <span class="rail-avatar">SS</span
+      ><span
+        ><strong>Stravix Demo Group</strong
+        ><small>Design workspace</small></span
+      >
+    </div>
+  </aside>
+
+  <div class="suite-main-column">
+    <header class="suite-topbar">
+      <div class="suite-breadcrumb">
+        <a routerLink="/app/dashboard">Workspace</a><span>›</span
+        ><strong>{{ page.app }}</strong
+        ><span>›</span><strong>{{ page.title }}</strong>
+      </div>
+      <div class="suite-top-actions">
+        <span class="tenant-chip"><i></i> Stravix Group BD</span
+        ><button
+          type="button"
+          class="quiet-button"
+          [attr.aria-expanded]="reviewOpen"
+          (click)="reviewOpen = !reviewOpen"
+        >
+          Review states</button
+        ><span class="profile-avatar">SS</span>
+      </div>
+      <section
+        *ngIf="reviewOpen"
+        class="review-state-menu"
+        aria-label="Preview states"
+      >
+        <button
+          *ngFor="
+            let state of [
+              'populated',
+              'empty',
+              'loading',
+              'error',
+              'validation',
+              'success',
+              'forbidden',
+            ]
+          "
+          type="button"
+          [class.selected]="reviewState === state"
+          (click)="setReviewState(state)"
+        >
+          {{ state | titlecase }}
+        </button>
+      </section>
+    </header>
+    <main class="suite-content">
+      <header class="suite-page-head">
+        <div>
+          <span class="suite-eyebrow">{{ page.app }} WORKSPACE</span>
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.description }}</p>
+        </div>
+        <div class="suite-head-actions">
+          <a
+            *ngIf="page.kind === 'form' || page.kind === 'detail'"
+            class="suite-button secondary"
+            [routerLink]="
+              page.key === 'settings'
+                ? '/app/finance/home'
+                : page.app === 'Procurement'
+                  ? '/app/procurement/' + page.key
+                  : '/app/finance/' + page.key
+            "
+            >Back to list</a
+          >
+          <button
+            *ngIf="
+              page.kind === 'list' &&
+              ![
+                'report',
+                'statement',
+                'integration',
+                'integration-health',
+                'billing-audit',
+              ].includes(page.entity)
+            "
+            class="suite-button primary"
+            type="button"
+            (click)="createPrimary()"
+          >
+            ＋
+            {{
+              page.entity === "invoice"
+                ? "New invoice"
+                : page.entity === "payable"
+                  ? "Capture bill"
+                  : page.entity === "bank-account"
+                    ? "Add account"
+                    : page.entity === "asset"
+                      ? "Add asset"
+                      : page.entity === "partner"
+                        ? "Add partner"
+                        : page.entity === "budget"
+                          ? "New budget"
+                          : page.entity === "cost-center"
+                            ? "New cost center"
+                            : page.entity === "vds-record"
+                              ? "Record VDS withholding"
+                              : page.entity === "fee-plan"
+                                ? "Create fee plan"
+                                : page.entity === "fee-catalog"
+                                  ? "Add fee item"
+                                  : page.entity === "fee-discount"
+                                    ? "Record discount"
+                                    : "Create " +
+                                      page.title.toLowerCase().replace(/s$/, "")
+            }}
+          </button>
+          <button
+            *ngIf="page.kind === 'list'"
+            class="suite-button secondary"
+            type="button"
+            (click)="act('The latest sample data is shown.')"
+          >
+            Refresh
+          </button>
+        </div>
+      </header>
+
+      <section
+        *ngIf="reviewState !== 'populated'"
+        class="review-state-banner"
+        [ngClass]="'state-' + reviewState"
+        role="status"
+      >
+        <div>
+          <strong>{{ stateCopy[0] }}</strong>
+          <p>{{ stateCopy[1] }}</p>
+        </div>
+        <button
+          class="suite-button secondary"
+          type="button"
+          (click)="setReviewState('populated')"
+        >
+          Return to populated view
+        </button>
+      </section>
+
+      <section
+        *ngIf="!stateOnly && page.stats.length"
+        class="suite-metrics"
+        aria-label="Summary"
+      >
+        <article *ngFor="let stat of page.stats">
+          <span>{{ stat[0] }}</span
+          ><strong>{{ stat[1] }}</strong
+          ><small>{{ stat[2] }}</small>
+        </article>
+      </section>
+
+      <section
+        *ngIf="!stateOnly && page.kind === 'list'"
+        class="suite-card data-card"
+      >
+        <div class="suite-card-heading">
+          <div>
+            <span class="suite-eyebrow">{{
+              page.app === "Procurement"
+                ? "PURCHASING OPERATIONS"
+                : "FINANCIAL OPERATIONS"
+            }}</span>
+            <h2>{{ activeTab || page.title }}</h2>
+            <p>
+              {{ filteredRows.length }} records · Sample company: Stravix Group
+              BD
+            </p>
+          </div>
+          <div class="card-heading-actions">
+            <button
+              *ngIf="page.entity === 'bill' || page.entity === 'statement'"
+              class="suite-button secondary"
+              type="button"
+              (click)="showCreate()"
+            >
+              {{
+                page.entity === "bill"
+                  ? "Capture supplier invoice"
+                  : "Import statement"
+              }}</button
+            ><button
+              class="icon-button"
+              aria-label="More list actions"
+              type="button"
+              (click)="act('List options are available in this preview.')"
+            >
+              •••
+            </button>
+          </div>
+        </div>
+        <nav
+          *ngIf="page.tabs?.length"
+          class="suite-tabs"
+          aria-label="Finance view"
+        >
+          <button
+            *ngFor="let tab of page.tabs"
+            type="button"
+            [class.selected]="activeTab === tab"
+            (click)="activeTab = tab"
+          >
+            {{ tab }}
+          </button>
+        </nav>
+        <div class="suite-filters">
+          <label class="search-field"
+            ><span aria-hidden="true">⌕</span
+            ><input
+              [ngModel]="search"
+              (ngModelChange)="setSearch($event)"
+              aria-label="Search records"
+              placeholder="Search by reference, name, or supplier" /></label
+          ><label
+            ><span>Status</span
+            ><select
+              [ngModel]="statusFilter"
+              (ngModelChange)="setStatus($event)"
+            >
+              <option value="">All statuses</option>
+              <option *ngFor="let status of statusOptions" [value]="status">
+                {{ status }}
+              </option>
+            </select></label
+          ><button
+            class="suite-button secondary"
+            type="button"
+            (click)="setSearch(''); setStatus('')"
+          >
+            Clear</button
+          ><button
+            class="suite-button secondary export-button"
+            type="button"
+            (click)="act('A sample CSV export is ready.')"
+          >
+            Export
+          </button>
+        </div>
+        <div class="suite-table-wrap">
+          <table class="suite-table">
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Record</th>
+                <th *ngFor="let column of page.columns">{{ column }}</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of visibleRows">
+                <td>
+                  <a
+                    class="reference-link"
+                    [routerLink]="recordHref(row) || routePath"
+                    >{{ row.code }}</a
+                  >
+                </td>
+                <td>
+                  <strong>{{ row.title }}</strong
+                  ><small>{{
+                    page.app === "Procurement"
+                      ? "Stravix Group BD · Dhaka"
+                      : "Posted to general ledger"
+                  }}</small>
+                </td>
+                <td *ngFor="let value of row.values; let i = index">
+                  {{ value }}
+                </td>
+                <td>
+                  <span
+                    class="status-pill"
+                    [ngClass]="row.status.toLowerCase().replaceAll(' ', '-')"
+                    >{{ row.status }}</span
+                  >
+                </td>
+                <td>
+                  <a *ngIf="recordHref(row)" [routerLink]="recordHref(row)"
+                    >View</a
+                  ><button
+                    *ngIf="!recordHref(row)"
+                    type="button"
+                    class="table-action"
+                    (click)="act('Sample ' + row.code + ' opened for review.')"
+                  >
+                    Review
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="!visibleRows.length">
+                <td class="empty-row" [attr.colspan]="page.columns.length + 4">
+                  No records match the current filters.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <suite-pagination
+          [first]="firstVisible"
+          [last]="lastVisible"
+          [total]="filteredRows.length"
+          [page]="currentPage"
+          [pages]="pageCount"
+          [size]="pageSize"
+          [sizes]="pageSizes"
+          (pageChange)="currentPage = $event"
+          (pageSizeChange)="setSize($event)"
+        ></suite-pagination>
+      </section>
+
+      <section
+        *ngIf="!stateOnly && page.kind === 'form'"
+        class="suite-form-layout"
+      >
+        <div class="suite-card form-card">
+          <div *ngIf="page.key === 'contracts'" class="contract-steps">
+            <a
+              *ngFor="
+                let step of [
+                  'basic',
+                  'supplier',
+                  'dates',
+                  'commercial',
+                  'scope',
+                  'legal',
+                  'approval',
+                ];
+                let i = index
+              "
+              [routerLink]="'/app/procurement/contracts/new/' + step"
+              [class.current]="routePath.endsWith('/' + step)"
+              [class.done]="
+                i <
+                [
+                  'basic',
+                  'supplier',
+                  'dates',
+                  'commercial',
+                  'scope',
+                  'legal',
+                  'approval',
+                ].indexOf(routePath.split('/').at(-1) || 'basic')
+              "
+              ><span>{{ i + 1 }}</span
+              >{{
+                [
+                  "Basics",
+                  "Supplier",
+                  "Dates",
+                  "Commercial",
+                  "Scope",
+                  "Legal",
+                  "Approval",
+                ][i]
+              }}</a
+            >
+          </div>
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow">{{
+                page.kind === "form" && page.key === "contracts"
+                  ? "CONTRACT SETUP"
+                  : "RECORD DETAILS"
+              }}</span>
+              <h2>{{ page.title }}</h2>
+              <p>
+                Fields marked with * are required. Information stays in this
+                local design preview.
+              </p>
+            </div>
+          </div>
+          <form #recordForm="ngForm" (ngSubmit)="save(recordForm)">
+            <div class="suite-form-grid">
+              <label *ngFor="let field of page.fields" [class.wide]="field.wide"
+                ><span>{{ field.label }}<b *ngIf="field.required"> *</b></span
+                ><textarea
+                  *ngIf="field.type === 'textarea'; else regularField"
+                  name="{{
+                    'field-' + field.label.toLowerCase().replaceAll(' ', '-')
+                  }}"
+                  [placeholder]="field.placeholder || ''"
+                  [required]="!!field.required"
+                  ngModel
+                  rows="3"
+                ></textarea
+                ><ng-template #regularField
+                  ><select
+                    *ngIf="field.choices?.length; else inputField"
+                    name="{{
+                      'field-' + field.label.toLowerCase().replaceAll(' ', '-')
+                    }}"
+                    [required]="!!field.required"
+                    ngModel
+                  >
+                    <option value="">
+                      Choose {{ field.label.toLowerCase() }}
+                    </option>
+                    <option
+                      *ngFor="let choice of field.choices"
+                      [value]="choice"
+                    >
+                      {{ choice }}
+                    </option></select
+                  ><ng-template #inputField
+                    ><input
+                      [type]="field.type || 'text'"
+                      name="{{
+                        'field-' +
+                          field.label.toLowerCase().replaceAll(' ', '-')
+                      }}"
+                      [placeholder]="field.placeholder || ''"
+                      [required]="!!field.required"
+                      ngModel /></ng-template></ng-template
+              ></label>
+            </div>
+            <p
+              *ngIf="formSubmitted && recordForm.invalid"
+              class="form-error"
+              role="alert"
+            >
+              Complete the required fields highlighted above.
+            </p>
+            <div class="suite-form-actions">
+              <a
+                class="suite-button secondary"
+                [routerLink]="
+                  page.key === 'settings'
+                    ? '/app/finance/home'
+                    : (page.app === 'Procurement'
+                        ? '/app/procurement/'
+                        : '/app/finance/') + page.key
+                "
+                >Cancel</a
+              ><a
+                *ngIf="
+                  page.key === 'contracts' && !routePath.endsWith('/approval')
+                "
+                class="suite-button secondary"
+                [routerLink]="previousContractStep"
+                >Previous</a
+              ><button class="suite-button primary" type="submit">
+                {{
+                  page.key === "contracts" && !routePath.endsWith("/approval")
+                    ? "Save & continue"
+                    : "Save preview"
+                }}</button
+              ><a
+                *ngIf="
+                  page.key === 'contracts' && !routePath.endsWith('/approval')
+                "
+                class="suite-button text-button"
+                [routerLink]="nextContractStep"
+                >Continue →</a
+              >
+            </div>
+          </form>
+        </div>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">WORKSPACE CONTEXT</span>
+          <h3>
+            {{
+              page.key === "contracts"
+                ? "Agreement controls"
+                : "Record guidance"
+            }}
+          </h3>
+          <p>
+            {{
+              page.key === "contracts"
+                ? "Keep supplier, term, commercial, legal, and approval information aligned before submission."
+                : "Use the linked sample records to review how this item fits into purchasing and accounting."
+            }}
+          </p>
+          <div *ngIf="page.key === 'contracts'" class="side-fact">
+            <span>Approval policy</span><strong>Standard · 3 steps</strong>
+          </div>
+          <div class="side-fact">
+            <span>Company</span><strong>Stravix Group BD</strong>
+          </div>
+          <div class="side-fact">
+            <span>Currency</span><strong>BDT · ৳</strong>
+          </div>
+          <a
+            *ngIf="page.key === 'requisitions'"
+            routerLink="/app/procurement/approval-workflows"
+            >Review approval paths ↗</a
+          ><a
+            *ngIf="page.key === 'purchase-orders'"
+            routerLink="/app/procurement/suppliers"
+            >Browse suppliers ↗</a
+          >
+        </aside>
+      </section>
+
+      <section
+        *ngIf="!stateOnly && page.kind === 'detail'"
+        class="detail-layout"
+      >
+        <div class="suite-card">
+          <div class="suite-card-heading">
+            <div>
+              <span class="suite-eyebrow"
+                >{{ page.app.toUpperCase() }} RECORD</span
+              >
+              <h2>
+                {{ page.id }} ·
+                {{ page.title.split(" ").slice(0, -1).join(" ") }}
+              </h2>
+              <p>Sample record · Updated 24 Sep 2026 by Farhan Chowdhury</p>
+            </div>
+            <span class="status-pill approved">In review</span>
+          </div>
+          <div class="detail-grid">
+            <div>
+              <span>Owner</span><strong>{{ employeeNames[1] }}</strong>
+            </div>
+            <div>
+              <span>Department</span><strong>{{ departmentNames[0] }}</strong>
+            </div>
+            <div>
+              <span>Supplier</span><strong>{{ supplierNames[0] }}</strong>
+            </div>
+            <div><span>Requested value</span><strong>৳ 186,420.00</strong></div>
+            <div><span>Created</span><strong>18 Sep 2026</strong></div>
+            <div><span>Needed by</span><strong>28 Oct 2026</strong></div>
+          </div>
+          <div class="detail-section">
+            <h3>Items and scope</h3>
+            <p>
+              Sample purchase lines are linked to the approved department
+              request and supplier quote.
+            </p>
+            <div class="suite-table-wrap">
+              <table class="suite-table detail-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit cost</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Business laptop · 14 inch</td>
+                    <td>4</td>
+                    <td>৳ 42,500.00</td>
+                    <td>৳ 170,000.00</td>
+                  </tr>
+                  <tr>
+                    <td>Docking station and accessories</td>
+                    <td>4</td>
+                    <td>৳ 4,105.00</td>
+                    <td>৳ 16,420.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="detail-section">
+            <h3>Activity</h3>
+            <div class="activity-line">
+              <i></i>
+              <div>
+                <strong>Finance review requested</strong>
+                <p>Farhan Chowdhury · 24 Sep 2026, 2:14 PM</p>
+              </div>
+            </div>
+            <div class="activity-line">
+              <i></i>
+              <div>
+                <strong>Department approval completed</strong>
+                <p>Nadia Rahman · 22 Sep 2026, 11:08 AM</p>
+              </div>
+            </div>
+          </div>
+          <div class="suite-form-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="act('A comment was added to the sample activity.')"
+            >
+              Add note</button
+            ><button
+              class="suite-button primary"
+              type="button"
+              (click)="act('Sample approval recorded locally.')"
+            >
+              Approve preview
+            </button>
+          </div>
+        </div>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">LINKED RECORDS</span>
+          <h3>Procurement context</h3>
+          <a routerLink="/app/procurement/suppliers"
+            >{{ supplierNames[0] }} · Supplier ↗</a
+          ><a routerLink="/app/procurement/approval-workflows"
+            >Standard approval workflow ↗</a
+          ><a routerLink="/app/finance/payables">View related bill ↗</a>
+          <div class="side-fact">
+            <span>Documents</span><strong>3 attachments</strong>
+          </div>
+          <div class="side-fact">
+            <span>Source</span><strong>Stravix Demo Group</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section *ngIf="!stateOnly && page.kind === 'guide'" class="guide-layout">
+        <div *ngIf="page.stats.length" class="report-grid">
+          <article *ngFor="let stat of page.stats">
+            <span>{{ stat[0] }}</span
+            ><strong>{{ stat[1] }}</strong
+            ><small>{{ stat[2] }}</small>
+          </article>
+        </div>
+        <div class="suite-card guide-card">
+          <span class="suite-eyebrow">{{
+            page.entity === "report" ||
+            page.entity === "integration-health" ||
+            page.entity === "billing-audit"
+              ? "OPERATIONS & CONTROL"
+              : "REFERENCE"
+          }}</span>
+          <h2>
+            {{
+              page.entity === "report" ? "Purchasing performance" : page.title
+            }}
+          </h2>
+          <p>
+            {{
+              page.entity === "report"
+                ? "Monitor supplier contribution, purchase order activity, billed value, returns, and exception handling."
+                : page.entity === "education-billing-overview"
+                  ? "Authoritative billing work for education accounts, collections, and finance review."
+                  : page.entity === "integration-health"
+                    ? "Review queues and posting exceptions that need finance operator attention."
+                    : page.entity === "billing-audit"
+                      ? "Work through education finance exceptions, refunds, credits, and receipts."
+                      : "Use this guide to move through the main tasks in the finance and procurement workspace."
+            }}
+          </p>
+          <div *ngIf="page.entity === 'report'" class="report-highlights">
+            <a routerLink="/app/procurement/requisitions"
+              ><span>Requisition cycle</span><strong>2.4 days</strong
+              ><small>Median time from submission to decision</small></a
+            ><a routerLink="/app/procurement/purchase-orders"
+              ><span>Open order value</span><strong>৳ 2.46M</strong
+              ><small>Across 19 unclosed purchase orders</small></a
+            ><a routerLink="/app/procurement/bills"
+              ><span>Three-way match rate</span><strong>96.8%</strong
+              ><small>Invoices matched to order and receipt</small></a
+            >
+          </div>
+          <div
+            *ngIf="page.entity === 'education-billing-overview'"
+            class="report-highlights"
+          >
+            <a routerLink="/app/finance/education-billing/fee-plans"
+              ><span>Fee plans</span><strong>12 published</strong
+              ><small>Plans available to education adapters</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Billing accounts</span><strong>142 active</strong
+              ><small>Learners in selected company scope</small></a
+            ><a routerLink="/app/finance/receivables"
+              ><span>Outstanding</span><strong>৳ 684,250</strong
+              ><small>Current learner balance</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Open exceptions</span><strong>4 cases</strong
+              ><small>Settlement and refund mismatches</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Unapplied receipts</span><strong>৳ 18,600</strong
+              ><small>Held for allocation or refund review</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Overdue installments</span><strong>37 learners</strong
+              ><small>Review account schedules</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Missing invoices</span><strong>8 installments</strong
+              ><small>Issue from account schedules</small></a
+            ><a routerLink="/app/finance/education-billing/audit"
+              ><span>Pending refunds</span><strong>3 requests</strong
+              ><small>Second approver required</small></a
+            ><a routerLink="/app/finance/education-billing/accounts"
+              ><span>Pending accounts</span><strong>5 waiting</strong
+              ><small>Activation or first invoice needed</small></a
+            >
+          </div>
+          <div
+            *ngIf="page.entity === 'integration-health'"
+            class="report-highlights"
+          >
+            <a routerLink="/app/finance/integrations"
+              ><span>Dead-letter queues</span><strong>2 messages</strong
+              ><small>Exceeded consumer retry policy</small></a
+            ><a routerLink="/app/finance/integrations"
+              ><span>Failed postings</span><strong>1 event</strong
+              ><small>Journal entry was not created</small></a
+            ><a routerLink="/app/finance/reconciliation"
+              ><span>Integrity anomalies</span><strong>1 mismatch</strong
+              ><small>Review sequence and ledger balance</small></a
+            ><a routerLink="/app/finance/journals"
+              ><span>Finance activity</span><strong>42 events today</strong
+              ><small>Posting and sync activity</small></a
+            >
+          </div>
+          <div
+            *ngIf="page.entity === 'billing-audit'"
+            class="report-highlights"
+          >
+            <a routerLink="/app/finance/education-billing/overview"
+              ><span>Reconciliation exceptions</span><strong>4 open</strong
+              ><small>Settlement and refund review</small></a
+            ><a routerLink="/app/finance/education-billing/discounts"
+              ><span>Manual refund approvals</span><strong>3 requests</strong
+              ><small>Second approval before ledger reversal</small></a
+            ><a routerLink="/app/finance/education-billing/discounts"
+              ><span>Pending education credits</span><strong>6 credits</strong
+              ><small>Discount and late-fee waiver approval</small></a
+            ><a routerLink="/app/finance/receivables"
+              ><span>Unapplied receipts</span><strong>৳ 18,600</strong
+              ><small>Allocate to an invoice or review refund</small></a
+            ><a routerLink="/app/finance/education-billing/overview"
+              ><span>Billing accounts</span><strong>142 accounts</strong
+              ><small>Open an account for installments and invoices</small></a
+            >
+          </div>
+          <div
+            *ngIf="
+              ![
+                'report',
+                'education-billing-overview',
+                'integration-health',
+                'billing-audit',
+              ].includes(page.entity)
+            "
+            class="guide-sections"
+          >
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Review the work queue</h3>
+                <p>
+                  Use status and date filters to focus on the requests,
+                  invoices, or approvals that need attention.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Keep records connected</h3>
+                <p>
+                  Requisitions, supplier quotations, purchase orders, receipts,
+                  and bills should reference the same source records.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h3>Confirm before posting</h3>
+                <p>
+                  Check supplier, company, currency, account mapping, and
+                  supporting documents before financial activity is posted.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <aside class="suite-side-card">
+          <span class="suite-eyebrow">QUICK LINKS</span>
+          <h3>
+            {{
+              page.entity === "report"
+                ? "Explore operations"
+                : "Related workspaces"
+            }}
+          </h3>
+          <ng-container
+            *ngIf="page.app === 'Procurement'; else financeGuideLinks"
+            ><a routerLink="/app/procurement/purchase-orders"
+              >Purchase orders ↗</a
+            ><a routerLink="/app/procurement/suppliers">Supplier directory ↗</a
+            ><a routerLink="/app/finance/accounts">Chart of accounts ↗</a
+            ><a routerLink="/app/finance/reconciliation"
+              >Reconciliation ↗</a
+            ></ng-container
+          ><ng-template #financeGuideLinks
+            ><a routerLink="/app/finance/receivables">Receivables ↗</a
+            ><a routerLink="/app/finance/payables">Payables ↗</a
+            ><a routerLink="/app/finance/reconciliation"
+              >Bank reconciliation ↗</a
+            ><a routerLink="/app/finance/integrations/health"
+              >Integration health ↗</a
+            ><a routerLink="/app/finance/education-billing/overview"
+              >Education billing ↗</a
+            ></ng-template
+          >
+        </aside>
+      </section>
+    </main>
+    <div
+      *ngIf="createOpen"
+      class="suite-modal-backdrop"
+      (click)="$event.target === $event.currentTarget && closeCreate()"
+    >
+      <section
+        class="suite-modal"
+        role="dialog"
+        aria-modal="true"
+        [attr.aria-label]="'Create ' + page.title"
+      >
+        <div class="suite-card-heading">
+          <div>
+            <span class="suite-eyebrow">LOCAL PREVIEW</span>
+            <h2>
+              {{
+                page.entity === "bank-account"
+                  ? "New bank / cash account"
+                  : page.entity === "asset"
+                    ? "Add fixed asset"
+                    : page.entity === "partner"
+                      ? "New business partner"
+                      : page.entity === "budget"
+                        ? "New budget"
+                        : page.entity === "statement"
+                          ? "Import bank statement"
+                          : page.entity === "bill"
+                            ? "Supplier invoice capture"
+                            : "New " +
+                              page.title.toLowerCase().replace(/s$/, "")
+              }}
+            </h2>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Close"
+            (click)="closeCreate()"
+          >
+            ×
+          </button>
+        </div>
+        <form #createForm="ngForm">
+          <div class="suite-form-grid">
+            <label
+              *ngFor="let field of page.fields.slice(0, 8)"
+              [class.wide]="field.wide"
+              ><span>{{ field.label }}<b *ngIf="field.required"> *</b></span
+              ><textarea
+                *ngIf="field.type === 'textarea'; else modalRegularField"
+                name="{{
+                  'modal-' + field.label.toLowerCase().replaceAll(' ', '-')
+                }}"
+                [placeholder]="field.placeholder || ''"
+                [required]="!!field.required"
+                ngModel
+                rows="3"
+              ></textarea
+              ><ng-template #modalRegularField
+                ><select
+                  *ngIf="field.choices?.length; else modalInputField"
+                  name="{{
+                    'modal-' + field.label.toLowerCase().replaceAll(' ', '-')
+                  }}"
+                  [required]="!!field.required"
+                  ngModel
+                >
+                  <option value="">
+                    Choose {{ field.label.toLowerCase() }}
+                  </option>
+                  <option *ngFor="let choice of field.choices" [value]="choice">
+                    {{ choice }}
+                  </option></select
+                ><ng-template #modalInputField
+                  ><input
+                    [type]="field.type || 'text'"
+                    name="{{
+                      'modal-' + field.label.toLowerCase().replaceAll(' ', '-')
+                    }}"
+                    [placeholder]="field.placeholder || ''"
+                    [required]="!!field.required"
+                    ngModel /></ng-template></ng-template
+            ></label>
+          </div>
+          <div class="suite-form-actions">
+            <button
+              class="suite-button secondary"
+              type="button"
+              (click)="closeCreate()"
+            >
+              Cancel</button
+            ><button
+              class="suite-button primary"
+              type="button"
+              (click)="save(createForm)"
+            >
+              Save preview
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <div *ngIf="toast" class="suite-toast" role="status">{{ toast }}</div>
+  </div>
+</div>

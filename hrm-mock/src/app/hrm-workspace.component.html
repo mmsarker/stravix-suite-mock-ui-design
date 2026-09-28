@@ -1,0 +1,1155 @@
+<div class="hrm-app-frame" [class.nav-open]="mobileMenuOpen">
+  <button
+    class="nav-scrim"
+    aria-label="Close navigation"
+    [hidden]="!mobileMenuOpen"
+    (click)="toggleMobileMenu()"
+  ></button>
+  <aside class="hrm-rail" aria-label="HR Management navigation">
+    <a class="hrm-brand" [routerLink]="['/app/hrm/home']">
+      <span class="brand-mark">S</span
+      ><span class="brand-copy"
+        ><strong>stravix</strong><small>SUITE · WORKSPACE</small></span
+      >
+    </a>
+    <div class="app-identity">
+      <a class="back-link" href="#/app/dashboard">← &nbsp; All applications</a>
+      <div class="app-identity-row">
+        <span class="app-icon">HR</span
+        ><span
+          ><strong>HR Management</strong><small>People &amp; Work</small></span
+        >
+      </div>
+    </div>
+    <nav class="hrm-nav" aria-label="HR Management pages">
+      @for (group of navGroups; track group.title) {
+        <details
+          class="nav-group"
+          [open]="
+            group.entries.some((entry) => isActive(entry.path)) ||
+            group.title === 'People'
+          "
+        >
+          <summary>{{ group.title }}</summary>
+          <div class="nav-items">
+            @for (entry of group.entries; track entry.path) {
+              <a
+                [routerLink]="[entry.path]"
+                [class.active]="isActive(entry.path)"
+                [attr.aria-current]="isActive(entry.path) ? 'page' : null"
+                (click)="mobileMenuOpen = false"
+              >
+                <span>{{ entry.label }}</span>
+              </a>
+            }
+          </div>
+        </details>
+      }
+    </nav>
+    <div class="rail-footer">
+      <span class="tenant-mark">SG</span
+      ><span
+        ><strong>Stravix Group BD</strong><small>Design workspace</small></span
+      >
+    </div>
+  </aside>
+
+  <div class="hrm-main-shell">
+    <header class="hrm-topbar">
+      <div class="topbar-left">
+        <button
+          class="mobile-menu-button"
+          type="button"
+          aria-label="Open HR navigation"
+          (click)="toggleMobileMenu()"
+        >
+          ☰
+        </button>
+        <div class="breadcrumb">
+          <a href="#/app/dashboard">Workspace</a><span>›</span
+          ><strong>HR Management</strong><span>›</span><span>{{ title }}</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="tenant-label"><i></i> Stravix Group BD</span>
+        <button
+          class="review-trigger"
+          type="button"
+          [attr.aria-expanded]="reviewMenuOpen"
+          (click)="toggleReviewMenu()"
+        >
+          Review states
+        </button>
+        <button
+          class="notification-button"
+          aria-label="Notifications"
+          (click)="showToast('You are all caught up in this sample workspace.')"
+        >
+          ♧<span></span>
+        </button>
+        <button
+          class="user-chip"
+          type="button"
+          (click)="showToast('Signed in as Sahana Sen, HR operations.')"
+        >
+          <span>SS</span><strong>Sahana Sen</strong><small>HR Operations</small>
+        </button>
+      </div>
+      @if (reviewMenuOpen) {
+        <div class="review-menu">
+          <span class="eyebrow">Design review</span
+          ><strong>Preview states</strong>
+          <p>Share this HRM page in a sample state.</p>
+          @for (
+            state of [
+              "populated",
+              "empty",
+              "loading",
+              "error",
+              "validation",
+              "success",
+              "forbidden",
+            ];
+            track state
+          ) {
+            <a
+              [routerLink]="[currentPath]"
+              [queryParams]="state === 'populated' ? {} : { mockState: state }"
+              [class.selected]="mockState === state"
+              >{{ state | titlecase }}</a
+            >
+          }
+        </div>
+      }
+    </header>
+
+    <main
+      class="hrm-content"
+      [attr.data-route]="currentPath"
+      [attr.data-catalog-route]="route?.path ?? ''"
+      [attr.data-view-kind]="viewKind"
+    >
+      <header class="page-heading">
+        <div class="heading-copy">
+          <span class="eyebrow">{{ eyebrow }}</span>
+          <h1>{{ title }}</h1>
+          <p>{{ description }}</p>
+        </div>
+        <div class="heading-actions">
+          @if (currentPath === "/app/hrm/payroll/runs") {
+            <a
+              class="btn btn-secondary"
+              [routerLink]="['/app/hrm/payroll/dashboard']"
+              >Dashboard</a
+            ><a
+              class="btn btn-secondary"
+              [routerLink]="['/app/hrm/payroll/salaries']"
+              >Salaries</a
+            ><a
+              class="btn btn-secondary"
+              [routerLink]="['/app/hrm/payroll/reviews']"
+              >Review cycles</a
+            >
+          }
+          @if (viewKind === "list" && primaryActionPath) {
+            <a class="btn btn-primary" [routerLink]="[primaryActionPath]"
+              >＋ {{ primaryActionLabel }}</a
+            >
+          }
+          @if (currentPath === "/app/hrm/home") {
+            <a class="btn btn-primary" [routerLink]="['/app/hrm/employees/new']"
+              >＋ Add employee</a
+            >
+          }
+          @if (currentPath.includes("/leave/requests")) {
+            <button
+              class="btn btn-secondary"
+              type="button"
+              (click)="
+                showToast('Manual entry is ready in this local preview.')
+              "
+            >
+              Manual entry
+            </button>
+          }
+          @if (currentPath.includes("/attendance/records")) {
+            <a
+              class="btn btn-secondary"
+              [routerLink]="['/app/hrm/attendance/manual-entry']"
+              >Manual entry</a
+            >
+          }
+        </div>
+      </header>
+
+      @if (mockState !== "populated") {
+        <section
+          class="state-banner"
+          [class]="'state-banner state-' + mockState"
+          role="status"
+        >
+          <span class="state-icon">{{
+            mockState === "success"
+              ? "✓"
+              : mockState === "error"
+                ? "!"
+                : mockState === "loading"
+                  ? "◌"
+                  : "◇"
+          }}</span>
+          <div>
+            <span class="eyebrow">{{ mockState | titlecase }} state</span>
+            <h2>{{ stateText().title }}</h2>
+            <p>{{ stateText().message }}</p>
+          </div>
+          @if (mockState === "error") {
+            <a class="btn btn-secondary" [routerLink]="[currentPath]"
+              >Return to page</a
+            >
+          }
+        </section>
+      }
+
+      @if (isDashboard) {
+        @if (currentPath === "/app/hrm/home") {
+          <section class="home-hero">
+            <div class="home-hero-copy">
+              <span class="hero-kicker"
+                >STRAVIX GROUP BD · PEOPLE OPERATIONS</span
+              >
+              <h2>Good morning, Sahana<span>.</span></h2>
+              <p>Here’s your people and workforce overview for today.</p>
+              <div class="hero-meta">
+                <span>Friday, 25 September 2026</span
+                ><span>Dhaka · GMT +06:00</span>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orbit orbit-a"></div>
+              <div class="orbit orbit-b"></div>
+              <div class="hero-stamp">HR</div>
+              <span class="hero-stamp-small">PEOPLE<br />FIRST</span>
+            </div>
+          </section>
+        } @else {
+          <section class="module-banner">
+            <div>
+              <span class="hero-kicker">{{ eyebrow }} / WORKSPACE</span>
+              <h2>{{ title }}</h2>
+              <p>{{ description }}</p>
+            </div>
+            <button
+              class="btn btn-light"
+              type="button"
+              (click)="showToast('Sample dashboard refreshed.')"
+            >
+              Refresh overview ↻
+            </button>
+          </section>
+        }
+        <section class="metric-grid">
+          @for (metric of metrics; track metric.label) {
+            <article class="metric-card">
+              <span
+                class="metric-icon"
+                [class]="'metric-icon ' + metric.tone"
+                >{{ metric.icon }}</span
+              >
+              <div class="metric-copy">
+                <span>{{ metric.label }}</span
+                ><strong>{{ metric.value }}</strong
+                ><small [class.positive]="metric.positive">{{
+                  metric.note
+                }}</small>
+              </div>
+            </article>
+          }
+        </section>
+        @if (currentPath === "/app/hrm/home") {
+          <div class="dashboard-grid">
+            <section class="surface-card quick-card">
+              <div class="card-heading">
+                <div>
+                  <h2>People &amp; organization</h2>
+                  <p>Start with the most used HR workspaces.</p>
+                </div>
+                <a [routerLink]="['/app/hrm/employees']">Open directory ↗</a>
+              </div>
+              <div class="shortcut-grid">
+                @for (item of quickLinks; track item.title) {
+                  <a class="shortcut" [routerLink]="[item.path]"
+                    ><span
+                      class="shortcut-icon"
+                      [class]="'shortcut-icon ' + item.tone"
+                      >{{ item.icon }}</span
+                    ><span
+                      ><strong>{{ item.title }}</strong
+                      ><small>{{ item.note }}</small></span
+                    ><b>↗</b></a
+                  >
+                }
+              </div>
+            </section>
+            <section class="surface-card pipeline-card">
+              <div class="card-heading">
+                <div>
+                  <h2>Hiring pipeline</h2>
+                  <p>Open roles and candidate progress.</p>
+                </div>
+                <a [routerLink]="['/app/hrm/recruitment/overview']"
+                  >View hiring ↗</a
+                >
+              </div>
+              <div class="pipeline-visual">
+                <div class="pipeline-count">18 <small>open roles</small></div>
+                <div class="pipeline-bars">
+                  @for (bar of pipeline; track bar.label) {
+                    <div class="pipeline-row">
+                      <div>
+                        <span>{{ bar.label }}</span
+                        ><strong>{{ bar.value }}</strong>
+                      </div>
+                      <i><b [style.width.%]="bar.percent"></b></i>
+                    </div>
+                  }
+                </div>
+              </div>
+            </section>
+            <section class="surface-card team-card">
+              <div class="card-heading">
+                <div>
+                  <h2>Headcount by team</h2>
+                  <p>Current active workforce across departments.</p>
+                </div>
+                <a [routerLink]="['/app/hrm/workforce']">Workforce plan ↗</a>
+              </div>
+              @for (team of teams; track team.name) {
+                <div class="team-row">
+                  <span
+                    class="team-avatar"
+                    [class]="'team-avatar ' + team.tone"
+                    >{{ team.initials }}</span
+                  ><span class="team-name"
+                    ><strong>{{ team.name }}</strong
+                    ><small>{{ team.people }} employees</small></span
+                  >
+                  <div class="team-track">
+                    <i [style.width.%]="team.percent"></i>
+                  </div>
+                  <b>{{ team.people }}</b>
+                </div>
+              }
+            </section>
+            <section class="surface-card attention-card">
+              <div class="card-heading">
+                <div>
+                  <h2>Needs your attention</h2>
+                  <p>Items moving through HR this week.</p>
+                </div>
+                <span class="attention-count">6 open</span>
+              </div>
+              <a
+                class="attention-item"
+                [routerLink]="['/app/hrm/recruitment/requisitions']"
+                ><span class="attention-icon amber">R</span
+                ><span
+                  ><strong>3 requisitions need approval</strong
+                  ><small>Recruitment · Updated 24 Sep</small></span
+                ><b>›</b></a
+              >
+              <a
+                class="attention-item"
+                [routerLink]="['/app/hrm/leave/requests']"
+                ><span class="attention-icon teal">L</span
+                ><span
+                  ><strong>2 leave requests are pending</strong
+                  ><small>Leave management · Updated today</small></span
+                ><b>›</b></a
+              >
+              <a
+                class="attention-item"
+                [routerLink]="['/app/hrm/onboarding/processes']"
+                ><span class="attention-icon blue">O</span
+                ><span
+                  ><strong>1 onboarding checklist is due</strong
+                  ><small>Employee operations · Due 28 Sep</small></span
+                ><b>›</b></a
+              >
+            </section>
+          </div>
+          <section class="module-directory">
+            <div class="section-heading">
+              <div>
+                <h2>Explore HR workspaces</h2>
+                <p>Everything your people team needs, organized by workflow.</p>
+              </div>
+              <span>6 areas · 65+ tools</span>
+            </div>
+            <div class="module-card-grid">
+              @for (module of moduleGroups; track module.title) {
+                <a class="module-card" [routerLink]="[module.path]"
+                  ><span [class]="'module-icon ' + module.tone">{{
+                    module.icon
+                  }}</span
+                  ><span class="module-card-copy"
+                    ><strong>{{ module.title }}</strong
+                    ><small>{{ module.description }}</small
+                    ><em>{{ module.workspaces }}</em></span
+                  ><b>↗</b></a
+                >
+              }
+            </div>
+          </section>
+        } @else {
+          <div class="dashboard-grid overview-grid">
+            <section class="surface-card wide-card">
+              <div class="card-heading">
+                <div>
+                  <h2>
+                    {{
+                      currentPath.includes("attendance")
+                        ? "Today at a glance"
+                        : currentPath.includes("recruitment")
+                          ? "Pipeline snapshot"
+                          : "Workforce activity"
+                    }}
+                  </h2>
+                  <p>Current period · September 2026</p>
+                </div>
+                <button
+                  class="text-button"
+                  type="button"
+                  (click)="navigateTo(primaryActionPath)"
+                >
+                  Open records ↗
+                </button>
+              </div>
+              <div class="summary-tiles">
+                @for (item of overviewTiles; track item.label) {
+                  <div>
+                    <span>{{ item.label }}</span
+                    ><strong>{{ item.value }}</strong
+                    ><small>{{ item.note }}</small>
+                  </div>
+                }
+              </div>
+            </section>
+            <section class="surface-card">
+              <div class="card-heading">
+                <div>
+                  <h2>Quick access</h2>
+                  <p>Continue with a related task.</p>
+                </div>
+              </div>
+              <div class="quick-list">
+                @for (entry of relatedNav; track entry.path) {
+                  <a [routerLink]="[entry.path]"
+                    ><span>{{ entry.label }}</span
+                    ><b>↗</b></a
+                  >
+                }
+              </div>
+            </section>
+            <section class="surface-card wide-card">
+              <div class="card-heading">
+                <div>
+                  <h2>Activity trend</h2>
+                  <p>Recent weekly activity across this workspace.</p>
+                </div>
+                <span class="trend-chip">↑ 8.4% this month</span>
+              </div>
+              <div class="chart-area">
+                <div class="chart-y">
+                  <span>100</span><span>75</span><span>50</span><span>25</span
+                  ><span>0</span>
+                </div>
+                <div class="chart-plot">
+                  <div class="chart-gridlines">
+                    <i></i><i></i><i></i><i></i>
+                  </div>
+                  <div class="chart-bars">
+                    @for (bar of reportBars; track bar.day) {
+                      <div>
+                        <i [style.height.%]="bar.height"></i
+                        ><span>{{ bar.day }}</span>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        }
+      } @else if (viewKind === "form") {
+        <section class="form-layout">
+          <div class="form-main surface-card">
+            <div class="form-intro">
+              <span class="form-step">01</span>
+              <div>
+                <h2>{{ title }}</h2>
+                <p>
+                  Fields marked with <b>*</b> are required. Sample changes stay
+                  in this preview.
+                </p>
+              </div>
+            </div>
+            <form (ngSubmit)="saveMock()" novalidate>
+              @for (
+                section of formSections;
+                track section.title;
+                let sectionIndex = $index
+              ) {
+                <section class="form-section">
+                  <div class="form-section-heading">
+                    <span>{{ sectionIndex + 1 | number: "2.0" }}</span>
+                    <div>
+                      <h3>{{ section.title }}</h3>
+                      <p>{{ section.description }}</p>
+                    </div>
+                  </div>
+                  <div class="field-grid">
+                    @for (field of section.fields; track field.label) {
+                      <label class="form-field" [class.field-wide]="field.wide"
+                        ><span
+                          >{{ field.label }}
+                          @if (field.required) {
+                            <b>*</b>
+                          }
+                        </span>
+                        @if (field.type === "select") {
+                          <select
+                            [name]="field.label"
+                            [attr.data-field]="field.label"
+                            [(ngModel)]="formValues[field.label]"
+                            [required]="field.required ?? false"
+                          >
+                            <option value="">
+                              Select {{ field.label.toLowerCase() }}
+                            </option>
+                            @for (option of field.options ?? []; track option) {
+                              <option [value]="option">{{ option }}</option>
+                            }
+                          </select>
+                        } @else if (field.type === "textarea") {
+                          <textarea
+                            [name]="field.label"
+                            [attr.data-field]="field.label"
+                            [(ngModel)]="formValues[field.label]"
+                            rows="3"
+                            placeholder="Add {{ field.label.toLowerCase() }}"
+                          ></textarea>
+                        } @else {
+                          <input
+                            [type]="field.type"
+                            [name]="field.label"
+                            [attr.data-field]="field.label"
+                            [(ngModel)]="formValues[field.label]"
+                            [required]="field.required ?? false"
+                            placeholder="{{
+                              field.type === 'date'
+                                ? ''
+                                : 'Enter ' + field.label.toLowerCase()
+                            }}"
+                          />
+                        }
+                        @if (
+                          submitted &&
+                          field.required &&
+                          !formValues[field.label]
+                        ) {
+                          <small class="field-error"
+                            >{{ field.label }} is required.</small
+                          >
+                        }
+                      </label>
+                    }
+                  </div>
+                </section>
+              }
+              <div class="form-footer">
+                <span
+                  >Changes in this design preview are not submitted to HR
+                  systems.</span
+                >
+                <div>
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    (click)="
+                      navigateTo(
+                        currentPath.includes('/edit')
+                          ? currentPath.replace('/edit', '')
+                          : currentPath.split('/').slice(0, -1).join('/')
+                      )
+                    "
+                  >
+                    Cancel</button
+                  ><button class="btn btn-primary" type="submit">
+                    {{ actionLabel }} <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <aside class="surface-card form-aside">
+            <span class="aside-icon">✦</span>
+            <h3>Before you submit</h3>
+            <ul>
+              <li>Check employee and department details.</li>
+              <li>Confirm effective dates and approvals.</li>
+              <li>Add context for the next reviewer.</li>
+            </ul>
+            <div class="aside-note">
+              <strong>Preview mode</strong>
+              <p>
+                All information here is fictional and remains in this browser
+                session.
+              </p>
+            </div>
+          </aside>
+        </section>
+      } @else if (viewKind === "detail") {
+        <section class="detail-layout">
+          <div class="surface-card detail-profile">
+            <div class="profile-banner">
+              <span class="profile-avatar">{{
+                rows[0]?.name
+                  .split(" ")
+                  .map((part) => part[0])
+                  .slice(0, 2)
+                  .join("")
+              }}</span>
+              <div>
+                <span class="eyebrow">{{ eyebrow }}</span>
+                <h2>{{ rows[0]?.name || "Sample record" }}</h2>
+                <p>{{ rows[0]?.role }} · {{ rows[0]?.department }}</p>
+              </div>
+              <span [class]="statusClass(rows[0]?.status)">{{
+                rows[0]?.status
+              }}</span>
+              <div class="profile-actions">
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  (click)="navigateTo(currentPath + '/edit')"
+                >
+                  Edit record
+                </button>
+              </div>
+            </div>
+            <div class="detail-tabs">
+              <button class="tab-active" type="button">Overview</button
+              ><button
+                type="button"
+                (click)="
+                  showToast(
+                    'Employment history is shown in this sample detail.'
+                  )
+                "
+              >
+                Employment history</button
+              ><button
+                type="button"
+                (click)="
+                  showToast('Documents are available in this sample detail.')
+                "
+              >
+                Documents</button
+              ><button
+                type="button"
+                (click)="
+                  showToast('Activity timeline is shown in this sample detail.')
+                "
+              >
+                Activity
+              </button>
+            </div>
+            <div class="detail-section">
+              <div class="section-heading">
+                <div>
+                  <h3>Record summary</h3>
+                  <p>Key information for this HR record.</p>
+                </div>
+                <span class="code-chip">{{ rows[0]?.code }}</span>
+              </div>
+              <div class="detail-grid">
+                @for (item of detailItems; track item.label) {
+                  <div>
+                    <span>{{ item.label }}</span
+                    ><strong>{{ item.value }}</strong>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+          <aside class="surface-card timeline-card">
+            <div class="card-heading">
+              <div>
+                <h3>Recent activity</h3>
+                <p>Latest updates on this record.</p>
+              </div>
+            </div>
+            <div class="timeline">
+              @for (event of timeline; track event.title) {
+                <div class="timeline-event">
+                  <i></i>
+                  <div>
+                    <strong>{{ event.title }}</strong>
+                    <p>{{ event.detail }}</p>
+                    <small>{{ event.when }}</small>
+                  </div>
+                </div>
+              }
+            </div>
+          </aside>
+        </section>
+      } @else if (viewKind === "guide") {
+        <section class="guide-layout">
+          <div class="surface-card guide-intro">
+            <span class="guide-icon">▤</span
+            ><span class="eyebrow">HR OPERATIONS REFERENCE</span>
+            <h2>{{ title }}</h2>
+            <p>{{ description }}</p>
+            <div class="guide-meta">
+              <span>Updated 18 Sep 2026</span><span>8 minute read</span>
+            </div>
+          </div>
+          <div class="guide-columns">
+            @for (section of guideSections; track section.title) {
+              <article class="surface-card guide-section">
+                <span class="section-number">{{ section.number }}</span>
+                <h3>{{ section.title }}</h3>
+                <p>{{ section.description }}</p>
+                <ul>
+                  @for (step of section.steps; track step) {
+                    <li>{{ step }}</li>
+                  }
+                </ul>
+              </article>
+            }
+          </div>
+        </section>
+      } @else if (viewKind === "settings") {
+        <section class="settings-grid">
+          <div class="settings-main surface-card">
+            <div class="card-heading">
+              <div>
+                <h2>{{ title }}</h2>
+                <p>
+                  Configure how HR workflows operate across your organization.
+                </p>
+              </div>
+              <span class="settings-status"><i></i> Configuration current</span>
+            </div>
+            <div class="settings-tabs">
+              <button class="tab-active" type="button">General</button
+              ><button type="button">Workflow rules</button
+              ><button type="button">Notifications</button
+              ><button type="button">Permissions</button>
+            </div>
+            @for (setting of settings; track setting.title) {
+              <div class="setting-row">
+                <span class="setting-symbol">{{ setting.icon }}</span
+                ><span
+                  ><strong>{{ setting.title }}</strong
+                  ><small>{{ setting.description }}</small></span
+                ><button
+                  class="toggle-switch"
+                  [class.on]="setting.enabled"
+                  type="button"
+                  [attr.aria-label]="'Toggle ' + setting.title"
+                  (click)="setting.enabled = !setting.enabled"
+                ></button>
+              </div>
+            }
+          </div>
+          <aside class="surface-card settings-aside">
+            <span class="aside-icon">◈</span>
+            <h3>Configuration guidance</h3>
+            <p>
+              Use clear approval ownership and give employees predictable
+              timelines for HR requests.
+            </p>
+            <a [routerLink]="['/app/hrm/business-flow-guide']"
+              >Read business flow guide ↗</a
+            >
+          </aside>
+        </section>
+      } @else {
+        @if (isPayrollRuns) {
+          <section class="surface-card payroll-sequence">
+            <div class="sequence-heading">
+              <div>
+                <span class="eyebrow">PAYROLL RUN SEQUENCE</span>
+                <p>
+                  Follow each step to prepare an accurate, auditable payroll.
+                </p>
+              </div>
+              <button
+                class="text-button"
+                type="button"
+                (click)="
+                  showToast(
+                    'Payroll run sequence guide opened in this preview.'
+                  )
+                "
+              >
+                Workflow hints ?
+              </button>
+            </div>
+            <div class="sequence-steps">
+              @for (step of payrollSteps; track step.number) {
+                <div class="sequence-step">
+                  <span>{{ step.number }}</span>
+                  <div>
+                    <strong>{{ step.label }}</strong
+                    ><small>{{ step.note }}</small>
+                  </div>
+                  @if (!$last) {
+                    <i>→</i>
+                  }
+                </div>
+              }
+            </div>
+          </section>
+        }
+        <section class="surface-card list-surface">
+          @if (viewKind === "report") {
+            <div class="report-strip">
+              <span class="report-period"
+                >Reporting period <strong>01 Sep — 30 Sep 2026</strong></span
+              ><button
+                class="btn btn-secondary"
+                type="button"
+                (click)="showToast('Report exported in this local preview.')"
+              >
+                Export report ↓
+              </button>
+            </div>
+          }
+          @if (isLeaveCalendar) {
+            <div class="calendar-filters">
+              <label class="filter-field"
+                ><span>From</span
+                ><input
+                  type="date"
+                  [(ngModel)]="calendarFrom"
+                  [ngModelOptions]="{ standalone: true }" /></label
+              ><label class="filter-field"
+                ><span>To</span
+                ><input
+                  type="date"
+                  [(ngModel)]="calendarTo"
+                  [ngModelOptions]="{ standalone: true }" /></label
+              ><label class="filter-field"
+                ><span>Department</span
+                ><select
+                  [ngModel]="departmentFilter"
+                  (ngModelChange)="onDepartment($event)"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  @for (department of departments; track department) {
+                    <option [value]="department">{{ department }}</option>
+                  }
+                </select></label
+              ><label class="filter-field"
+                ><span>Leave type</span
+                ><select
+                  [(ngModel)]="leaveTypeFilter"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  @for (type of leaveTypeOptions; track type) {
+                    <option [value]="type">{{ type }}</option>
+                  }
+                </select></label
+              ><label class="filter-field"
+                ><span>Branch</span
+                ><select
+                  [ngModel]="branchFilter"
+                  (ngModelChange)="onBranch($event)"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  @for (branch of branches; track branch) {
+                    <option [value]="branch">{{ branch }}</option>
+                  }
+                </select></label
+              ><button
+                class="btn btn-primary"
+                type="button"
+                (click)="loadCalendar()"
+              >
+                Load
+              </button>
+            </div>
+          }
+          @if (!isLeaveCalendar) {
+            <div class="list-toolbar">
+              <label class="search-field"
+                ><span>⌕</span
+                ><input
+                  type="search"
+                  [ngModel]="search"
+                  (ngModelChange)="onSearch($event)"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Search {{ title.toLowerCase() }}…"
+                  aria-label="Search records"
+              /></label>
+              <label class="filter-field"
+                ><span>Status</span
+                ><select
+                  [ngModel]="statusFilter"
+                  (ngModelChange)="onStatus($event)"
+                  [ngModelOptions]="{ standalone: true }"
+                >
+                  @for (status of statusOptions; track status) {
+                    <option [value]="status">{{ status }}</option>
+                  }
+                </select></label
+              >
+              @if (isPayrollRuns) {
+                <label class="filter-field"
+                  ><span>Year</span
+                  ><select
+                    [ngModel]="yearFilter"
+                    (ngModelChange)="onYear($event)"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    @for (year of years; track year) {
+                      <option [value]="year">{{ year }}</option>
+                    }
+                  </select></label
+                ><label class="filter-field"
+                  ><span>Branch</span
+                  ><select
+                    [ngModel]="branchFilter"
+                    (ngModelChange)="onBranch($event)"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    @for (branch of branches; track branch) {
+                      <option [value]="branch">{{ branch }}</option>
+                    }
+                  </select></label
+                >
+              } @else if (
+                columns.some((column) => column.key === "department")
+              ) {
+                <label class="filter-field department-filter"
+                  ><span>Department</span
+                  ><select
+                    [ngModel]="departmentFilter"
+                    (ngModelChange)="onDepartment($event)"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    @for (department of departments; track department) {
+                      <option [value]="department">{{ department }}</option>
+                    }
+                  </select></label
+                >
+              }
+              <button
+                class="btn btn-subtle filter-reset"
+                type="button"
+                (click)="
+                  search = '';
+                  statusFilter = isPayrollRuns
+                    ? 'All Statuses'
+                    : 'All statuses';
+                  departmentFilter = 'All departments';
+                  branchFilter = 'All branches';
+                  yearFilter = 'All years';
+                  page = 1
+                "
+              >
+                Reset
+              </button>
+              <span class="result-count"
+                >{{ filteredRows.length }} results</span
+              >
+            </div>
+          }
+          @if (showEmptyState) {
+            <div class="empty-state">
+              <span>⌕</span>
+              <h3>
+                {{
+                  mockState === "empty"
+                    ? "No records yet"
+                    : "No matching records"
+                }}
+              </h3>
+              <p>Adjust the filters or search with another term.</p>
+            </div>
+          } @else {
+            <div class="table-scroll">
+              <table class="hrm-table">
+                <thead>
+                  <tr>
+                    @for (column of columns; track column.key) {
+                      <th>{{ column.label }}</th>
+                    }
+                    @if (!isLeaveCalendar) {
+                      <th class="row-action-heading">Actions</th>
+                    }
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (row of visibleRows; track row.id) {
+                    <tr>
+                      <td>
+                        @if ($first) {
+                          <span
+                            class="record-avatar"
+                            [class]="
+                              'record-avatar tone-' + (+$any(row.id) % 5)
+                            "
+                            >{{
+                              row.name
+                                .split(" ")
+                                .map((part) => part[0])
+                                .slice(0, 2)
+                                .join("")
+                            }}</span
+                          >
+                        } @else {
+                          <span class="record-avatar record-avatar-small">{{
+                            row.name
+                              .split(" ")
+                              .map((part) => part[0])
+                              .slice(0, 2)
+                              .join("")
+                          }}</span>
+                        }
+                        <span class="primary-cell"
+                          ><strong>{{ rowValue(row, columns[0].key) }}</strong
+                          ><small>{{ row.secondary }}</small></span
+                        >
+                      </td>
+                      @for (column of columns.slice(1); track column.key) {
+                        <td>
+                          @if (column.key === "status") {
+                            <span
+                              class="status-pill"
+                              [class]="
+                                'status-pill status-' +
+                                row.status.toLowerCase().replace(' ', '-')
+                              "
+                              ><i></i>{{ row.status }}</span
+                            >
+                          } @else if (column.key === "value") {
+                            <strong>{{ amountLabel(row) }}</strong>
+                          } @else {
+                            {{ rowValue(row, column.key) }}
+                          }
+                        </td>
+                      }
+                      @if (!isLeaveCalendar) {
+                        <td class="row-actions">
+                          <button
+                            type="button"
+                            class="row-link"
+                            (click)="openRecord(row)"
+                          >
+                            {{
+                              columns[0].key === "name" && viewKind !== "report"
+                                ? "Open"
+                                : "Review"
+                            }}
+                            ↗</button
+                          ><button
+                            type="button"
+                            class="more-button"
+                            [attr.aria-label]="'More actions for ' + row.name"
+                            (click)="drawerRow = row"
+                          >
+                            •••
+                          </button>
+                        </td>
+                      }
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+            <hrm-pagination
+              [total]="filteredRows.length"
+              [page]="page"
+              [pageSize]="pageSize"
+              [label]="title.toLowerCase()"
+              (pageChange)="onPage($event)"
+              (pageSizeChange)="onPageSize($event)"
+            />
+          }
+        </section>
+      }
+    </main>
+  </div>
+
+  @if (drawerRow) {
+    <div class="drawer-backdrop" (click)="closeDrawer()"></div>
+    <aside
+      class="record-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Record actions"
+    >
+      <div class="drawer-head">
+        <div>
+          <span class="eyebrow">{{ eyebrow }}</span>
+          <h2>{{ drawerRow.name }}</h2>
+        </div>
+        <button
+          class="icon-close"
+          type="button"
+          aria-label="Close details"
+          (click)="closeDrawer()"
+        >
+          ×
+        </button>
+      </div>
+      <p>{{ drawerRow.role }} · {{ drawerRow.department }}</p>
+      <div class="drawer-details">
+        <div>
+          <span>Reference</span><strong>{{ drawerRow.code }}</strong>
+        </div>
+        <div>
+          <span>Status</span><strong>{{ drawerRow.status }}</strong>
+        </div>
+        <div>
+          <span>Owner</span><strong>{{ drawerRow.owner }}</strong>
+        </div>
+        <div>
+          <span>Updated</span><strong>{{ drawerRow.date }}</strong>
+        </div>
+      </div>
+      <div class="drawer-actions">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          (click)="mockAction('Approved', drawerRow)"
+        >
+          Approve</button
+        ><button
+          class="btn btn-subtle"
+          type="button"
+          (click)="mockAction('Review notes saved', drawerRow)"
+        >
+          Add note</button
+        ><button class="btn btn-primary" type="button" (click)="closeDrawer()">
+          Done
+        </button>
+      </div>
+    </aside>
+  }
+  @if (toast) {
+    <div class="toast" role="status">
+      {{ toast
+      }}<button
+        type="button"
+        aria-label="Dismiss notification"
+        (click)="toast = ''"
+      >
+        ×
+      </button>
+    </div>
+  }
+</div>
